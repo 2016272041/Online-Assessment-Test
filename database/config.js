@@ -3,29 +3,29 @@
  * intilize the sequelize function 
  * sequlize configuration for localhost
 */
-const Sequelize = require('Sequelize');
+const sequelize = require('sequelize');
 
 // model require for sequlize table operations//
-const Model = Sequlize.Model;
+const Model = sequlize.Model;
 
 // passing parameters //
 
-const Sequelize = new Sequelize('test', 'root', 'Sqladmin_1', {
+const sequelize = new sequelize('onlineass', 'root', 'Sqladmin_1', {
     host: 'localhost',
     dialect: mysql
 });
 
 //option 2: passing a connection URI
-const Sequelize = new Sequelize('mysql://user:root/test');
+const sequelize = new sequelize('mysql://user:root/onlineass');
 
 //sqlite settings//
-const Sequelize = new Sequelize({
+const sequelize = new sequelize({
     dialect: 'sqlite',
-    storage: 'path/to/databse.sqlite'
+    storage: 'path/to/database.sqlite'
 })
 
 //pool threading connection //
-const Sequelize = new Sequelize(/*....*/{
+const sequelize = new sequelize(/*....*/{
     //pool declaration//
     pool:{
         max: 5,
@@ -36,7 +36,7 @@ const Sequelize = new Sequelize(/*....*/{
 });
 
 // Test the connection //
-Sequelize.authenticate()
+sequelize.authenticate()
             .then(() => {
                 console.log('Connection has been Sucessfully Established');
             })
@@ -49,21 +49,21 @@ Sequelize.authenticate()
 class user extends Model { }
 user.init({
     firstName: {
-        type:Sequelize.STRING,
+        type:sequelize.STRING,
         allowNull: false
     },
     lastName: {
-        type: Sequelize.STRING,
+        type: sequelize.STRING,
     }, 
     user: {
-        Sequelize,
+        sequelize,
         ModelName: 'user'
     }
 });
 
 //changing the default model options //
 
-const Sequelize = new Sequelize(ConnectionURI,
+const sequelize = new sequelize(ConnectionURI,
     {
         define: {
             //declare the timestamp function//
@@ -76,6 +76,6 @@ const Sequelize = new Sequelize(ConnectionURI,
 
 class Foo extends Model{ }
     Bar.init({/*.....*/}, {
-        Sequelize,
+        sequelize,
         timestamp: true
     });

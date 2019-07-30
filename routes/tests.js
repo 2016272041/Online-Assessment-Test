@@ -35,7 +35,7 @@ app.get('/src/app/tests/tests', function(req, res, next){
 })
 
 // ADD NEW TESTS POST ACTION
-app.post('/add', function(req, res, next){	
+app.post('/src/app/tests/tests', function(req, res, next){	
 	req.assert('test_id', 'A Valid Creator ID is required').isInt()           //Validate Creator ID
 	req.assert('test_name', 'Test Name is required').notEmpty()             //Validate Test Name
     req.assert('test_creator', 'Test creator is required').notEmpty()  //Validate Test Type
@@ -65,7 +65,7 @@ app.post('/add', function(req, res, next){
 					req.flash('error', err)
 					
 					// render to views/tests/add.ejs
-					res.render('tests/tests', {
+					res.render('/src/app/tests/tests', {
 						title: 'Add New Tests',
 						test_id: tests.test_id,
 						test_name: tests.test_name,
@@ -75,7 +75,7 @@ app.post('/add', function(req, res, next){
 					req.flash('success', 'Tests Data added successfully!')
 					
 					// render to views/tests/add.ejs
-					res.render('tests/tests', {
+					res.render('/src/app/tests/tests', {
 						title: 'Add New Tests',
 						test_id: '',
 						test_name: '',
@@ -96,7 +96,7 @@ app.post('/add', function(req, res, next){
 		 * Using req.body.testname 
 		 * because req.param('testname') is deprecated
 		 */ 
-        res.render('tests/tests', { 
+        res.render('/src/app/tests/tests', { 
             title: 'Add New Tests',
             test_id: req.body.test_id,
             test_name: req.body.test_name,
@@ -161,7 +161,7 @@ app.put('/edit/(:test_id)', function(req, res, next) {
 					req.flash('error', err)
 					
 					// render to views/tests/add.ejs
-					res.render('tests/tests', {
+					res.render('/src/app/tests/tests', {
 						title: 'Edit Tests',
 						test_id: req.params.test_id,
 						test_id: req.body.test_id,
@@ -172,7 +172,7 @@ app.put('/edit/(:test_id)', function(req, res, next) {
 					req.flash('success', 'Tests Data updated successfully!')
 					
 					// render to views/Tests/add.ejs
-					res.render('tests/tests', {
+					res.render('/src/app/tests/tests', {
 						title: 'Edit Tests',
 						test_id: req.params.test_id,
 						test_id: req.body.test_id,
@@ -194,7 +194,7 @@ app.put('/edit/(:test_id)', function(req, res, next) {
 		 * Using req.body.name 
 		 * because req.param('name') is deprecated
 		 */ 
-        res.render('tests/tests', { 
+        res.render('/src/app/tests/tests', { 
             title: 'Edit Tests',            
 			test_id: req.params.test_id, 
 			test_id: req.body.test_id,

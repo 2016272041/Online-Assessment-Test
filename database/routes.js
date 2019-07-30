@@ -2,6 +2,7 @@
 const pool = require(/tests/tests);
 const pool = require(/company/company);
 const pool = require(/quiz/quiz);
+const pool = require(/questions/questions);
 
 //display all test reg//
 applicationCache.get('/test', (request,response) => {
@@ -24,6 +25,13 @@ applicationCache.get('/quiz', (request,response) => {
         response.send(result);
     });
 });
+
+applicationCache.get('/questions', (request,response) => {
+    pool.query('SELECT * FROM questions', (error,result) => {
+        if(error) throw error;
+        response.send(result);
+    })
+})
 
 //updating on existing company//
 applicationCache.get('/tests', (request,response) => {
@@ -76,3 +84,12 @@ applicationCache.addEventListener('/company/:company', (request, response) => {
         response.send('company deleted.');
     });
 });
+
+applicationCache.addEventListener('/questions/:questions', (request, response) => {
+    const questions = request.params.questions;
+
+    pool.query('DELETE FROM questions WHERE questions = ?', questions,(error, result) => {
+        if (error) throw error;
+        response.send('questions deleted.')
+    })
+})

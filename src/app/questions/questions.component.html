@@ -1,24 +1,54 @@
-<div class="jumbotron text-center">
-        <h1>Question Discussion</h1>
-        <p>online assessment forum will realize your knowledge </p> 
-        </div>
-      
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-4">
-          <h3><b>True or False</b></h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-        </div>
-        <div class="col-sm-4">
-          <h3><b>Multiple Choice Questions</b></h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-        </div>
-        <div class="col-sm-4">
-          <h3><b>Practice Tests</b></h3>        
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-        </div>
-      </div>
-    </div>
+<html>    
+    <head>    
+        <title>Questions Uploading Form</title>    
+    </head>    
+    <body>
+        <div class="card">        
+        <h2>Questions Upload</h2>    
+        <form name = "form" ng-submit="vm.submit()" role ="form">
+        <form action = "/routes/questions.js" method = "post" name= "form1">    
+            <div class = "container">
+                <div class = "form_group">    
+                <label class="col-md-4"><b>Question 1</b></label>
+                <input type="text" class="form-control" formControlName="question1" #question1 />
+                <input type="radio" name="answer" value="option1"> Option 1 <br>
+                <input type="radio" name="answer" value="option2"> Option 2 <br>
+                <input type="radio" name="answer" value="option3"> Option 3 <br>
+                <input type="radio" name="answer" value="option4"> Option 4 <br>
+                </div>
+                <br>
+                <div class = "form_group">
+                <label class="col-md-4"><b>Question 2</b></label>
+                <input type="text" class="form-control" formControlName="question2" #question2 />
+                <input type="radio" name="answer" value="option1"> Option 1 <br>
+                <input type="radio" name="answer" value="option2"> Option 2 <br>
+                <input type="radio" name="answer" value="option3"> Option 3 <br>
+                <input type="radio" name="answer" value="option4"> Option 4 <br>
+                </div>
+                <br>
+                <div class = "form_group">
+                <label class="col-md-4"><b>Question 3</b></label>
+                <input type="text" class="form-control" formControlName="question3" #question3>
+                <input type ="radio" name="answer" value="option1"> Option 1 <br>
+                <input type ="radio" name="answer" value="option2"> Option 2 <br>
+                <input type ="radio" name="answer" value="option3"> Option 3 <br>
+                <input type = "radio" name="answer" value="option4"> Option 4 <br>
+                </div>
+                <br>
+                <div class = "form_group">
+                <label class="col-md-4"> Question 4 </label>
+                <input type="text" class="form-control" formControlName="question4" #question4>
+                </div>
+                <div style="text-align: right">
+                        <button class="btn btn-success" (click)="mode = 'Read'">Read</button>
+                        <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-warning"><b> Uplaod </b></button>
+                        <button class="btn btn-success" (click)="mode = 'create'">Create</button>
+                        <button class="btn btn-info" (click)="mode = 'delete'">Delete</button>
+                        <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary"><b>Register</b></button>
+                </div> <br>  
+            </div>
+            </form>    
+        </form>
+    </div>    
+    </body>    
+</html>   

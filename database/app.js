@@ -28,7 +28,7 @@ app.use(myConnection(mysql, dbOptions, 'pool'))
 /** 
  * setting up form templating view engines 
 */
-app.set('view engine', 'ejs')
+app.set('view engine', 'html')
 
 /** 
  * import data/config function
@@ -37,7 +37,6 @@ app.set('view engine', 'ejs')
 */
 
 var config = require('./config')
-var post = require('./post')
 var routes = require('./routes')
 var company = require('../src/app/company')
 var quiz = require('../src/app/quiz')
@@ -82,6 +81,15 @@ app.use(methodOverride(function (req, res) {
     }
 }))
 
+
+app.use(methodOverLoad(function (req, res){
+    if(req.method && typeof req.method === 'object' && '_method' in req.methodOverLoad){
+        var body = req.method._body
+        delete req.method._body
+        return body
+    }
+}))
+
 /** 
  * this module shows flash messages 
  * generally used to show success or error msg
@@ -102,6 +110,7 @@ app.use(session({
 
 app.use(flash())
 
+app.use('./database/routes', routes)
 app.use('./src/app/tests', tests)
 app.use('./src/app/company', company)
 app.use('./src/app/questions', questions)
