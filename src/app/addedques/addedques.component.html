@@ -1,0 +1,4 @@
+<h5>All Questions</h5>
+<div *ngFor="let cust of questions">
+  <a [routerLink]="['/questions', cust.id]" style="color:black"><span class="badge badge-dark">{{cust.id}}</span> -> {{ cust.questions1 }}</a>
+</div>

@@ -1,7 +1,7 @@
 //intilization sequelize//
 const Sequelize = require('sequelize');
 //path configuration//
-const path = 'mysql://root:root@localhost:3306/testdb';
+const path = 'mysql://root:root@localhost:3306/onlineass';
 //creating alias files function//
 const sequelize = new Sequelize(path,{
     OperatorsAliases: false

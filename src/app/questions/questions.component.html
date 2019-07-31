@@ -1,54 +1,50 @@
-<html>    
-    <head>    
-        <title>Questions Uploading Form</title>    
-    </head>    
-    <body>
-        <div class="card">        
-        <h2>Questions Upload</h2>    
-        <form name = "form" ng-submit="vm.submit()" role ="form">
-        <form action = "/routes/questions.js" method = "post" name= "form1">    
-            <div class = "container">
-                <div class = "form_group">    
-                <label class="col-md-4"><b>Question 1</b></label>
-                <input type="text" class="form-control" formControlName="question1" #question1 />
-                <input type="radio" name="answer" value="option1"> Option 1 <br>
-                <input type="radio" name="answer" value="option2"> Option 2 <br>
-                <input type="radio" name="answer" value="option3"> Option 3 <br>
-                <input type="radio" name="answer" value="option4"> Option 4 <br>
-                </div>
-                <br>
-                <div class = "form_group">
-                <label class="col-md-4"><b>Question 2</b></label>
-                <input type="text" class="form-control" formControlName="question2" #question2 />
-                <input type="radio" name="answer" value="option1"> Option 1 <br>
-                <input type="radio" name="answer" value="option2"> Option 2 <br>
-                <input type="radio" name="answer" value="option3"> Option 3 <br>
-                <input type="radio" name="answer" value="option4"> Option 4 <br>
-                </div>
-                <br>
-                <div class = "form_group">
-                <label class="col-md-4"><b>Question 3</b></label>
-                <input type="text" class="form-control" formControlName="question3" #question3>
-                <input type ="radio" name="answer" value="option1"> Option 1 <br>
-                <input type ="radio" name="answer" value="option2"> Option 2 <br>
-                <input type ="radio" name="answer" value="option3"> Option 3 <br>
-                <input type = "radio" name="answer" value="option4"> Option 4 <br>
-                </div>
-                <br>
-                <div class = "form_group">
-                <label class="col-md-4"> Question 4 </label>
-                <input type="text" class="form-control" formControlName="question4" #question4>
-                </div>
-                <div style="text-align: right">
-                        <button class="btn btn-success" (click)="mode = 'Read'">Read</button>
-                        <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-warning"><b> Uplaod </b></button>
-                        <button class="btn btn-success" (click)="mode = 'create'">Create</button>
-                        <button class="btn btn-info" (click)="mode = 'delete'">Delete</button>
-                        <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary"><b>Register</b></button>
-                </div> <br>  
-            </div>
-            </form>    
-        </form>
-    </div>    
-    </body>    
-</html>   
+<h3>Add Questions</h3>
+<div [hidden]="submitted">
+    <form #addQuestionsForm="ngForm">
+        
+        <div class="form-group">
+        <label for="questions">question1</label>
+        <input type="text" class="form-control" id="questions1" placeholder="questions1" 
+        required
+        [(ngModel)]="questions.questions1" name="questions1" #questions1="ngModel">
+        <div [hidden]="questions1.valid || questions1.pristine"
+             class="alert alert-danger">
+            questions is required
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="questions">question 2</label>
+        <input type="text" class="form-control" id="questions2" placeholder="questions2"
+        required
+        [(ngModel)]="questions.questions2" name="questions2" #questions2="ngModel">
+        <div [hidden]="questions2.valid || questions2.pristine"
+             class="alert alert-danger">
+            questions is required
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="questions">question 3</label>
+        <input type="text" class="form-control" id="questions3" placeholder="questions3"
+        required
+        [(ngModel)]="questions.questions3" name="questions3" #questions3="ngModel">
+        <div [hidden]="questions3.valid || questions3.pristine"
+             class="alert alert-danger">
+            questions is required
+        </div>
+      </div>
+      
+      <div class="btn-group btn-group-sm">
+      	<button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+      	<button type="button" class="btn btn-dark" (click)="addQuestions()" [disabled]="!addQuestionForm.form.valid">Add</button>
+      </div>
+    </form>
+</div>
+
+<div [hidden]="!submitted">
+  <p>Submitted Successfully! -> <span class="badge badge-light"> {{questions.questions1}}  {{questions.questions2}} {{questions.questions3}}</span></p>
+	<div class="btn-group btn-group-sm">
+    	<button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+    </div>
+</div>

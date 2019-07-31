@@ -8,6 +8,8 @@ import { CompanyComponent } from './company/company.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { AddedquesComponent } from './addedques/addedques.component';
+import { AddedquesdetailsComponent } from './addedquesdetails/addedquesdetails.component';
 
 const routes: Routes = [
 {
@@ -48,6 +50,16 @@ const routes: Routes = [
 {
     path: 'signup',
     component: SignupComponent
+},
+
+{
+    path: 'addedques',
+    component: AddedquesComponent
+},
+
+{
+    path: 'addedquesdetails',
+    component: AddedquesdetailsComponent
 }
 
 

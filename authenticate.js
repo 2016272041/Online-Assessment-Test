@@ -4,7 +4,7 @@
 const Sequelize = require('sequelize');
 
 //sequelize path setup//
-const path = 'mysql://root:root@localhost:3306/testdb';
+const path = 'mysql://root:root@localhost:3306/onlineass';
 const sequelize = new Sequelize(path, { operatorsAliases: false });
 
 //authenticate sequelize functions//

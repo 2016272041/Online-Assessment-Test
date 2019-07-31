@@ -1,0 +1,47 @@
+<h4><span class="badge badge-light ">{{questions.id}}</span> -> {{questions.questions1}}</h4>
+<div [hidden]="submitted">
+    <form #detailQuestionsForm="ngForm">
+      <div class="form-group">
+        <label for="questiions1">Questions1</label>
+        <input type="text" class="form-control" id="Questions1" required
+        [(ngModel)]="questions.questions1" name="questions1" #questions1="ngModel">
+        <div [hidden]="questions1.valid || questions1.pristine"
+             class="alert alert-danger">
+             questions1 is required
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="questions2">questions2</label>
+        <input type="text" class="form-control" id="questions2" required
+        [(ngModel)]="questions.questions2" name="questions2" #questions2="ngModel">
+        <div [hidden]="questions2.valid || questions2.pristine"
+             class="alert alert-danger">
+             questions2 is required
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="questions3">questions3</label>
+        <input type="text" class="form-control" id="questions3" required
+        [(ngModel)]="questions.questions3" name="questions3" #questions3="ngModel">
+        <div [hidden]="questions3.valid || questions3.pristine"
+             class="alert alert-danger">
+            questions3 is required
+        </div>
+      </div>
+
+      <div class="btn-group btn-group-sm">
+        <button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+        <button type="button" class="btn btn-dark" (click)="update()" [disabled]="!detailCustomerForm.form.valid">Update</button>
+        <button type="button" class="btn btn-dark" (click)="delete()">Delete</button>
+	    </div>
+    </form>
+</div>
+ 
+<div [hidden]="!submitted">
+    <p>{{message}}</p>
+    <div class="btn-group btn-group-sm">
+      <button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+    </div>
+</div>
