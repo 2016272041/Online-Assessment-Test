@@ -10,18 +10,18 @@ const Model = sequlize.Model;
 
 // passing parameters //
 
-const sequelize = new sequelize('onlineass', 'root', 'Sqladmin_1', {
+const sequelize = new sequelize('testdb', 'root', 'Sqladmin_1', {
     host: 'localhost',
     dialect: mysql
 });
 
 //option 2: passing a connection URI
-const sequelize = new sequelize('mysql://user:root/onlineass');
+const sequelize = new sequelize('mysql://user:root/testdb');
 
 //sqlite settings//
 const sequelize = new sequelize({
-    dialect: 'sqlite',
-    storage: 'path/to/database.sqlite'
+    dialect: 'mysql',
+    storage: 'path/to/database.mysql'
 })
 
 //pool threading connection //

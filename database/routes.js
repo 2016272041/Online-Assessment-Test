@@ -3,6 +3,7 @@ const pool = require(/tests/tests);
 const pool = require(/company/company);
 const pool = require(/quiz/quiz);
 const pool = require(/questions/questions);
+const pool = require(/addedques/addedques);
 
 //display all test reg//
 applicationCache.get('/test', (request,response) => {
@@ -28,6 +29,13 @@ applicationCache.get('/quiz', (request,response) => {
 
 applicationCache.get('/questions', (request,response) => {
     pool.query('SELECT * FROM questions', (error,result) => {
+        if(error) throw error;
+        response.send(result);
+    })
+})
+
+applicationCache.get('/addedques', (request,response) => {
+    pool.query('SELECT * FROM addedques', (error,result) => {
         if(error) throw error;
         response.send(result);
     })
@@ -65,9 +73,16 @@ applicationCache.get('/quiz/:quiz', (request, response) => {
     });
 });
 
+applicationCache.get('/addedques/:addedques', (request, response) => {
+    const addedques = request.params.addedques;
+    pool.query('update addedquiz SET ? WHERE addedques = ?', [request.body, addedques], (error, result) => {
+        if(error) throw error;
+        response.send('addedquiz updated successfully.');
+    })
+})
 
 //company registration //
-applicationCache.addEventListener('/quiz/:quiz', (request, response) => {
+applicationCache.get('/quiz/:quiz', (request, response) => {
     const quiz = request.params.quiz;
 
     pool.query('DELETE FROM quiz WHERE quiz = ?', quiz_id,(error, result) => {
@@ -76,7 +91,7 @@ applicationCache.addEventListener('/quiz/:quiz', (request, response) => {
     });
 });
 
-applicationCache.addEventListener('/company/:company', (request, response) => {
+applicationCache.get('/company/:company', (request, response) => {
     const company = request.params.company;
 
     pool.query('DELETE FROM company WHERE company = ?', company_id,(error, result) => {
@@ -85,10 +100,19 @@ applicationCache.addEventListener('/company/:company', (request, response) => {
     });
 });
 
-applicationCache.addEventListener('/questions/:questions', (request, response) => {
+applicationCache.get('/questions/:questions', (request, response) => {
     const questions = request.params.questions;
 
     pool.query('DELETE FROM questions WHERE questions = ?', questions,(error, result) => {
+        if (error) throw error;
+        response.send('questions deleted.')
+    })
+})
+
+applicationCache.get('/addedques/:addedques', (request, response) => {
+    const addedques = request.params.addedques;
+
+    pool.query('DELETE FROM addedques WHERE addedques = ?', addedques,(error, result) => {
         if (error) throw error;
         response.send('questions deleted.')
     })

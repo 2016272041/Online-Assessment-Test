@@ -1,5 +1,5 @@
 const env = {
-    database: 'onlineass',
+    database: 'testdb',
     username: 'root',
     password: 'Sqladmin_1',
     host: 'localhost',

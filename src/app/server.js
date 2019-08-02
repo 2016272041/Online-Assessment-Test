@@ -19,6 +19,11 @@ db.sequelize.sync({force: true}).then(() => {
   initial();
 });
 
+//force: false will drop the table if it alredy exists
+db.sequelize.sync({force: false}).then(() => {
+  console.log('Drop and Resync with { force: false }')
+})
+
 require('./route/questions.route.js')(app);
  
 // Create a Server

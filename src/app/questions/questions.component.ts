@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Questions } from '../services/questions';
 import { QuestionsService } from '../services/questions.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { Location } from '@angular/common';
 import { Subscription } from 'rxjs';
 
@@ -10,7 +12,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./questions.component.css']
 })
 export class QuestionsComponent {
-
+  name = new FormControl('');
   ques_id: number;
   questions = new Questions();
   submitted = false;

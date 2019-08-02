@@ -46,3 +46,13 @@ exports.delete = (req, res) => {
 	  res.status(200).json({msg:'deleted successfully a questions with id = ' + id});
 	});
 };
+
+//Edit a Questions by Id
+exports.edit = (req, res) => {
+	const id = req.params.questionsId;
+	Questions.edit({
+		wherer: { id: id }
+	}).then(() => {
+		res.status(200).json({msg: 'edited successfully a questions with id = ' + id});
+	});
+};
