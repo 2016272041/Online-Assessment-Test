@@ -31,7 +31,7 @@ import { AddedquesdetailsComponent } from './addedquesdetails/addedquesdetails.c
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

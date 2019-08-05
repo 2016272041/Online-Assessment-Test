@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { QuizComponent } from './quiz/quiz.component';
+import { TestsComponent } from './tests/tests.component';
+import { QuestionsComponent } from './questions/questions.component';
+import { AddedquesComponent } from './addedques/addedques.component';
 
 @Component({
   selector: 'app-root',

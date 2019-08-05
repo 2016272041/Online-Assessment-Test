@@ -4,7 +4,7 @@ var app = express()
 // SHOW LIST OF CREATORS //
 app.get('/src/app/tests/tests', function(req, res, next) {
 	req.getConnection(function(error, conn) {
-		conn.query('SELECT * FROM tests ORDER BY test_id DESC',function(err, rows, fields) {
+		conn.query('SELECT * FROM tests ORDER BY testid DESC',function(err, rows, fields) {
 			//if(err) throw err
 			if (err) {
 				req.flash('error', err) 
@@ -28,17 +28,17 @@ app.get('/src/app/tests/tests', function(req, res, next){
 	// render to views/tests/add.ejs
 	res.render('tests/tests', {
 		title: 'Add New Tests',
-		tests_id: '',
-		test_name: '',
-        test_creator: ''		
+		testid: '',
+		testname: '',
+        testcreator: ''		
 	})
 })
 
 // ADD NEW TESTS POST ACTION
 app.post('/src/app/tests/tests', function(req, res, next){	
-	req.assert('test_id', 'A Valid Creator ID is required').isInt()           //Validate Creator ID
-	req.assert('test_name', 'Test Name is required').notEmpty()             //Validate Test Name
-    req.assert('test_creator', 'Test creator is required').notEmpty()  //Validate Test Type
+	req.assert('testid', 'A Valid Creator ID is required').isInt()           //Validate Creator ID
+	req.assert('testname', 'Test Name is required').notEmpty()             //Validate Test Name
+    req.assert('testcreator', 'Test creator is required').notEmpty()  //Validate Test Type
     
     var errors = req.validationErrors()
     
@@ -53,9 +53,9 @@ app.post('/src/app/tests/tests', function(req, res, next){
 		req.sanitize('companyname').trim(); // returns 'a company'
 		********************************************/
 		var tests = {
-			test_id: req.sanitize('test_id').escape().trim(),
-			test_name: req.sanitize('test_name').escape().trim(),
-            test_creator: req.sanitize('test_creator').escape().trim(),
+			testid: req.sanitize('testid').escape().trim(),
+			testname: req.sanitize('testname').escape().trim(),
+            testcreator: req.sanitize('testcreator').escape().trim(),
 		}
 		
 		req.getConnection(function(error, conn) {
@@ -67,9 +67,9 @@ app.post('/src/app/tests/tests', function(req, res, next){
 					// render to views/tests/add.ejs
 					res.render('/src/app/tests/tests', {
 						title: 'Add New Tests',
-						test_id: tests.test_id,
-						test_name: tests.test_name,
-						test_creator: tests.test_creator				
+						testid: tests.testid,
+						testname: tests.testname,
+						testcreator: tests.testcreator				
 					})
 				} else {				
 					req.flash('success', 'Tests Data added successfully!')
@@ -77,9 +77,9 @@ app.post('/src/app/tests/tests', function(req, res, next){
 					// render to views/tests/add.ejs
 					res.render('/src/app/tests/tests', {
 						title: 'Add New Tests',
-						test_id: '',
-						test_name: '',
-						test_creator: ''					
+						testid: '',
+						testname: '',
+						testcreator: ''					
 					})
 				}
 			})
@@ -98,22 +98,22 @@ app.post('/src/app/tests/tests', function(req, res, next){
 		 */ 
         res.render('/src/app/tests/tests', { 
             title: 'Add New Tests',
-            test_id: req.body.test_id,
-            test_name: req.body.test_name,
-			test_creator: req.body.test_creator
+            testid: req.body.testid,
+            testname: req.body.testname,
+			testcreator: req.body.testcreator
         })
     }
 })
 
 // SHOW EDIT COMPANY FORM
-app.get('/edit/(:test_id)', function(req, res, next){
+app.get('/edit/(:testid)', function(req, res, next){
 	req.getConnection(function(error, conn) {
-		conn.query('SELECT * FROM tests WHERE test_id = ?', [req.params.test_id], function(err, rows, fields) {
+		conn.query('SELECT * FROM tests WHERE testid = ?', [req.params.testid], function(err, rows, fields) {
 			if(err) throw err
 			
 			// if user not found
 			if (rows.length <= 0) {
-				req.flash('error', 'Tests not found with creator_id = ' + req.params.test_id)
+				req.flash('error', 'Tests not found with creatorid = ' + req.params.testid)
 				res.redirect('/testid')
 			}
 			else { // if user found
@@ -121,9 +121,9 @@ app.get('/edit/(:test_id)', function(req, res, next){
 				res.render('tests/tests', {
 					title: 'Edit Tests', 
 					//data: rows[0],
-					test_id: rows[0].test_id,
-					test_name: rows[0].test_name,
-					test_creator: rows[0].test_creator					
+					testid: rows[0].testid,
+					testname: rows[0].testname,
+					testcreator: rows[0].testcreator					
 				})
 			}			
 		})
@@ -131,10 +131,10 @@ app.get('/edit/(:test_id)', function(req, res, next){
 })
 
 // EDIT TESTS POST ACTION
-app.put('/edit/(:test_id)', function(req, res, next) {
-	req.assert('test_id', 'Test ID is required').isInt()           //Validate creator id
-	req.assert('test_name', 'Test Name is required').notEmpty()             //Validate test name
-	req.assert('test_creator', 'Test Creator is required').notEmpty()  //Validate test type
+app.put('/edit/(:testid)', function(req, res, next) {
+	req.assert('testid', 'Test ID is required').isInt()           //Validate creator id
+	req.assert('testname', 'Test Name is required').notEmpty()             //Validate test name
+	req.assert('testcreator', 'Test Creator is required').notEmpty()  //Validate test type
     var errors = req.validationErrors()
     
     if( !errors ) {   //No errors were found.  Passed Validation!
@@ -149,13 +149,13 @@ app.put('/edit/(:test_id)', function(req, res, next) {
 		req.sanitize('companyname').trim(); // returns 'a company'
 		********************************************/
 		var tests = {
-			test_id: req.sanitize('test_id').escape().trim(),
-			test_name: req.sanitize('test_name').escape().trim(),
-			test_creator: req.sanitize('test_creator').escape().trim()
+			testid: req.sanitize('testid').escape().trim(),
+			testname: req.sanitize('testname').escape().trim(),
+			testcreator: req.sanitize('testcreator').escape().trim()
 		}
 		
 		req.getConnection(function(error, conn) {
-			conn.query('UPDATE tests SET ? WHERE test_id = ' + req.params.test_id, tests, function(err, result) {
+			conn.query('UPDATE tests SET ? WHERE testid = ' + req.params.testid, tests, function(err, result) {
 				//if(err) throw err
 				if (err) {
 					req.flash('error', err)
@@ -163,10 +163,10 @@ app.put('/edit/(:test_id)', function(req, res, next) {
 					// render to views/tests/add.ejs
 					res.render('/src/app/tests/tests', {
 						title: 'Edit Tests',
-						test_id: req.params.test_id,
-						test_id: req.body.test_id,
-						test_name: req.body.test_name,
-						test_creator: req.body.test_creator,
+						testid: req.params.testid,
+						testid: req.body.testid,
+						testname: req.body.testname,
+						testcreator: req.body.testcreator,
 						})
 				} else {
 					req.flash('success', 'Tests Data updated successfully!')
@@ -174,10 +174,10 @@ app.put('/edit/(:test_id)', function(req, res, next) {
 					// render to views/Tests/add.ejs
 					res.render('/src/app/tests/tests', {
 						title: 'Edit Tests',
-						test_id: req.params.test_id,
-						test_id: req.body.test_id,
-						test_name: req.body.test_name,
-						test_creator: req.body.test_creator				
+						testid: req.params.testid,
+						testid: req.body.testid,
+						testname: req.body.testname,
+						testcreator: req.body.testcreator				
 					})
 				}
 			})
@@ -196,27 +196,27 @@ app.put('/edit/(:test_id)', function(req, res, next) {
 		 */ 
         res.render('/src/app/tests/tests', { 
             title: 'Edit Tests',            
-			test_id: req.params.test_id, 
-			test_id: req.body.test_id,
-			test_name: req.body.test_name,
-			test_creator: req.body.test_creator,
+			testid: req.params.testid, 
+			testid: req.body.testid,
+			testname: req.body.testname,
+			testcreator: req.body.testcreator,
         })
     }
 })
 
 // DELETE TESTS
-app.delete('/delete/(:test_id)', function(req, res, next) {
-	var tests = { creator_id: req.params.test_id}
+app.delete('/delete/(:testid)', function(req, res, next) {
+	var tests = { creator_id: req.params.testid}
 	
 	req.getConnection(function(error, conn) {
-		conn.query('DELETE FROM tests WHERE test_id = ' + req.params.test_id, tests, function(err, result) {
+		conn.query('DELETE FROM tests WHERE testid = ' + req.params.testid, tests, function(err, result) {
 			//if(err) throw err
 			if (err) {
 				req.flash('error', err)
 				// redirect to company list page
 				res.redirect('/tests')
 			} else {
-				req.flash('success', 'Tests deleted successfully! test_id = ' + req.params.test_id)
+				req.flash('success', 'Tests deleted successfully! testid = ' + req.params.testid)
 				// redirect to company list page
 				res.redirect('/tests')
 			}

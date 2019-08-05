@@ -1,23 +1,50 @@
-<div class="card">
-        <div class="card-body">
-            <form action="/src/app/tests/tests.component.html" method="post" name="form1">
+<h3>Test Creation</h3>
+<div [hidden]="submitted">
+    <form #testCreationForm="ngForm">
         
-            <div class="form-group">
-              <label class="col-md-4">Test ID</label>
-              <input type="text" class="form-control" formControlName="test_id" #test_id />
-            </div>
-            
-            <div class="form-group">
-              <label class="col-md-4">Test Name</label>
-              <input type="text" class="form-control" formControlName="test_name" #test_name />
-            </div>
-            
-            <div class="form-group">
-              <label class="col-md-4">Test Creator</label>
-              <input type="text" class="form-control" formControlName="test_creator" #test_creator />
-            </div>
-    
-            <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary"><b>Register</b></button>
-            </form>
+        <div class="form-group">
+        <label for="tests">Test ID</label>
+        <input type="number" class="form-control" id="testid" placeholder="testid" 
+        required
+        [(ngModel)]="tests.testid" name="testid" #testid="ngModel">
+        <div [hidden]="testid.valid || testid.pristine"
+             class="alert alert-danger">
+            Test ID is required
         </div>
       </div>
+      
+      <div class="form-group">
+        <label for="tests"> Test Name </label>
+        <input type="text" class="form-control" id="testname" placeholder="testname"
+        required
+        [(ngModel)]="tests.testname" name="testname" #testname="ngModel">
+        <div [hidden]="testname.valid || testname.pristine"
+             class="alert alert-danger">
+            Test Name is required
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="tests"> Test Creator </label>
+        <input type="text" class="form-control" id="testcreator" placeholder="testcreator"
+        required
+        [(ngModel)]="tests.testcreator" name="tescreator" #testcreator="ngModel">
+        <div [hidden]="testcreator.valid || testcreator.pristine"
+             class="alert alert-danger">
+            Test Creator is required
+        </div>
+      </div>
+
+      <div class="btn-group btn-group-sm">
+      	<button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+      	<button type="button" class="btn btn-dark" (click)="testCreation()" [disabled]="!testCreationForm.form.valid"> Create Test </button>
+      </div>
+    </form>
+</div>
+
+<div [hidden]="!submitted">
+  <p>Submitted Successfully! -> <span class="badge badge-light"> {{tests.testid}}  {{tests.testname}} {{tests.testcreator}} </span></p>
+	<div class="btn-group btn-group-sm">
+    	<button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+    </div>
+</div>

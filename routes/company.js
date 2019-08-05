@@ -1,7 +1,13 @@
 var express = require('express')
 var app = express()
-
+var models = require('../models/index.js')
 // SHOW LIST OF COMPANY //
+router.get('/Users', function(req, res, next) {
+	models.Users.findAll({}).then (function (_user) {
+	});
+});
+
+
 app.get('/src/app/company/company', function(req, res, next) {
 	req.getConnection(function(error, conn) {
 		conn.query('SELECT * FROM company ORDER BY companyid DESC',function(err, rows, fields) {
