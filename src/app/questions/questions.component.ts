@@ -13,7 +13,7 @@ import { Subscription } from 'rxjs';
 })
 export class QuestionsComponent {
   name = new FormControl('');
-  ques_id: number;
+  id: number;
   questions = new Questions();
   submitted = false;
 

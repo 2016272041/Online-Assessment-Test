@@ -37,6 +37,7 @@ const Questions = sequelize.define('questions', {
 Questions.sync({force: true}).then(() => {
     //Table created
     return Questions.create({
+        id: 345,
         questions1: 'What is Lambda Functions',
         questions2: 'Abbreviations of DTD',
         questions3: 'Shell scripting functions'

@@ -1,9 +1,20 @@
 <h3>Add Questions</h3>
 <div [hidden]="submitted">
-    <form #addQuestionsForm="ngForm">
-        
+    <form #addQuestionsForm="ngForm"> 
+
+      <div class="form-group">
+        <label for="id">ID</label>
+        <input type="number" class="form-control" id="id" placeholder="id" 
+        required
+        [(ngModel)]="questions.id" name="id" #id="ngModel">
+        <div [hidden]="id.valid || id.pristine"
+             class="alert alert-danger">
+            ID is required
+        </div>
+      </div>
+
         <div class="form-group">
-        <label for="questions">question1</label>
+        <label for="question1">question1</label>
         <input type="text" class="form-control" id="questions1" placeholder="questions1" 
         required
         [(ngModel)]="questions.questions1" name="questions1" #questions1="ngModel">
@@ -14,7 +25,7 @@
       </div>
       
       <div class="form-group">
-        <label for="questions">question 2</label>
+        <label for="question2">question 2</label>
         <input type="text" class="form-control" id="questions2" placeholder="questions2"
         required
         [(ngModel)]="questions.questions2" name="questions2" #questions2="ngModel">
@@ -25,7 +36,7 @@
       </div>
       
       <div class="form-group">
-        <label for="questions">question 3</label>
+        <label for="question3">question 3</label>
         <input type="text" class="form-control" id="questions3" placeholder="questions3"
         required
         [(ngModel)]="questions.questions3" name="questions3" #questions3="ngModel">
@@ -35,15 +46,37 @@
         </div>
       </div>
 
+      <div class="form-group">
+        <label for="createdat">createdAt</label>
+        <input type="text" class="form-control" id="createdAt" placeholder="createdAt" 
+        required
+        [(ngModel)]="questions.createdAt" name="createdAt" #createdAt="ngModel">
+        <div [hidden]="createdAt.valid || createdAt.pristine"
+             class="alert alert-danger">
+            creat date is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="updatedat">updatedAt</label>
+        <input type="text" class="form-control" id="updatedAt" placeholder="updatedAt" 
+        required
+        [(ngModel)]="questions.updatedAt" name="updatedAt" #updatedAt="ngModel">
+        <div [hidden]="updatedAt.valid || updatedAt.pristine"
+             class="alert alert-danger">
+            update date is required
+        </div>
+      </div>
+
       <div class="btn-group btn-group-sm">
       	<button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
-      	<button type="button" class="btn btn-dark" (click)="addQuestions()" [disabled]="!addQuestionForm.form.valid">Add</button>
+        <button type="button" class="btn btn-dark" (click)="addQuestions()" [disabled]="!addQuestionForm.form.valid">Add</button>
       </div>
     </form>
 </div>
 
 <div [hidden]="!submitted">
-  <p>Submitted Successfully! -> <span class="badge badge-light"> {{questions.questions1}}  {{questions.questions2}} {{questions.questions3}} </span></p>
+  <p>Submitted Successfully! -> <span class="badge badge-light"> {{questions.id}} {{questions.questions1}}  {{questions.questions2}} {{questions.questions3}} {{questions.createdAt}} {{questions.updatedAt}} </span></p>
 	<div class="btn-group btn-group-sm">
     	<button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
     </div>

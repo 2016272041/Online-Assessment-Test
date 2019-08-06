@@ -12,7 +12,7 @@ exports.create = (req, res) => {
 };
 
 //Fetch all tests data
-exports.findAll = (_req, res) => {
+exports.findAll = (req, res) => {
     Tests.findAll().then (tests => {
         //send all tests to client
         res.json(tests);

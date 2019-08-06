@@ -1,6 +1,17 @@
 <h4><span class="badge badge-light ">{{questions.id}}</span> -> {{questions.questions1}}</h4>
 <div [hidden]="submitted">
     <form #detailQuestionsForm="ngForm">
+
+        <div class="form-group">
+            <label for="id">id</label>
+            <input type="number" class="form-control" id="id" required
+            [(ngModel)]="questions.id" name="id" #id="ngModel">
+            <div [hidden]="id.valid || id.pristine"
+                 class="alert alert-danger">
+                 ID is required
+            </div>
+          </div>
+
       <div class="form-group">
         <label for="questiions1">Questions1</label>
         <input type="text" class="form-control" id="Questions1" required
@@ -30,6 +41,26 @@
             questions3 is required
         </div>
       </div>
+
+      <div class="form-group">
+          <label for="createdAt">createdAt</label>
+          <input type="text" class="form-control" id="createdAt" required
+          [(ngModel)]="questions.createdAt" name="createdAt" #createdAt="ngModel">
+          <div [hidden]="createdAt.valid || createdAt.pristine"
+               class="alert alert-danger">
+               create date is required
+          </div>
+        </div>
+
+        <div class="form-group">
+            <label for="updatedAt">updatedAt</label>
+            <input type="text" class="form-control" id="updatedAt" required
+            [(ngModel)]="questions.updatedAt" name="updatedAt" #updatedAt="ngModel">
+            <div [hidden]="updatedAt.valid || updatedAt.pristine"
+                 class="alert alert-danger">
+                 update date is required
+            </div>
+          </div>
 
       <div class="btn-group btn-group-sm">
         <button type="button" class="btn btn-dark" (click)="goBack()">Back</button>

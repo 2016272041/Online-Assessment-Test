@@ -8,17 +8,18 @@ var Questions = sequelize.define("Questions", {
         foreignKey: true,
         allowNull: false
     },
+    id: DataTypes.NUMBER,
     questions1: DataTypes.STRING,
     questions2: DataTypes.STRING,
     questions3: DataTypes.STRING,
-    created_by: DataTypes.INTEGER,
-    updated_by: DataTypes.INTEGER
+    created_by: DataTypes.DATE,
+    updated_by: DataTypes.DATE
 
 }, {
     classMethods: {
         associate: function(models) {
             
-            Questions.hasMany(models.Ques_id,{primaryKey: {fieldName:'ques_id'}});
+            Questions.hasMany(models.id,{primaryKey: {fieldName:'ques_id'}});
             Questions.belongsTo(models.Questions1, { foreignKey: {fieldName:'questions1'}});
             Questions.belongsTo(models.Questions2, { foreignKey: {fieldName:'questions2'}});
             Questions.belongsTo(models.Questions3, { foreignKey: {fieldName:'questions3'}});
