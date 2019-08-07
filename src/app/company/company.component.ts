@@ -15,7 +15,7 @@ export class CompanyComponent {
   companyid: Number;
   companyname: Text;
   testname: Text;
-  testdate: Text;
+  testdate: Date;
   submitted = false;
   company: Company;
 

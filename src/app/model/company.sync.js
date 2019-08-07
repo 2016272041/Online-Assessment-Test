@@ -5,27 +5,23 @@ var Company = sequelize.define("Company", {
     companyid: DataTypes.INTEGER,
     type: {
         type: DataTypes.INTEGER,
-        foreignKey: true,
+        primaryKey: true,
         allowNull: false
     },
+    companyid: DataTypes.INTEGER,
     companyname: DataTypes.STRING,
     testname: DataTypes.STRING,
-    createdAt: DataTypes.DATE,
-    updatedAt: DataTypes.DATE
-
+    testdate: DataTypes.DATE,
 }, {
     classMethods: {
         associate: function(models) {
-            
-            Questions.hasMany(models.Companyid,{primaryKey: {fieldName:'companyid'}});
-            Questions.belongsTo(models.Companyname, { foreignKey: {fieldName:'companyname'}});
-            Questions.belongsTo(models.Testname, { foreignKey: {fieldName:'testname'}});
-            Questions.belongsTo(models.Testdate, { foreignKey: {fieldName:'testdate'}});
-            Questions.belongsTo(models.Createdat, { foreignKey: {fieldName:'createdat'}});
-            Questions.belongsTo(models.Updatedat, { foreignKey: {fieldName:'updatedat'}});
+            Company.hasMany(models.companyid, {primaryKey: {fieldName:'companyid'}});
+            Company.belongsTo(models.companyname, {foreignKey: {fieldName:'companyname'}});
+            Company.belongsTo(models.testname, {foreignKey: {fieldName:'testname'}});
+            Company.belongsTo(models.testdate, {foreignKey: {fieldName: 'testdate'}});
         }
     },
-    tableName: 'company',
+    tableName: 'questions',
     createdAt: false,
     updatedAt: false
 });

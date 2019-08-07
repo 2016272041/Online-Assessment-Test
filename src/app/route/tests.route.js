@@ -1,6 +1,6 @@
 module.exports = function(app) {
  
-    const questions = require('../controller/tests.controller.js');
+    const tests = require('../controller/tests.controller.js');
  
     // Create a new Tests
     app.post('/api/tests', tests.create);

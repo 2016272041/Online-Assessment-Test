@@ -15,12 +15,13 @@ const db = require('./src/app/config/db.config.js');
 
 //force : true will executing the table 
 db.sequelize.sync({force: true}).then(() => {
-  console.log('Execute and Resync with {force: true }');
+  console.log('Execute and Resync with {force: false }');
   initial();
 });
 
 require('./src/app/route/questions.route.js')(app);
 require('./src/app/route/tests.route.js')(app);
+require('./src/app/route/company.route.js')(app);
  
 // Create a Server
 var server = app.listen(8080, function () {
@@ -33,7 +34,7 @@ var server = app.listen(8080, function () {
 
 function initial(){
 
-  let questions = [
+  var questions = [
     {
       id: 1,
       questions1: "Who is father of JAVA",
@@ -73,15 +74,38 @@ function initial(){
       }
     ]
 
+    let company = [
+      {
+        companyid: 1024,
+        companyname: "Venzo",
+        testname: "Multiple Choice Questions",
+        testdate: 06-06-19
+      },
+      {
+        companyid: 1026,
+        companyname: "Ant Works",
+        testname: "Multiple Choice Questions",
+        testdate: 07-06-19
+      }
+    ]
+
   // Init data -> save to MySQL
-  const Questions = db.Questions;
+  const Questions = db.questions;
   for (let i = 0; i < questions.length; i++) { 
     Questions.create(questions[i]);  
   }
 
   // Init data -> save to MySQL
   const Tests = db.Tests;
-  for (let i = 0; i < Tests.length; i++)  {
+  console.log
+  for (let i = 0; i < tests.length; i++)  {
     Tests.create(tests[i])
+  }
+
+  //Init data -> save to MySQL
+  const Company = db.Company;
+  console.log
+  for (let i = 0; i < company.length; i++) {
+    Company.create(company[i]);
   }
 }

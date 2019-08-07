@@ -1,4 +1,5 @@
-var sequelize = new sequelize("testdb",
+const Sequelize = require('sequelize');
+var sequelize = new Sequelize("testdb",
 "root",
 "Sqladmin_1",
 {

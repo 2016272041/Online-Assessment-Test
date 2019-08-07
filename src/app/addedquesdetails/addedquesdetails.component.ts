@@ -37,7 +37,7 @@ export class AddedquesdetailsComponent implements OnInit {
 
   delete(): void {
     this.submitted = true;
-    this.questionsService.deleteQuestions(this.questions.id)
+    this.questionsService.deleteQuestions(this.questions)
         .subscribe(result => this.message = 'Questions Deleted Successfully!');
   }
 

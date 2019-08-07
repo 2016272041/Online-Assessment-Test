@@ -1,9 +1,9 @@
 <h3>Company Registration</h3>
 <div [hidden]="submitted">
-    <form #companyRegisterForm="ngForm">
+    <form #companyRegistrationForm="ngForm">
         
         <div class="form-group">
-        <label for="company">Company ID</label>
+        <label for="company">Company Id</label>
         <input type="number" class="form-control" id="companyid" placeholder="companyid" 
         required
         [(ngModel)]="company.companyid" name="companyid" #companyid="ngModel">
@@ -36,19 +36,19 @@
       </div>
 
       <div class="form-group">
-        <label for = "company"> Test Date </label>
-        <input type="text" class="from-control" id="testdate" placeholder="testdate"
+        <label for= "company"> Test Date </label>
+        <input type="text" class="form-control" id="testdate" placeholder="testdate"
         required
         [(ngModel)]="company.testdate" name="testdate" #testdate="ngModel">
         <div [hidden]="testdate.valid || testdate.pristine"
               class="alert alert-danger">
-              Test Date is required
+            Test Date is Required
       </div>
       </div>
 
       <div class="btn-group btn-group-sm">
       	<button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
-      	<button type="button" class="btn btn-dark" (click)="addcompanyRegister()" [disabled]="!companyRegisterForm.form.valid"> Register </button>
+      	<button type="button" class="btn btn-dark" (click)="companyRegistration()" [disabled]="!companyRegistrationForm.form.valid"> Create Test </button>
       </div>
     </form>
 </div>

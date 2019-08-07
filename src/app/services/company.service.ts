@@ -37,7 +37,7 @@ export class CompanyService {
     return this.http.delete<Company>(url, httpOptions);
   }
 
-  updateTests (company: Company): Observable<any> {
+  updateCompany (company: Company): Observable<any> {
     return this.http.put(this.companyUrl, company, httpOptions);
   }
 }
