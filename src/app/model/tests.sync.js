@@ -1,3 +1,5 @@
+import { DataTypes } from "sequelize/types";
+
 //tests sync table initilization//
 var Tests = sequelize.define("tests", {
     //tests datatype initilization//
@@ -7,15 +9,19 @@ var Tests = sequelize.define("tests", {
         foreignKey: true,
         allowNull: false
     },
-    testid: DataTypes.STRING,
+    testid: DataTypes.NUMBER,
     testname: DataTypes.STRING,
-    testcreator: DataTypes.STRING
+    testcreator: DataTypes.STRING,
+    created_by: DataTypes.DATE,
+    updated_by: DataTypes.DATE
 }, {
     classMethods: {
         associate: function(models) {
-            Tests.hasMany(models.Testid,{primarykey: {fieldName: 'testid'}});
+            Tests.hasMany(models.Testid, {primarykey: {fieldName: 'testid'}});
             Tests.belongsTo(models.Testname, {foreignKey: {fieldName: 'testname'}});
-            Tests.belongsTo(models.testcreator, {foreignKey: {fieldName: 'testcreator'}});            
+            Tests.belongsTo(models.testcreator, {foreignKey: {fieldName: 'testcreator'}});
+            Tests.belongsTo(models.Createdat, { foreignKey: {fieldName:'createdat'}});
+            Tests.belongsTo(models.Updatedat, { foreignKey: {fieldName:'updatedat'}});            
         }
     },
     tableName: 'tests',

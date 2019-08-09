@@ -1,9 +1,9 @@
 module.exports = (sequlize, Sequelize) => {
-    const Company = sequlize.define('company', {
-        companyid: {
+    const Companies = sequlize.define('companies', {
+        companiesid: {
             type: Sequelize.INTEGER
         },
-        companyname: {
+        companiesname: {
             type: Sequelize.STRING
         },
         testname: {
@@ -11,7 +11,13 @@ module.exports = (sequlize, Sequelize) => {
         },
         testdate: {
             type: Sequelize.DATE
+        },
+        createdAt: {
+            type: Sequelize.DATE
+        },
+        updatedAt: {
+            type: Sequelize.DATE
         }
     });
-    return Company;
+    return Companies;
 }

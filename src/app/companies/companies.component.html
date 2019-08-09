@@ -1,0 +1,68 @@
+<h3>Add Company</h3>
+<div [hidden]="submitted">
+    <form #addCompaniesForm="ngForm"> 
+
+        <div class="form-group">
+        <label for="companiesid">Companies ID</label>
+        <input type="text" class="form-control" id="companiesid" placeholder="companiesid" 
+        required
+        [(ngModel)]="companies.companiesid" name="companiesid" #companiesid="ngModel">
+        <div [hidden]="companiesid.valid || companiesid.pristine"
+             class="alert alert-danger">
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="companiesname">Companies Name</label>
+        <input type="text" class="form-control" id="companiesname" placeholder="companiesname"
+        required
+        [(ngModel)]="companies.companiesname" name="companiesname" #companiesname="ngModel">
+        <div [hidden]="companiesname.valid || companiesname.pristine"
+             class="alert alert-danger">
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="testname"> Test Name </label>
+        <input type="text" class="form-control" id="testname" placeholder="testname"
+        required
+        [(ngModel)]="companies.testname" name="testname" #testname="ngModel">
+        <div [hidden]="testname.valid || testname.pristine"
+             class="alert alert-danger">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="createdat">createdAt</label>
+        <input type="text" class="form-control" id="createdAt" placeholder="createdAt" 
+        required
+        [(ngModel)]="companies.createdAt" name="createdAt" #createdAt="ngModel">
+        <div [hidden]="createdAt.valid || createdAt.pristine"
+             class="alert alert-danger">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="updatedat">updatedAt</label>
+        <input type="text" class="form-control" id="updatedAt" placeholder="updatedAt" 
+        required
+        [(ngModel)]="companies.updatedAt" name="updatedAt" #updatedAt="ngModel">
+        <div [hidden]="updatedAt.valid || updatedAt.pristine"
+             class="alert alert-danger">
+        </div>
+      </div>
+
+      <div class="btn-group btn-group-sm">
+      	<button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+        <button type="button" class="btn btn-dark" (click)="addCompanies()" [disabled]="!addCompaniesForm.form.valid">Add Company</button>
+      </div>
+    </form>
+</div>
+
+<div [hidden]="!submitted">
+  <p>Submitted Successfully! -> <span class="badge badge-light"> {{companies.companiesid}}  {{companies.companiesname}} {{companies.testname}} {{companies.testdate}} {{companies.createdAt}} {{companies.updatedAt}} </span></p>
+	<div class="btn-group btn-group-sm">
+      <button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+      <button type="button" class="btn btn-dark" (click)="addCompanies(); addCompaniesForm.reset()"> Continue </button>
+    </div>
+</div>

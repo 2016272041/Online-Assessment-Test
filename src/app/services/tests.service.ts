@@ -11,12 +11,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class TestsService {
-  constructor(private http: HttpClient) { }
   private testsUrl = 'http://localhost:8080/api/tests';  // URL to web api
-  testCreation(tests: any) {
-    throw new Error('Method not implemented.');
-  }
-
+  constructor(private http: HttpClient) { }
   gettests (): Observable<Tests[]> {
     return this.http.get<Tests[]>(this.testsUrl);
   }
@@ -31,8 +27,8 @@ export class TestsService {
   }
 
   deleteTests (tests: Tests | number): Observable<Tests> {
-    const id = typeof tests === 'number' ? tests : tests.testid;
-    const url = `${this.testsUrl}/${id}`;
+    const testid = typeof tests === 'number' ? tests : tests.testid;
+    const url = `${this.testsUrl}/${testid}`;
 
     return this.http.delete<Tests>(url, httpOptions);
   }

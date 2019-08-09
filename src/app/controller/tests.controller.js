@@ -22,7 +22,7 @@ exports.findAll = (req, res) => {
 //Find a Tests bt ID
 exports.findById = (req, res) => {
     Tests.findById(req.params.testid).then(tests => {
-        res.json(questions);
+        res.json(tests);
     })
 };
 

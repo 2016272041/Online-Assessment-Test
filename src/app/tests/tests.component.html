@@ -1,49 +1,75 @@
-<h3>Test Creation</h3>
+<h3>Add Tests</h3>
 <div [hidden]="submitted">
-    <form #testCreationForm="ngForm">
-        
+    <form #addTestsForm="ngForm"> 
         <div class="form-group">
-        <label for="tests">Test ID</label>
+            <label for="id"> ID </label>
+            <input type="number" class="form-control" id="id" placeholder="id" 
+            required
+            [(ngModel)]="tests.id" name="id" #id="ngModel">
+            <div [hidden]="id.valid || id.pristine"
+                 class="alert alert-danger">
+            </div>
+          </div>
+
+      <div class="form-group">
+        <label for="testid"> Test ID </label>
         <input type="number" class="form-control" id="testid" placeholder="testid" 
         required
         [(ngModel)]="tests.testid" name="testid" #testid="ngModel">
         <div [hidden]="testid.valid || testid.pristine"
              class="alert alert-danger">
-            Test ID is required
         </div>
       </div>
-      
-      <div class="form-group">
-        <label for="tests"> Test Name </label>
-        <input type="text" class="form-control" id="testname" placeholder="testname"
+
+        <div class="form-group">
+        <label for="testname"> Test Name </label>
+        <input type="text" class="form-control" id="testname" placeholder="testname" 
         required
         [(ngModel)]="tests.testname" name="testname" #testname="ngModel">
         <div [hidden]="testname.valid || testname.pristine"
              class="alert alert-danger">
-            Test Name is required
         </div>
       </div>
       
       <div class="form-group">
-        <label for="tests"> Test Creator </label>
+        <label for="testcreator"> Test Creator </label>
         <input type="text" class="form-control" id="testcreator" placeholder="testcreator"
         required
-        [(ngModel)]="tests.testcreator" name="tescreator" #testcreator="ngModel">
+        [(ngModel)]="tests.testcreator" name="testcreation" #testcreator="ngModel">
         <div [hidden]="testcreator.valid || testcreator.pristine"
              class="alert alert-danger">
-            Test Creator is required
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="createdat">createdAt</label>
+        <input type="text" class="form-control" id="createdAt" placeholder="createdAt" 
+        required
+        [(ngModel)]="tests.createdAt" name="createdAt" #createdAt="ngModel">
+        <div [hidden]="createdAt.valid || createdAt.pristine"
+             class="alert alert-danger">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="updatedat">updatedAt</label>
+        <input type="text" class="form-control" id="updatedAt" placeholder="updatedAt" 
+        required
+        [(ngModel)]="tests.updatedAt" name="updatedAt" #updatedAt="ngModel">
+        <div [hidden]="updatedAt.valid || updatedAt.pristine"
+             class="alert alert-danger">
         </div>
       </div>
 
       <div class="btn-group btn-group-sm">
       	<button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
-      	<button type="button" class="btn btn-dark" (click)="testCreation()" [disabled]="!testCreationForm.form.valid"> Create Test </button>
+        <button type="button" class="btn btn-dark" (click)="addTests()" [disabled]="!addTestsForm.form.valid">Add Tests</button>
       </div>
     </form>
 </div>
 
 <div [hidden]="!submitted">
-  <p>Submitted Successfully! -> <span class="badge badge-light"> {{tests.testid}}  {{tests.testname}} {{tests.testcreator}} </span></p>
+  <p>Submitted Successfully! -> <span class="badge badge-light"> {{tests.id}} {{tests.testid}} {{tests.testname}}  {{tests.testcreator}} {{tests.createdAt}} {{tests.updatedAt}} </span></p>
 	<div class="btn-group btn-group-sm">
     	<button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
     </div>

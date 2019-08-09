@@ -22,7 +22,7 @@ db.sequelize = sequelize;
 //Models/tables
 db.questions = require('../model/questions.model.js')(sequelize, Sequelize);
 db.Tests = require('../model/tests.model.js')(sequelize, Sequelize);
-db.Company = require('../model/company.model.js')(sequelize, Sequelize);
+db.Companies = require('../model/companies.model.js')(sequelize, Sequelize);
 
 
 module.exports = db;

@@ -1,0 +1,4 @@
+<h5>All Tests</h5>
+<div *ngFor="let test of tests">
+  <a [routerLink]="['/tests', test.testid]" style="color:black"><span class="badge badge-dark">{{test.testid}}</span> -> {{ test.testid }}</a>
+</div>

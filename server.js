@@ -15,13 +15,13 @@ const db = require('./src/app/config/db.config.js');
 
 //force : true will executing the table 
 db.sequelize.sync({force: true}).then(() => {
-  console.log('Execute and Resync with {force: false }');
+  console.log('Drop with Resync with {force: true }');
   initial();
 });
 
 require('./src/app/route/questions.route.js')(app);
 require('./src/app/route/tests.route.js')(app);
-require('./src/app/route/company.route.js')(app);
+require('./src/app/route/companies.route.js')(app);
  
 // Create a Server
 var server = app.listen(8080, function () {
@@ -71,21 +71,39 @@ function initial(){
         testid: 2,
         testname: "Fill in the Blanks",
         testcreator: "Mark"
+      },
+      {
+        testid: 3,
+        testname: "Match The Following",
+        testcreator: "Williams"
+      },
+      {
+        testid: 7,
+        testname: "Split the Words",
+        testcreator: "Joel",
+        createdAt: 09-08-19,
+        updatedAt: 09-08-19
       }
     ]
 
-    let company = [
+    let companies = [
       {
-        companyid: 1024,
-        companyname: "Venzo",
+        companiesid: 1024,
+        companiesname: "Venzo",
         testname: "Multiple Choice Questions",
         testdate: 06-06-19
       },
       {
-        companyid: 1026,
-        companyname: "Ant Works",
+        companiesid: 1026,
+        companiesname: "Ant Works",
         testname: "Multiple Choice Questions",
         testdate: 07-06-19
+      },
+      {
+        companiesid: 1023,
+        companiesname: "Surecomp",
+        testname: "Tickets Debugging",
+        testdate: 05-08-19
       }
     ]
 
@@ -103,9 +121,9 @@ function initial(){
   }
 
   //Init data -> save to MySQL
-  const Company = db.Company;
+  const Companies = db.Companies;
   console.log
-  for (let i = 0; i < company.length; i++) {
-    Company.create(company[i]);
+  for (let i = 0; i < companies.length; i++) {
+    Companies.create(companies[i]);
   }
 }
