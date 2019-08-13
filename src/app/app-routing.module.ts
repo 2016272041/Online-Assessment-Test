@@ -13,6 +13,9 @@ import { SignupComponent } from './signup/signup.component';
 import { AddedquesComponent } from './addedques/addedques.component';
 import { AddedquesdetailsComponent } from './addedquesdetails/addedquesdetails.component';
 import { TruefalseComponent } from './truefalse/truefalse.component';
+import { AlertComponent } from './directives/alert.component';
+import { AuthGuard } from './guards/auth.guard';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
 {
@@ -78,9 +81,28 @@ const routes: Routes = [
 {
     path: 'truefalse',
     component: TruefalseComponent
+},
+
+{
+    path: 'directives',
+    component: AlertComponent
+},
+
+{
+    path: 'authguard',
+    component: AuthGuard
+},
+
+{
+    path: '',
+    component: HomeComponent,
+    canActivate: [AuthGuard]
+},
+
+{
+    path: '**',
+    redirectTo: ''
 }
-
-
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

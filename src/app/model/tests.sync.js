@@ -1,5 +1,3 @@
-import { DataTypes } from "sequelize/types";
-
 //tests sync table initilization//
 var Tests = sequelize.define("tests", {
     //tests datatype initilization//

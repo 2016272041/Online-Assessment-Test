@@ -1,4 +1,4 @@
-const db = require('../config/config.js');
+const db = require('../config/db.config.js');
 const Tests = db.tests;
 
 //post data form tests//
@@ -6,7 +6,7 @@ exports.create = (req, res) => {
     //save to Mysql database
     let tests = req.body;
     Tests.create(tests).then(result => {
-        //send created questions to client
+        //send created tests to client
         res.json(result);
     });
 };
@@ -15,13 +15,13 @@ exports.create = (req, res) => {
 exports.findAll = (req, res) => {
     Tests.findAll().then (tests => {
         //send all tests to client
-        res.json(tests);
+        res.json(tests); 
     });
 };
 
 //Find a Tests bt ID
 exports.findById = (req, res) => {
-    Tests.findById(req.params.testid).then(tests => {
+    Tests.findById(req.params.id).then(tests => {
         res.json(tests);
     })
 };
@@ -39,7 +39,7 @@ exports.update = (req, res) => {
 
 //Delete a tests by ID 
 exports.delete = (req, res) => {
-    const id = req.params.testid;
+    const id = req.params.id;
     Tests.destroy({
         where: { id: id }
     }).then(() => {
@@ -49,9 +49,9 @@ exports.delete = (req, res) => {
 
 //Edit a tests by Id
 exports.edit = (req, res) => {
-    const id = req.params.testId;
+    const id = req.params.testsId;
     Tests.edit({
-        wherer: {id: id}
+        wherer: { id: id }
     }).then (() => {
         res.status(200).json({msg: 'edited successfully a tests with id = ' + id});
     });    

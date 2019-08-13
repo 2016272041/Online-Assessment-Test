@@ -1,7 +1,7 @@
 <h3>Add Tests</h3>
 <div [hidden]="submitted">
-    <form #addTestsForm="ngForm"> 
-        <div class="form-group">
+    <form #addTestsForm="ngForm">
+      <div class="form-group">
             <label for="id"> ID </label>
             <input type="number" class="form-control" id="id" placeholder="id" 
             required
@@ -9,8 +9,8 @@
             <div [hidden]="id.valid || id.pristine"
                  class="alert alert-danger">
             </div>
-          </div>
-
+      </div>
+      
       <div class="form-group">
         <label for="testid"> Test ID </label>
         <input type="number" class="form-control" id="testid" placeholder="testid" 

@@ -29,30 +29,30 @@ exports.findById = (req, res) => {
 // Update a Companies
 exports.update = (req, res) => {
 	let companies = req.body;
-	let id = req.body.id;
+	let companiesid = req.body.companiesid;
 	Companies.update(companies, 
-					 { where: {id: id} }
+					 { where: {companiesid: companiesid} }
 				   ).then(() => {
-						 res.status(200).json({msg:"updated successfully a companies with id = " + id});
+						 res.status(200).json({msg:"updated successfully a companies with id = " + companiesid});
 				   });	
 };
  
 // Delete a Companies by Id
 exports.delete = (req, res) => {
-	const id = req.params.companiesId;
+	const companiesid = req.params.companiesId;
 	Companies.destroy({
-	  where: { id: id }
+	  where: { companiesid: companiesid }
 	}).then(() => {
-	  res.status(200).json({msg:'deleted successfully a companies with id = ' + id});
+	  res.status(200).json({msg:'deleted successfully a companies with id = ' + companiesid});
 	});
 };
 
 //Edit a Companies by Id
 exports.edit = (req, res) => {
-	const id = req.params.companiesId;
+	const companiesid = req.params.companiesId;
 	Companies.edit({
-		wherer: { id: id }
+		wherer: { companiesid: companiesid }
 	}).then(() => {
-		res.status(200).json({msg: 'edited successfully a company with id = ' + id});
+		res.status(200).json({msg: 'edited successfully a company with id = ' + companiesid});
 	});
 };

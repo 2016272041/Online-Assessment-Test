@@ -17,8 +17,8 @@ export class TestsService {
     return this.http.get<Tests[]>(this.testsUrl);
   }
 
-  getTests(testid: number): Observable<Tests> {
-    const url = `${this.testsUrl}/${testid}`;
+  getTests(id: number): Observable<Tests> {
+    const url = `${this.testsUrl}/${id}`;
     return this.http.get<Tests>(url);
   }
 
@@ -27,8 +27,8 @@ export class TestsService {
   }
 
   deleteTests (tests: Tests | number): Observable<Tests> {
-    const testid = typeof tests === 'number' ? tests : tests.testid;
-    const url = `${this.testsUrl}/${testid}`;
+    const id = typeof tests === 'number' ? tests : tests.id;
+    const url = `${this.testsUrl}/${id}`;
 
     return this.http.delete<Tests>(url, httpOptions);
   }

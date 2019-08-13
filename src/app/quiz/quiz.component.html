@@ -3,7 +3,7 @@
     <h3><font color="lightgreen">Multiple Choice Questions</font></h3>
   </div>
   <div class="col-6 text-right">
-    <font color ="skyblue">Select MCQ Type: </font>
+    <b><font color ="red">Select MCQ Type: </font></b>
     <select [(ngModel)]="quizName" (change)="loadQuiz(quizName)">
       <option *ngFor="let quiz of quizes" [value]="quiz.id">{{quiz.name}}</option>
     </select>

@@ -9,8 +9,6 @@ import { Location } from '@angular/common';
   styleUrls: ['./tests.component.css']
 })
 export class TestsComponent {
-  id: number;
-  testid: number;
   tests = new Tests();
   submitted = false;
 

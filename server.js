@@ -22,6 +22,7 @@ db.sequelize.sync({force: true}).then(() => {
 require('./src/app/route/questions.route.js')(app);
 require('./src/app/route/tests.route.js')(app);
 require('./src/app/route/companies.route.js')(app);
+require('./src/app/route/registration.route.js')(app);
  
 // Create a Server
 var server = app.listen(8080, function () {
@@ -58,6 +59,14 @@ function initial(){
       questions3: "Which HTML tag used to highlights the fonts",
       createdAt: "04-JUL-19",
       updatedAt: "03-JUL-19"
+    },
+    {
+      id: 4,
+      questions1: "What is Design and Patterns",
+      questions2: " In SOLID principles 'S' stands",
+      questions3: "In SOLID principle, O stands",
+      createdAt: "13-AUG-19",
+      updatedAt: "13-AUG-19"
     }
   ]
 
@@ -104,6 +113,22 @@ function initial(){
         companiesname: "Surecomp",
         testname: "Tickets Debugging",
         testdate: 05-08-19
+      },
+      {
+        companiesid: 1024,
+        companiesname: "Verizon",
+        testname: "Network Bandwidth Test",
+        testdate: 12-08-19
+      }
+    ]
+
+    let registration = [
+      {
+        regid: 1,
+        username: 2016272041,
+        password: "Si7373198816",
+        firstname: "Shiva",
+        lastname: "Balachandran"
       }
     ]
 
@@ -126,4 +151,11 @@ function initial(){
   for (let i = 0; i < companies.length; i++) {
     Companies.create(companies[i]);
   }
-}
+
+  //Init data -> save to MySQL
+  const Registration = db.Registration;
+  console.log
+  for (let i = 0; i < registration.length; i++) {
+    Registration.create(registration[i]);
+  }
+ }

@@ -10,7 +10,7 @@
         /* image url use */
         background-image: url("https://ieltsninja.com/content/wp-content/uploads/2018/10/11-Insane-Writing-Tips-That-Will-Boost-Your-IELTS-Score-2018.jpg");
         /* Full height */
-        height: 100%;
+        height: 60%;
         /* Full width */
         /* Image Allignment */
         background-position: center;
@@ -53,10 +53,10 @@
 <ul class="nav justify-content-center">
     <li class="nav-item">
         <a routerLink="addedques" class="btn btn-primary btn-sm" role="button" routerLinkActive="active">Added Questions</a>
-    </li>
+    </li> |
     <li class="nav-item">
         <a routerLink="addedcompany" class="btn btn-success btn-sm" role="button" routerLinkActive="active">Added Company</a>
-    </li>
+    </li> |
     <li class="nav-item">
       <a routerLink="testlist" class="btn btn-primary btn-sm" role="button" routerLinkActive="active">Added Tests</a>
   </li>
@@ -66,9 +66,10 @@
 <br>
 
 <div class="container">
+  <app-alert></app-alert>
   <router-outlet></router-outlet>
 </div>
-<br>
 
+<br>
 </body>
 </html>
