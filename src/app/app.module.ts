@@ -24,7 +24,7 @@ import { AuthenticationService } from './services/alert.authenticate';
 import { UserService } from './services/user.service';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { fakeBackendProvider } from './helpers/fake-backend';
-import { McqComponent } from './mcq/mcq.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,8 +40,7 @@ import { McqComponent } from './mcq/mcq.component';
     TestlistComponent,
     TruefalseComponent,
     AlertComponent,
-    HomeComponent,
-    McqComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,

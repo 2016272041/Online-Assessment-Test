@@ -16,7 +16,6 @@ import { TruefalseComponent } from './truefalse/truefalse.component';
 import { AlertComponent } from './directives/alert.component';
 import { AuthGuard } from './guards/auth.guard';
 import { HomeComponent } from './home/home.component';
-import { McqComponent } from './mcq/mcq.component';
 
 const routes: Routes = [
 {
@@ -105,10 +104,6 @@ const routes: Routes = [
     redirectTo: ''
 },
 
-{
-    path: 'mcq',
-    component: McqComponent
-}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
