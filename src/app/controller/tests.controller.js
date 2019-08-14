@@ -3,10 +3,10 @@ const Tests = db.tests;
 
 //post data form tests//
 exports.create = (req, res) => {
-    //save to Mysql database
+    //save to Mysql database//
     let tests = req.body;
     Tests.create(tests).then(result => {
-        //send created tests to client
+        //send created tests to client//
         res.json(result);
     });
 };
@@ -14,19 +14,19 @@ exports.create = (req, res) => {
 //Fetch all tests data
 exports.findAll = (req, res) => {
     Tests.findAll().then (tests => {
-        //send all tests to client
+        //send all tests to client//
         res.json(tests); 
     });
 };
 
-//Find a Tests bt ID
+//Find a Tests bt ID//
 exports.findById = (req, res) => {
     Tests.findById(req.params.id).then(tests => {
         res.json(tests);
     })
 };
 
-//Update a questions
+//Update a questions//
 exports.update = (req, res) => {
     let tests = req.body;
     let id = req.body.id;
@@ -37,7 +37,7 @@ exports.update = (req, res) => {
         });
 };
 
-//Delete a tests by ID 
+//Delete a tests by ID// 
 exports.delete = (req, res) => {
     const id = req.params.id;
     Tests.destroy({
@@ -47,7 +47,7 @@ exports.delete = (req, res) => {
     });
 };
 
-//Edit a tests by Id
+//Edit a tests by Id//
 exports.edit = (req, res) => {
     const id = req.params.testsId;
     Tests.edit({

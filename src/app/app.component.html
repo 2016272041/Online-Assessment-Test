@@ -1,75 +1,31 @@
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-      body, html {
-        height: 100%;
-        margin: 0;
-      }
-      .bg {
-        /* image url use */
-        background-image: url("https://ieltsninja.com/content/wp-content/uploads/2018/10/11-Insane-Writing-Tips-That-Will-Boost-Your-IELTS-Score-2018.jpg");
-        /* Full height */
-        height: 60%;
-        /* Full width */
-        /* Image Allignment */
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
-    </style>
-  </head>
-<body>  
+<body>
+<div style="background-image:url('http://www.sclance.com/backgrounds/webpage-background/webpage-background_2359556.png'); background-size: cover;
+background-repeat: no-repeat;">  
 <div class="header">
   <img src="http://oesv1.textusintentio.com/images/logo/your%20school.png" alt = "logo" style = "width: 128px; height: 128px;">
   <img src="http://oesv1.textusintentio.com/images/logo/your%20school.png" img align = "right" alt = "logo" style = "width: 128px; height: 128px;">
 </div>
 <div style="text-align:center">
   <h2>
-    <b>WELCOME TO ONLINE ASSESSMENT</b>
+    <b><font color="lightgreen">WELCOME TO ONLINE ASSESSMENT</font></b>
   </h2>
   </div>
 
-<div style="text-align: right">
+<div style="text-align: center">
   <div class="container">
+    <button type="button" class="btn btn-info"><a routerLink="onlinepage" routerLinkActive="active"><b><font color="black">Assess</font></b></a></button> |
+    <button type="button" class="btn btn-info"><a routerLink="sampletest" routerLinkActive="active"><b><font color="black">Sample Test</font></b></a></button> |
     <button type="button" class="btn btn-info"><a routerLink="login" routerLinkActive="active"><b><font color="black">Login</font></b></a></button> |
     <button type="button" class="btn btn-info"><a routerLink="signup" routerLinkActive="active"><b><font color="black">Signup</font></b></a></button> 
   </div>
 </div>
 <br>  
-
-<div style="text-align: center">
-<div class="container">
-    <button type="button" class="btn btn-primary"><a routerLink="tests" routerLinkActive="active"><b><font color="black"> Tests</font></b></a></button> |
-    <button type="button" class="btn btn-success"><a routerLink="companies" routerLinkActive="active"><b><font color="black">Company Registration</font></b></a></button> |
-    <button type="button" class="btn btn-primary"><a routerLink="questions" routerLinkActive="active"><b><font color="black">Questions</font></b></a></button> |
-    <button type="button" class="btn btn-success"><a routerLink="addedques" routerLinkActive="active"><b><font color="black">Added Questions</font></b></a></button> |
-    <button type="button" class="btn btn-warning"><a routerLink="addedquesdetails" routerLinkActive="active"><b><font color="black">Added Questions Details</font></b></a></button> |
-    <button type="button" class="btn btn-info"><a routerLink="mcq" routerLinkActive="active"><b><font color="black">MCQ</font></b></a></button> | 
-    <button type="button" class="btn btn-warning"><a routerLink="truefalse" routerLinkActive="active"><b><font color="black">True or False</font></b></a></button> |
-    <button type="button" class="btn btn-success"><a routerLink="quiz" routerLinkActive="active"><b><font color="black">Quiz</font></b></a></button> 
-</div>
-<br>
-<ul class="nav justify-content-center">
-    <li class="nav-item">
-        <a routerLink="addedques" class="btn btn-primary btn-sm" role="button" routerLinkActive="active">Added Questions</a>
-    </li> |
-    <li class="nav-item">
-        <a routerLink="addedcompany" class="btn btn-success btn-sm" role="button" routerLinkActive="active">Added Company</a>
-    </li> |
-    <li class="nav-item">
-      <a routerLink="testlist" class="btn btn-primary btn-sm" role="button" routerLinkActive="active">Added Tests</a>
-  </li>
-      
-</ul>
-</div>
-<br>
-
 <div class="container">
   <app-alert></app-alert>
   <router-outlet></router-outlet>
 </div>
-
 <br>
+</div>
 </body>
 </html>

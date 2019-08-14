@@ -1,4 +1,4 @@
 <h5>All Companies</h5>
 <div *ngFor="let comp of companies">
-  <a [routerLink]="['/companies', comp.companiesid]" style="color:black"><span class="badge badge-dark">{{comp.companiesid}}</span> -> {{ comp.companiesid }}</a>
+  <a [routerLink]="['/companies', comp.id]" style="color:black"><span class="badge badge-dark">{{comp.id}}</span> -> {{ comp.id }}</a>
 </div>

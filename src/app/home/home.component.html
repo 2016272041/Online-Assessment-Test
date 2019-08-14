@@ -1,12 +1,60 @@
-<div class="col-md-6 col-md-offset-3">
+<div class="col-md-6 col-md-offset-10">
+    <div class="row-md-6 row-md-offset-10">
         <h1>Hi {{currentUser.firstname}}!</h1>
         <p>You're logged in with online assessment test!!</p>
         <h3>All registered users:</h3>
         <ul>
             <li *ngFor="let user of users">
-                {{user.username}} ({{user.firstname}} {{user.lastname}})
-                - <a (click)="deleteUser(user.id)">Delete</a>
+              <b>  {{user.username}} ({{user.firstname}} {{user.lastname}}) </b>
+                - <a (click)="deleteUser(user.id)"><button>Delete</button></a>
             </li>
+            <br>
+                <ul class="nav justify-content-center">
+                  <ul style="text-align: vertical">
+                    <li class="nav-item">
+                        <a routerLink="tests" class="btn btn-primary btn-sm" role="button" routerLinkActive="active">Tests</a> - Create Test Details
+                        <a routerLink="sampletest" class="btn btn-primary btn-sm" role="button" routerLinkActive="active">Sample Test</a> - Take Sample Test
+                    </li>
+                    <br>
+                    <li class="nav-item">
+                        <a routerLink="companies" class="btn btn-success btn-sm" role="button" routerLinkActive="active">Companies</a> - Add Company Details
+                    </li>
+                    <br> 
+                    <li class="nav-item">
+                            <a routerLink="questions" class="btn btn-success btn-sm" role="button" routerLinkActive="active">Questions</a> - Add Test Questions
+                    </li>
+                    <br> 
+                    <li class="nav-item">
+                        <a routerLink="addedques" class="btn btn-primary btn-sm" role="button" routerLinkActive="active">Added Questions</a> - View added questions
+                    </li>
+                    <br> 
+                    <li class="nav-item">
+                        <a routerLink="addedcompany" class="btn btn-success btn-sm" role="button" routerLinkActive="active">Added Company</a> - View added companies
+                    </li>
+                    <br> 
+                    <li class="nav-item">
+                            <a routerLink="testlist" class="btn btn-primary btn-sm" role="button" routerLinkActive="active">Added Tests</a> - View added tests
+                    </li>
+                    <br> 
+                    <li class="nav-item">
+                            <a routerLink="addedquesdetails" class="btn btn-warning btn-sm" role="button" routerLinkActive="active">Added Questions Details</a> - view added questions
+                    </li>
+                    <br> 
+                    <li class="nav-item">
+                            <a routerLink="mcq" class="btn btn-info btn-sm" role="button" routerLinkActive="active">MCQ</a> - View and attend multiple choice questions
+                    </li>
+                    <br> 
+                    <li class="nav-item">
+                            <a routerLink="truefalse" class="btn btn-primary btn-sm" role="button" routerLinkActive="active">True False</a> - Attend true false
+                    </li>
+                    <br> 
+                    <li class="nav-item">
+                            <a routerLink="quiz" class="btn btn-info btn-sm" role="button" routerLinkActive="active">Quiz</a> - Attend general quiz
+                    </li>
+                  </ul> 
+                </ul>
+                <br>
         </ul>
-        <p><a [routerLink]="['/login']">Logout</a></p>
+        <p><a [routerLink]="['/login']"><button>Logout</button></a></p>
+        </div>
     </div>

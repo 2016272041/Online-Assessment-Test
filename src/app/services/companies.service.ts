@@ -6,7 +6,6 @@ import { Companies } from './companies';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
-
 @Injectable({
   providedIn: 'root'
 })
@@ -18,8 +17,8 @@ export class CompaniesService {
     return this.http.get<Companies[]>(this.companiesUrl);
   }
 
-  getCompanies(companiesid: number): Observable<Companies> {
-    const url = `${this.companiesUrl}/${companiesid}`;
+  getCompanies(id: number): Observable<Companies> {
+    const url = `${this.companiesUrl}/${id}`;
     return this.http.get<Companies>(url);
   }
 
@@ -28,8 +27,8 @@ export class CompaniesService {
   }
 
   deleteCompanies (companies: Companies | number): Observable<Companies> {
-    const companiesid = typeof companies === 'number' ? companies : companies.companiesid;
-    const url = `${this.companiesUrl}/${companiesid}`;
+    const id = typeof companies === 'number' ? companies : companies.id;
+    const url = `${this.companiesUrl}/${id}`;
 
     return this.http.delete<Companies>(url, httpOptions);
   }

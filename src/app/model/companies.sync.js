@@ -3,12 +3,13 @@
 var Companies = sequelize.define("Companies", {
 
     // companies datatype initilization//
-    companiesid: DataTypes.INTEGER,
+    id: DataTypes.STRING,
     type: {
         type: DataTypes.INTEGER,
-        primaryKey: true,
+        foreignKey: true,
         allowNull: false
     },
+    id: DataTypes.NUMBER,
     companiesid: DataTypes.INTEGER,
     companiesname: DataTypes.STRING,
     testname: DataTypes.STRING,
@@ -17,13 +18,15 @@ var Companies = sequelize.define("Companies", {
     updated_by: DataTypes.DATE
 }, {
     classMethods: {
-        associate: function(models) {
-            Company.hasMany(models.companiesid, {primaryKey: {fieldName:'companiesid'}});
-            Company.belongsTo(models.companiesname, {foreignKey: {fieldName:'companiesname'}});
-            Company.belongsTo(models.testname, {foreignKey: {fieldName:'testname'}});
-            Company.belongsTo(models.testdate, {foreignKey: {fieldName: 'testdate'}});
-            Company.belongsTo(models.createdAt, {foreignKey: {fieldName: 'createdat'}});
-            Company.belongsTo(models.updatedAt, {foreignKey: {fieldName: 'updatedat'}});
+        associate: function(models) 
+        {
+            Companies.hasMany(models.id, {primaryKey: {fieldName:'id'}});
+            Companies.belongsTo(models.companiesid, {foreignKey: {fieldName:'companiesid'}});
+            Companies.belongsTo(models.companiesname, {foreignKey: {fieldName:'companiesname'}});
+            Companies.belongsTo(models.testname, {foreignKey: {fieldName:'testname'}});
+            Companies.belongsTo(models.testdate, {foreignKey: {fieldName: 'testdate'}});
+            Companies.belongsTo(models.createdAt, {foreignKey: {fieldName: 'createdat'}});
+            Companies.belongsTo(models.updatedAt, {foreignKey: {fieldName: 'updatedat'}});
         }
     },
     tableName: 'companies',

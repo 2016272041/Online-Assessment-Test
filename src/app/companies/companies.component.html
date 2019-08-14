@@ -1,6 +1,16 @@
 <h3>Add Company</h3>
 <div [hidden]="submitted">
-    <form #addCompaniesForm="ngForm"> 
+    <form #addCompaniesForm="ngForm">
+      
+        <div class="form-group">
+            <label for="id"> ID </label>
+            <input type="number" class="form-control" id="id" placeholder="id" 
+            required
+            [(ngModel)]="companies.id" name="id" #id="ngModel">
+            <div [hidden]="id.valid || id.pristine"
+                 class="alert alert-danger">
+            </div>
+          </div>
 
         <div class="form-group">
         <label for="companiesid">Companies ID</label>
@@ -60,7 +70,7 @@
 </div>
 
 <div [hidden]="!submitted">
-  <p>Submitted Successfully! -> <span class="badge badge-light"> {{companies.companiesid}}  {{companies.companiesname}} {{companies.testname}} {{companies.testdate}} {{companies.createdAt}} {{companies.updatedAt}} </span></p>
+  <p>Submitted Successfully! -> <span class="badge badge-light"> {{companies.id}} {{companies.companiesid}}  {{companies.companiesname}} {{companies.testname}} {{companies.testdate}} {{companies.createdAt}} {{companies.updatedAt}} </span></p>
 	<div class="btn-group btn-group-sm">
       <button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
       <button type="button" class="btn btn-dark" (click)="addCompanies(); addCompaniesForm.reset()"> Continue </button>

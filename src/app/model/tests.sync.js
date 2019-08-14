@@ -7,6 +7,7 @@ var Tests = sequelize.define("tests", {
         foreignKey: true,
         allowNull: false
     },
+    id: DataTypes.NUMBER,
     testid: DataTypes.NUMBER,
     testname: DataTypes.STRING,
     testcreator: DataTypes.STRING,
@@ -15,7 +16,8 @@ var Tests = sequelize.define("tests", {
 }, {
     classMethods: {
         associate: function(models) {
-            Tests.hasMany(models.Testid, {primarykey: {fieldName: 'testid'}});
+            Tests.hasMany(models.id, {primarykey: {fieldName: 'id'}});
+            Tests.belongsTo(models.Testid, {foreignKey: {fieldName: 'testid'}});
             Tests.belongsTo(models.Testname, {foreignKey: {fieldName: 'testname'}});
             Tests.belongsTo(models.testcreator, {foreignKey: {fieldName: 'testcreator'}});
             Tests.belongsTo(models.Createdat, { foreignKey: {fieldName:'createdat'}});
