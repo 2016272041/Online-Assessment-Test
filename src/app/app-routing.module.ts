@@ -16,6 +16,12 @@ import { TruefalseComponent } from './truefalse/truefalse.component';
 import { AlertComponent } from './directives/alert.component';
 import { AuthGuard } from './guards/auth.guard';
 import { HomeComponent } from './home/home.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
+import { BlogformComponent } from './blogform/blogform.component';
+import { ManageBlogsComponent } from './manageblogs/manageblogs.component';
+import { ManagecategoriesComponent } from './managecategories/managecategories.component';
+import { ManagepagesComponent } from './managepages/managepages.component';
 
 const routes: Routes = [
 {
@@ -81,6 +87,41 @@ const routes: Routes = [
 {
     path: 'truefalse',
     component: TruefalseComponent
+},
+
+{
+    path: 'admin',
+    component: AdminComponent
+},
+
+{
+    path: 'admindashboard',
+    component: AdmindashboardComponent
+},
+
+{
+    path: 'blogs',
+    component: ManageBlogsComponent
+},
+
+{
+    path: 'blogs/create',
+    component: BlogformComponent
+},
+
+{
+    path: 'blogs/create/:id',
+    component: BlogformComponent
+},
+
+{
+    path: 'categerious',
+    component: ManagecategoriesComponent
+},
+
+{
+    path: 'pages',
+    component: ManagepagesComponent
 },
 
 {

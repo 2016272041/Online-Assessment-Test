@@ -6,11 +6,13 @@
         <ul>
             <li *ngFor="let user of users">
               <b>  {{user.username}} ({{user.firstname}} {{user.lastname}}) </b>
-                - <a (click)="deleteUser(user.id)"><button>Delete</button></a>
+                - <a (click)="deleteUser(user.id)"><button>Delete</button></a> | <a [routerLink]="['/login']"><button>Logout</button></a>
             </li>
             <br>
-                <ul class="nav justify-content-center">
-                  <ul style="text-align: vertical">
+        </ul>
+        </div>
+        <h3> Options: </h3>
+                  <div style="text-align: horizontal">
                     <li class="nav-item">
                         <a routerLink="tests" class="btn btn-primary btn-sm" role="button" routerLinkActive="active">Tests</a> - Create Test Details
                         <a routerLink="sampletest" class="btn btn-primary btn-sm" role="button" routerLinkActive="active">Sample Test</a> - Take Sample Test
@@ -18,10 +20,12 @@
                     <br>
                     <li class="nav-item">
                         <a routerLink="companies" class="btn btn-success btn-sm" role="button" routerLinkActive="active">Companies</a> - Add Company Details
+                        <a routerLink="managefiles" class="btn btn-primary btn-sm" role="button" routerLinkActive="active">Manage Files</a> - Manage uploading Files
                     </li>
                     <br> 
                     <li class="nav-item">
                             <a routerLink="questions" class="btn btn-success btn-sm" role="button" routerLinkActive="active">Questions</a> - Add Test Questions
+                            <a routerLink="blogs/create" class="btn btn-warning btn-sm" role="button" routerLinkActive="active">Blogs</a> - Blogs Creation 
                     </li>
                     <br> 
                     <li class="nav-item">
@@ -51,10 +55,9 @@
                     <li class="nav-item">
                             <a routerLink="quiz" class="btn btn-info btn-sm" role="button" routerLinkActive="active">Quiz</a> - Attend general quiz
                     </li>
-                  </ul> 
-                </ul>
-                <br>
-        </ul>
-        <p><a [routerLink]="['/login']"><button>Logout</button></a></p>
-        </div>
-    </div>
+                    <br>
+                    <li class="nav-item">
+                            <a routerLink="fileloader/create" class="btn btn-info btn-sm" role="button" routerLinkActive="active">Test File Loader</a> - Load Test File 
+                    </li>
+                </div> 
+            </div>

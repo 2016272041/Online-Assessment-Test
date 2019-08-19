@@ -23,6 +23,7 @@ require('./src/app/route/questions.route.js')(app);
 require('./src/app/route/tests.route.js')(app);
 require('./src/app/route/companies.route.js')(app);
 require('./src/app/route/registration.route.js')(app);
+require('./src/app/route/blogform.route.js')(app);
  
 // Create a Server
 var server = app.listen(8080, function () {
@@ -132,6 +133,18 @@ function initial(){
       }
     ]
 
+    let blogform = [
+      {
+        id: 1,
+        title: "Angular Core",
+        description: "Angular App Development",
+        is_featured: "Yes",
+        is_active: "Yes",
+        image: "Angular ICON"
+      }
+    ]
+
+
   // Init data -> save to MySQL
   const Questions = db.questions;
   for (let i = 0; i < questions.length; i++) { 
@@ -157,5 +170,12 @@ function initial(){
   console.log
   for (let i = 0; i < registration.length; i++) {
     Registration.create(registration[i]);
+  }
+
+  //Init data -> save to MySQL
+  const Blogform = db.Blogform;
+  console.log
+  for (let i = 0; i < blogform.length; i++){
+    Blogform.create(blogform[i]);
   }
  }

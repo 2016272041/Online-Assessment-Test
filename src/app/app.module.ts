@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -24,7 +25,13 @@ import { AuthenticationService } from './services/alert.authenticate';
 import { UserService } from './services/user.service';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { fakeBackendProvider } from './helpers/fake-backend';
-
+import { from } from 'rxjs';
+import { AdminComponent } from './admin/admin.component';
+import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
+import { BlogformComponent } from './blogform/blogform.component';
+import { ManageBlogsComponent } from './manageblogs/manageblogs.component';
+import { ManagecategoriesComponent } from './managecategories/managecategories.component';
+import { ManagepagesComponent } from './managepages/managepages.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +47,13 @@ import { fakeBackendProvider } from './helpers/fake-backend';
     TestlistComponent,
     TruefalseComponent,
     AlertComponent,
-    HomeComponent
+    HomeComponent,
+    AdminComponent,
+    AdmindashboardComponent,
+    BlogformComponent,
+    ManageBlogsComponent,
+    ManagecategoriesComponent,
+    ManagepagesComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +61,7 @@ import { fakeBackendProvider } from './helpers/fake-backend';
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
+    CommonModule
   ],
   providers: [
     AuthGuard,

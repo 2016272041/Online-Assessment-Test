@@ -1,5 +1,4 @@
 const env = require('./env.js');
-
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize(env.database, env.username, env.password, {
   host: env.host,
@@ -24,6 +23,7 @@ db.questions = require('../model/questions.model.js')(sequelize, Sequelize);
 db.Tests = require('../model/tests.model.js')(sequelize, Sequelize);
 db.Companies = require('../model/companies.model.js')(sequelize, Sequelize);
 db.Registration = require('../model/registration.model.js')(sequelize, Sequelize);
+db.Blogform = require('../model/blogform.model.js')(sequelize, Sequelize);
 
 
 module.exports = db;
