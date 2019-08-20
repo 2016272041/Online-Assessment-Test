@@ -10,7 +10,6 @@ var Companies = sequelize.define("Companies", {
         allowNull: false
     },
     id: DataTypes.NUMBER,
-    companiesid: DataTypes.INTEGER,
     companiesname: DataTypes.STRING,
     testname: DataTypes.STRING,
     testdate: DataTypes.DATE,
@@ -21,12 +20,11 @@ var Companies = sequelize.define("Companies", {
         associate: function(models) 
         {
             Companies.hasMany(models.id, {primaryKey: {fieldName:'id'}});
-            Companies.belongsTo(models.companiesid, {foreignKey: {fieldName:'companiesid'}});
             Companies.belongsTo(models.companiesname, {foreignKey: {fieldName:'companiesname'}});
             Companies.belongsTo(models.testname, {foreignKey: {fieldName:'testname'}});
             Companies.belongsTo(models.testdate, {foreignKey: {fieldName: 'testdate'}});
-            Companies.belongsTo(models.createdAt, {foreignKey: {fieldName: 'createdat'}});
-            Companies.belongsTo(models.updatedAt, {foreignKey: {fieldName: 'updatedat'}});
+            Companies.belongsTo(models.createdAt, {foreignKey: {fieldName: 'createdAt'}});
+            Companies.belongsTo(models.updatedAt, {foreignKey: {fieldName: 'updatedAt'}});
         }
     },
     tableName: 'companies',

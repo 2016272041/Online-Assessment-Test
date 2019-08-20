@@ -1,5 +1,4 @@
-<div class="col-md-6 col-md-offset-10">
-    <div class="row-md-6 row-md-offset-10">
+
         <h1>Hi {{currentUser.firstname}}!</h1>
         <p>You're logged in with online assessment test!!</p>
         <h3>All registered users:</h3>
@@ -10,9 +9,10 @@
             </li>
             <br>
         </ul>
-        </div>
+        <br>
+
         <h3> Options: </h3>
-                  <div style="text-align: horizontal">
+                  <div style="text-align: vertical">
                     <li class="nav-item">
                         <a routerLink="tests" class="btn btn-primary btn-sm" role="button" routerLinkActive="active">Tests</a> - Create Test Details
                         <a routerLink="sampletest" class="btn btn-primary btn-sm" role="button" routerLinkActive="active">Sample Test</a> - Take Sample Test
@@ -30,6 +30,7 @@
                     <br> 
                     <li class="nav-item">
                         <a routerLink="addedques" class="btn btn-primary btn-sm" role="button" routerLinkActive="active">Added Questions</a> - View added questions
+                        <a routerLink="sendmail" class="btn btn-success btn-sm" role="button" routerLinkActive="active">Send Mail</a> - Send Mail information to users
                     </li>
                     <br> 
                     <li class="nav-item">
@@ -60,4 +61,3 @@
                             <a routerLink="fileloader/create" class="btn btn-info btn-sm" role="button" routerLinkActive="active">Test File Loader</a> - Load Test File 
                     </li>
                 </div> 
-            </div>

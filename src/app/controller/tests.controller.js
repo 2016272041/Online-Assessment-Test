@@ -21,7 +21,7 @@ exports.findAll = (req, res) => {
 
 //Find a Tests bt ID//
 exports.findById = (req, res) => {
-    Tests.findById(req.params.id).then(tests => {
+    Tests.findById(req.params.testsid).then(tests => {
         res.json(tests);
     })
 };

@@ -24,6 +24,7 @@ require('./src/app/route/tests.route.js')(app);
 require('./src/app/route/companies.route.js')(app);
 require('./src/app/route/registration.route.js')(app);
 require('./src/app/route/blogform.route.js')(app);
+require('./src/app/route/sendmail.route.js')(app);
  
 // Create a Server
 var server = app.listen(8080, function () {
@@ -73,22 +74,28 @@ function initial(){
 
     let tests = [
       {
-        testid: 1,
+        id: 1,
         testname: "Multiple Choice Questions",
-        testcreator: "Johnson"
+        testcreator: "Johnson",
+        createdAt: 20-08-19,
+        updatedAt: 20-08-19
       },
       {
-        testid: 2,
+        id: 2,
         testname: "Fill in the Blanks",
-        testcreator: "Mark"
+        testcreator: "Mark",
+        createdAt: 20-08-19,
+        updatedAt: 20-08-19
       },
       {
-        testid: 3,
+        id: 3,
         testname: "Match The Following",
-        testcreator: "Williams"
+        testcreator: "Williams",
+        createdAt: 20-08-19,
+        updatedAt: 20-08-19
       },
       {
-        testid: 7,
+        id: 7,
         testname: "Split the Words",
         testcreator: "Joel",
         createdAt: 09-08-19,
@@ -98,25 +105,25 @@ function initial(){
 
     let companies = [
       {
-        companiesid: 1024,
+        id: 1024,
         companiesname: "Venzo",
         testname: "Multiple Choice Questions",
         testdate: 06-06-19
       },
       {
-        companiesid: 1026,
+        id: 1026,
         companiesname: "Ant Works",
         testname: "Multiple Choice Questions",
         testdate: 07-06-19
       },
       {
-        companiesid: 1023,
+        id: 1023,
         companiesname: "Surecomp",
         testname: "Tickets Debugging",
         testdate: 05-08-19
       },
       {
-        companiesid: 1024,
+        id: 1024,
         companiesname: "Verizon",
         testname: "Network Bandwidth Test",
         testdate: 12-08-19
@@ -141,6 +148,18 @@ function initial(){
         is_featured: "Yes",
         is_active: "Yes",
         image: "Angular ICON"
+      }
+    ]
+
+    let sendmail = [
+      {
+        id: 1,
+        name: "shiva",
+        email: "sivakumar@venzoconsulting.com",
+        phone: +917373198816,
+        messsage: "Send Updated Information",
+        createdat: 20-08-19,
+        updatedat: 20-08-19
       }
     ]
 
@@ -178,4 +197,11 @@ function initial(){
   for (let i = 0; i < blogform.length; i++){
     Blogform.create(blogform[i]);
   }
- }
+
+  //Init data -> save to MySQL
+  const Sendmail = db.Sendmail;
+  console.log
+  for(let i = 0; i < sendmail.length; i++){
+    Sendmail.create(sendmail[i]);
+  }
+ } 

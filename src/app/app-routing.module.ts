@@ -22,6 +22,8 @@ import { BlogformComponent } from './blogform/blogform.component';
 import { ManageBlogsComponent } from './manageblogs/manageblogs.component';
 import { ManagecategoriesComponent } from './managecategories/managecategories.component';
 import { ManagepagesComponent } from './managepages/managepages.component';
+import { SendmailComponent } from './sendmail/sendmail.component';
+import { FileuploadComponent } from './fileupload/fileupload.component';
 
 const routes: Routes = [
 {
@@ -125,6 +127,11 @@ const routes: Routes = [
 },
 
 {
+    path: 'sendmail',
+    component: SendmailComponent
+},
+
+{
     path: 'directives',
     component: AlertComponent
 },
@@ -132,6 +139,11 @@ const routes: Routes = [
 {
     path: 'authguard',
     component: AuthGuard
+},
+
+{
+    path: 'fileupload',
+    component: FileuploadComponent
 },
 
 {

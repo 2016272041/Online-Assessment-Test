@@ -1,18 +1,28 @@
 module.exports = (sequelize, Sequelize) => {
-    const Tests = sequelize.define('tests', {
-        testname: {
+    const Sendmail = sequelize.define('sendmail', {
+        name: {
             type: Sequelize.STRING
         },
-        testcreator: {
+
+        email: {
             type: Sequelize.STRING
         },
+
+        phone: {
+            type: Sequelize.STRING
+        },
+
+        message: {
+            type: Sequelize.STRING
+        },
+
         createdAt: {
             type: Sequelize.DATE
         },
+
         updatedAt: {
             type: Sequelize.DATE
         }
     });
-
-    return Tests;
-} 
+    return Sendmail
+}

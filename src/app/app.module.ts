@@ -32,6 +32,8 @@ import { BlogformComponent } from './blogform/blogform.component';
 import { ManageBlogsComponent } from './manageblogs/manageblogs.component';
 import { ManagecategoriesComponent } from './managecategories/managecategories.component';
 import { ManagepagesComponent } from './managepages/managepages.component';
+import { SendmailComponent } from './sendmail/sendmail.component';
+import { FileuploadComponent } from './fileupload/fileupload.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +55,9 @@ import { ManagepagesComponent } from './managepages/managepages.component';
     BlogformComponent,
     ManageBlogsComponent,
     ManagecategoriesComponent,
-    ManagepagesComponent
+    ManagepagesComponent,
+    SendmailComponent,
+    FileuploadComponent
   ],
   imports: [
     BrowserModule,

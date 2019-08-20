@@ -6,13 +6,13 @@ import { Tests } from './tests';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
-
 @Injectable({
   providedIn: 'root'
 })
 export class TestsService {
   private testsUrl = 'http://localhost:8080/api/tests';  // URL to web api
   constructor(private http: HttpClient) { }
+
   gettests (): Observable<Tests[]> {
     return this.http.get<Tests[]>(this.testsUrl);
   }

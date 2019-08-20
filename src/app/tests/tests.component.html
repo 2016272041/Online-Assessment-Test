@@ -1,29 +1,20 @@
 <h3>Add Tests</h3>
 <div [hidden]="submitted">
-    <form #addTestsForm="ngForm">
-      <div class="form-group">
-            <label for="id"> ID </label>
-            <input type="number" class="form-control" id="id" placeholder="id" 
-            required
-            [(ngModel)]="tests.id" name="id" #id="ngModel">
-            <div [hidden]="id.valid || id.pristine"
-                 class="alert alert-danger">
-            </div>
-      </div>
-      
-      <div class="form-group">
-        <label for="testid"> Test ID </label>
-        <input type="number" class="form-control" id="testid" placeholder="testid" 
+    <form #addTestsForm="ngForm"> 
+
+        <div class="form-group">
+        <label for="id">Tests ID</label>
+        <input type="number" class="form-control" id="id" placeholder="id" 
         required
-        [(ngModel)]="tests.testid" name="testid" #testid="ngModel">
-        <div [hidden]="testid.valid || testid.pristine"
+        [(ngModel)]="tests.id" name="id" #id="ngModel">
+        <div [hidden]="id.valid || id.pristine"
              class="alert alert-danger">
         </div>
       </div>
-
-        <div class="form-group">
+      
+      <div class="form-group">
         <label for="testname"> Test Name </label>
-        <input type="text" class="form-control" id="testname" placeholder="testname" 
+        <input type="text" class="form-control" id="testname" placeholder="testname"
         required
         [(ngModel)]="tests.testname" name="testname" #testname="ngModel">
         <div [hidden]="testname.valid || testname.pristine"
@@ -35,14 +26,14 @@
         <label for="testcreator"> Test Creator </label>
         <input type="text" class="form-control" id="testcreator" placeholder="testcreator"
         required
-        [(ngModel)]="tests.testcreator" name="testcreation" #testcreator="ngModel">
+        [(ngModel)]="tests.testcreator" name="testcreator" #testcreator="ngModel">
         <div [hidden]="testcreator.valid || testcreator.pristine"
              class="alert alert-danger">
         </div>
       </div>
-      
+
       <div class="form-group">
-        <label for="createdat">createdAt</label>
+        <label for="createdAt"> CreatedAt </label>
         <input type="text" class="form-control" id="createdAt" placeholder="createdAt" 
         required
         [(ngModel)]="tests.createdAt" name="createdAt" #createdAt="ngModel">
@@ -52,7 +43,7 @@
       </div>
 
       <div class="form-group">
-        <label for="updatedat">updatedAt</label>
+        <label for="updatedAt"> UpdatedAt </label>
         <input type="text" class="form-control" id="updatedAt" placeholder="updatedAt" 
         required
         [(ngModel)]="tests.updatedAt" name="updatedAt" #updatedAt="ngModel">
@@ -69,8 +60,9 @@
 </div>
 
 <div [hidden]="!submitted">
-  <p>Submitted Successfully! -> <span class="badge badge-light"> {{tests.id}} {{tests.testid}} {{tests.testname}}  {{tests.testcreator}} {{tests.createdAt}} {{tests.updatedAt}} </span></p>
+  <p>Submitted Successfully! -> <span class="badge badge-light"> {{tests.id}}  {{tests.testname}} {{tests.testcreator}} {{tests.createdAt}} {{tests.updatedAt}} </span></p>
 	<div class="btn-group btn-group-sm">
-    	<button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+      <button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+      <button type="button" class="btn btn-dark" (click)="addTests(); addTestsForm.reset()"> Continue </button>
     </div>
 </div>
