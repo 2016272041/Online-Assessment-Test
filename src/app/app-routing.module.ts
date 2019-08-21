@@ -24,6 +24,7 @@ import { ManagecategoriesComponent } from './managecategories/managecategories.c
 import { ManagepagesComponent } from './managepages/managepages.component';
 import { SendmailComponent } from './sendmail/sendmail.component';
 import { FileuploadComponent } from './fileupload/fileupload.component';
+import { ProductComponent } from './product/product.component';
 
 const routes: Routes = [
 {
@@ -144,6 +145,11 @@ const routes: Routes = [
 {
     path: 'fileupload',
     component: FileuploadComponent
+},
+
+{
+    path: 'product',
+    component: ProductComponent
 },
 
 {

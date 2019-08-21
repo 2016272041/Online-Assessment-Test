@@ -25,6 +25,7 @@ require('./src/app/route/companies.route.js')(app);
 require('./src/app/route/registration.route.js')(app);
 require('./src/app/route/blogform.route.js')(app);
 require('./src/app/route/sendmail.route.js')(app);
+require('./src/app/route/product.route.js')(app);
  
 // Create a Server
 var server = app.listen(8080, function () {
@@ -163,6 +164,17 @@ function initial(){
       }
     ]
 
+    let product = [
+      {
+        id: 1,
+        name: "shiva",
+        size: 782.895,
+        progress: 75,
+        status: "complete",
+        action: "complete"
+      }
+    ]
+
 
   // Init data -> save to MySQL
   const Questions = db.questions;
@@ -203,5 +215,12 @@ function initial(){
   console.log
   for(let i = 0; i < sendmail.length; i++){
     Sendmail.create(sendmail[i]);
+  }
+
+  //Init data -> save to MySQL
+  const Product = db.Product;
+  console.log
+  for(let i = 0; i < product.length; i++){
+    Product.create(product[i]);
   }
  } 

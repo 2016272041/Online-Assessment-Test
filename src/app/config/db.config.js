@@ -25,6 +25,7 @@ db.Companies = require('../model/companies.model.js')(sequelize, Sequelize);
 db.Registration = require('../model/registration.model.js')(sequelize, Sequelize);
 db.Blogform = require('../model/blogform.model.js')(sequelize, Sequelize);
 db.Sendmail = require('../model/sendmail.model.js')(sequelize, Sequelize);
+db.Product = require('../model/product.model.js')(sequelize, Sequelize);
 
 
 module.exports = db;

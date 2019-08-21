@@ -34,7 +34,10 @@ import { ManagecategoriesComponent } from './managecategories/managecategories.c
 import { ManagepagesComponent } from './managepages/managepages.component';
 import { SendmailComponent } from './sendmail/sendmail.component';
 import { FileuploadComponent } from './fileupload/fileupload.component';
-@NgModule({
+import { AlertModule } from 'ngx-bootstrap';
+import { ProductComponent } from './product/product.component';
+
+ @NgModule({
   declarations: [
     AppComponent,
     QuizComponent,
@@ -57,7 +60,8 @@ import { FileuploadComponent } from './fileupload/fileupload.component';
     ManagecategoriesComponent,
     ManagepagesComponent,
     SendmailComponent,
-    FileuploadComponent
+    FileuploadComponent,
+    ProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,7 +69,8 @@ import { FileuploadComponent } from './fileupload/fileupload.component';
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-    CommonModule
+    CommonModule,
+    AlertModule.forRoot(),
   ],
   providers: [
     AuthGuard,
