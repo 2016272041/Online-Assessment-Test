@@ -41,7 +41,7 @@
                             <button type="button" class="btn btn-success btn-xs"
                                     (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">
                                 <span class="fa fa-upload"></span> Upload
-                            </button>
+                            </button> |
                             <button type="button" class="btn btn-warning btn-xs"
                                     (click)="item.cancel()" [disabled]="!item.isUploading">
                                 <span class="fa fa-ban"></span> Cancel
@@ -90,7 +90,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let file of files">
+                <tr *ngFor="let file of file">
                   <td>{{ file.originalname }}</td>
                   <td><button class="btn btn-primary button" (click)="downloadPdf(file.filename, file.contentType)">Download</button></td>
                 </tr>   

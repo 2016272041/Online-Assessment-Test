@@ -133,7 +133,8 @@ function initial(){
 
     let registration = [
       {
-        regid: 1,
+        id: 1,
+        regid: 12,
         username: 2016272041,
         password: "Si7373198816",
         firstname: "Shiva",
@@ -158,9 +159,7 @@ function initial(){
         name: "shiva",
         email: "sivakumar@venzoconsulting.com",
         phone: +917373198816,
-        messsage: "Send Updated Information",
-        createdat: 20-08-19,
-        updatedat: 20-08-19
+        messsage: "Send Updated Information"
       }
     ]
 
@@ -168,8 +167,8 @@ function initial(){
       {
         id: 1,
         name: "shiva",
-        size: 782.895,
-        progress: 75,
+        size: "Medium",
+        progress: "Percentage",
         status: "complete",
         action: "complete"
       }

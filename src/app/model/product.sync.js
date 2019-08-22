@@ -1,10 +1,8 @@
-import { DataTypes } from "sequelize/types";
-
 //product sync table initilization//
 var Product = sequelize.define("product", {
 
     // product datatype initilization //
-    id: DataTypes.STRING,
+    id: DataTypes.NUMBER,
     type: {
         type: DataTypes.NUMBER,
         foreignKey: true,
@@ -12,10 +10,10 @@ var Product = sequelize.define("product", {
     },
     id: DataTypes.NUMBER,
     name: DataTypes.STRING,
-    size: DataTypes.DOUBLERANGE,
-    progress: DataTypes.NUMBER,
+    size: DataTypes.STRING,
+    progress: DataTypes.STRING,
     status: DataTypes.STRING,
-    action: DataTypes.PROGRESSEVENT
+    action: DataTypes.STRING
 }, {
     classMethods: {
         associate: function(models) {

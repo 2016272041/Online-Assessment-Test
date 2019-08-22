@@ -30,11 +30,11 @@ export class BlogformComponent implements OnInit {
       this.blogService.getBlog(+id).subscribe(
         res => {
           this.blogForm.patchValue({
+            id: res.id,
             title: res.title,
             description: res.description,
             is_featured: res.is_featured,
             is_active: res.is_active,
-            id: res.id
           });
           this.imagePath = res.image;
         }
@@ -78,7 +78,7 @@ export class BlogformComponent implements OnInit {
           if (res.status === 'error') {
             this.uploadError = res.message;
           } else {
-            this.router.navigate(['/admin/blogs']);
+            this.router.navigate(['blog']);
           }
         },
         error => this.error = error

@@ -15,8 +15,7 @@ export class SendmailComponent implements OnInit {
 
   constructor(
     private router: Router,
-    // tslint:disable-next-line:no-shadowed-variable
-    private SendmailService: SendmailService
+    private sendmailService: SendmailService
   ) { }
 
   ngOnInit() {
@@ -24,7 +23,7 @@ export class SendmailComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    return this.SendmailService.sendmailForm(this.model).subscribe(
+    return this.sendmailService.sendmailForm(this.model).subscribe(
       data => this.model = data,
       error => this.error = error,
     );

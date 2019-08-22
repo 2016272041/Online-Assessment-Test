@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { FileUploadModule } from 'ng2-file-upload';
 import { AppComponent } from './app.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
@@ -66,6 +67,7 @@ import { ProductComponent } from './product/product.component';
   imports: [
     BrowserModule,
     FormsModule,
+    FileUploadModule,
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,

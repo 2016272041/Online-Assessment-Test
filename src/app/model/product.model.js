@@ -4,16 +4,16 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING
         },
         size: {
-            type: Sequelize.DOUBLERANGE
+            type: Sequelize.STRING
         },
         progress: {
-            type: Sequelize.NUMBER
+            type: Sequelize.STRING
         },
         status: {
             type: Sequelize.STRING
         },
         action: {
-            type: Sequelize.PROGRESSEVENT
+            type: Sequelize.STRING
         }
     });
     return Product;

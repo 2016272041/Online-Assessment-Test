@@ -1,8 +1,8 @@
 //registration sync table initilization//
-var Registration = sequelize.define("Registration", {
+var Registration = sequelize.define("registration", {
 
     //  datatype initilization//
-    regid: DataTypes.STRING,
+    id: DataTypes.STRING,
     type: {
         type: DataTypes.INTEGER,
         foreignKey: false,
@@ -17,8 +17,8 @@ var Registration = sequelize.define("Registration", {
 }, {
     classMethods: {
         associate: function(models) {
-            
-            Registration.hasMany(models.Regid,{primaryKey: {fieldName:'regid'}});
+            Registration.hasMany(models.id, {primaryKey: {fieldName: 'id'}});
+            Registration.belongsTo(models.Regid, {foreignKey: {fieldName:'regid'}});
             Registration.belongsTo(models.Username, { foreignKey: {fieldName:'username'}});
             Registration.belongsTo(models.Password, { foreignKey: {fieldName:'password'}});
             Registration.belongsTo(models.Firstname, { foreignKey: {fieldName:'firstname'}});

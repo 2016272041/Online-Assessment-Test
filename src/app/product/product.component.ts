@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
-import { FileUploader } from 'ng-file-upload';
+import { FileUploader } from 'ng2-file-upload';
 import { Product } from '../models/product';
-
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -10,8 +9,7 @@ import { Product } from '../models/product';
 })
 export class ProductComponent implements OnInit {
 
-  // tslint:disable-next-line:no-shadowed-variable
-  constructor(private ProductService: ProductService) { }
+  constructor(private productService: ProductService) { }
   private files = [];
   private url = 'http://localhost:8080/upload';
   private uploader: FileUploader;
@@ -19,7 +17,7 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
     this.uploader = new FileUploader({url: this.url});
 
-    this.ProductService.showFileNames().subscribe(response => {
+    this.productService.showFileNames().subscribe(response => {
       for (let i = 0; i < response.json().length; i++) {
         this.files[i] = {
           filename: response.json() [i].filename,
@@ -31,7 +29,7 @@ export class ProductComponent implements OnInit {
   }
 
   downloadPdf(filename, contentType) {
-    this.ProductService.downloadPDF(filename, contentType).subscribe(
+    this.productService.downloadPDF(filename, contentType).subscribe(
       (res) => {
         const file = new Blob([res.blob()], { type: contentType });
         const fileURL = URL.createObjectURL(file);

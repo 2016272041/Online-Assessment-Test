@@ -1,7 +1,7 @@
 //blogform sync table initilization//
 var Blogform = sequelize.define("Blogform", {
     //blogform datatypes initilization//
-    id: DataTypes.STRING,
+    id: DataTypes.NUMBER,
     type: {
         type: DataTypes.INTEGER,
         foreignKey: true,

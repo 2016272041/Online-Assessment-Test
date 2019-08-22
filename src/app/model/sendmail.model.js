@@ -15,14 +15,6 @@ module.exports = (sequelize, Sequelize) => {
         message: {
             type: Sequelize.STRING
         },
-
-        createdAt: {
-            type: Sequelize.DATE
-        },
-
-        updatedAt: {
-            type: Sequelize.DATE
-        }
     });
     return Sendmail
 }

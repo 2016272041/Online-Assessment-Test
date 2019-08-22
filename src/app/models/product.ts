@@ -1,8 +1,8 @@
 export class Product {
     id: number;
     name: string;
-    size: DoubleRange;
-    progress: number;
+    size: string;
+    progress: string;
     status: string;
-    action: ProgressEvent;
+    action: string;
 }
