@@ -2,19 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { Tests } from '../services/tests';
 import { TestsService } from '../services/tests.service';
 import { Location } from '@angular/common';
-
 @Component({
   selector: 'app-tests',
   templateUrl: './tests.component.html',
   styleUrls: ['./tests.component.css']
 })
 export class TestsComponent {
+  id: number;
   tests = new Tests();
   submitted = false;
 
   constructor(
     private testsservice: TestsService,
-    private location: Location
+    private location: Location,
   ) { }
 
   newTests(): void {

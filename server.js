@@ -169,8 +169,10 @@ function initial(){
         name: "shiva",
         size: "Medium",
         progress: "Percentage",
-        status: "complete",
-        action: "complete"
+        status: "completed",
+        action: "complete",
+        createdAt: 26-08-19,
+        updatedAt: 26-08-19
       }
     ]
 

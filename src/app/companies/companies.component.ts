@@ -14,7 +14,7 @@ export class CompaniesComponent {
 
   constructor(
     private companiesservice: CompaniesService,
-    private location: Location
+    private location: Location,
   ) { }
 
   newCompanies(): void {

@@ -1,11 +1,10 @@
-
-<section class="cmspage mtb-40">
+<section class="sendmail mtb-40">
     <div class="container">
       <div class="page-desc" [hidden]="submitted">
         <div class="row justify-content-center">
           <div class="col-md-8">
             <h1>Contact</h1>
-            <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
+            <form (ngSubmit)="onSubmit()" #sendmailForm="ngForm">
               <div class="form-group">
                 <input type="text" name="name" id="name" [(ngModel)]="model.name" class="form-control" placeholder="Name" required #name="ngModel">
                 <div *ngIf="name.invalid && (name.dirty || name.touched)" class="error">
@@ -31,7 +30,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <button [disabled]="!contactForm.form.valid" class="btn btn-success">Send Message</button>
+                <button type="submit" class="button is primary"> Send Message </button>
               </div>
             </form>
           </div>
@@ -41,8 +40,8 @@
         <h1>{{error.errorTitle}}</h1>
         <h3>{{error.errorDesc}}</h3>
       </div>
-      <div [hidden]="!submitted" class="contact-message">
-        <div *ngIf="model.id" class="contact-success">
+      <div [hidden]="!submitted" class="sendmail-message">
+        <div *ngIf="model.id" class="sendmail-success">
           <h2 class="success">Success!</h2>
           <h4>Contact form has been successfully submitted.</h4>
           <br />

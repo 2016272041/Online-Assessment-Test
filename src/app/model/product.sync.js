@@ -1,14 +1,13 @@
 //product sync table initilization//
 var Product = sequelize.define("product", {
 
-    // product datatype initilization //
-    id: DataTypes.NUMBER,
+    id: DataTypes.STRING,
     type: {
-        type: DataTypes.NUMBER,
+        type: DataTypes.INTEGER,
         foreignKey: true,
         allowNull: false
     },
-    id: DataTypes.NUMBER,
+    id: DataTypes.INTEGER,
     name: DataTypes.STRING,
     size: DataTypes.STRING,
     progress: DataTypes.STRING,

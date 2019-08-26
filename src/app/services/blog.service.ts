@@ -2,10 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Blog } from '../models/blog';
-import { Options } from 'selenium-webdriver/ie';
 
 const httpOptions = {
-  hearders: new HttpHeaders({'content-Type': 'application/json'})
+  hearders: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
 @Injectable({

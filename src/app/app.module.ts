@@ -37,6 +37,9 @@ import { SendmailComponent } from './sendmail/sendmail.component';
 import { FileuploadComponent } from './fileupload/fileupload.component';
 import { AlertModule } from 'ngx-bootstrap';
 import { ProductComponent } from './product/product.component';
+import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
+import { RouterModule } from '@angular/router';
+import { NotfoundComponent } from './error-pages/notfound/notfound.component';
 
  @NgModule({
   declarations: [
@@ -63,6 +66,8 @@ import { ProductComponent } from './product/product.component';
     SendmailComponent,
     FileuploadComponent,
     ProductComponent,
+    InternalServerComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,
@@ -73,6 +78,17 @@ import { ProductComponent } from './product/product.component';
     AppRoutingModule,
     CommonModule,
     AlertModule.forRoot(),
+    RouterModule.forRoot([
+      { path: 'home', component: HomeComponent },
+      { path: 'tests', component: TestsComponent },
+      { path: 'companies', component: CompaniesComponent },
+      { path: '404', component: NotfoundComponent },
+      { path: '500', component: InternalServerComponent },
+      { path: '', redirectTo: '/home', pathMatch: 'full' },
+      { path: '', redirectTo: '/Tests', pathMatch: 'full'},
+      { path: '', redirectTo: '/Companies', pathMatch: 'full' },
+      { path: '**', redirectTo: '/404', pathMatch: 'full' }
+    ])
   ],
   providers: [
     AuthGuard,

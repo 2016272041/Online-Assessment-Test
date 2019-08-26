@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user';
 import { UserService } from '../services/user.service';
+import { ErrorHandlerService } from '../services/error-handler.service';
 
 @Component({
   moduleId: module.id,
@@ -10,6 +11,7 @@ import { UserService } from '../services/user.service';
 })
 export class HomeComponent implements OnInit {
 
+  private errorhandlerservice: ErrorHandlerService;
   currentUser: User;
   users: User[] = [];
 

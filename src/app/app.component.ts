@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ErrorHandlerService } from './services/error-handler.service';
 import { QuizComponent } from './quiz/quiz.component';
 import { TestsComponent } from './tests/tests.component';
 import { QuestionsComponent } from './questions/questions.component';
