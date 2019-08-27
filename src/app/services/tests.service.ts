@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { Tests } from './tests';
 
 const httpOptions = {
@@ -10,7 +10,6 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class TestsService {
-  [x: string]: any;
   private testsUrl = 'http://localhost:8080/api/tests';  // URL to web api
   constructor(private http: HttpClient) { }
 

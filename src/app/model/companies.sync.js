@@ -28,7 +28,7 @@ var Companies = sequelize.define("Companies", {
         }
     },
     tableName: 'companies',
-    createdAt: false,
-    updatedAt: false
+    createdAt: true,
+    updatedAt: true
 });
 return Companies;

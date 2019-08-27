@@ -1,12 +1,10 @@
 const db = require('../config/db.config.js');
 const Sendmail = db.sendmail;
 
-//post a sendmail
+//post a Sendmail
 exports.create = (req, res) => {
-    //save to MySQL database
     let sendmail = req.body;
     Sendmail.create(sendmail).then(result => {
-        // Send created Sendmail to client
         res.json(result);
     });
 };
@@ -14,8 +12,7 @@ exports.create = (req, res) => {
 //Fetch all Sendmail
 exports.findAll = (req, res) => {
     Sendmail.findAll().then(sendmail => {
-        // Send all senmail to client
-        res.json(sendmail)
+        res.json(sendmail);
     });
 };
 
@@ -26,18 +23,18 @@ exports.findById = (req, res) => {
     });
 };
 
-//Update a Sendmail
+//Update a sendmail by ID
 exports.update = (req, res) => {
     let sendmail = req.body;
     let id = req.body.id;
-    Sendmail.update(sendmail,
-                { where: {id: id} }
-                ).then(() => {
-                    res.status(200).json({msg:"updated successfully a sendmail with id = " + id});
-                });    
+    Sendmail.update(sendmail, 
+        { where: {id: id} }
+        ).then ( () => {
+            res.status(200).json({msg:"updated successfully a sendmail with id = " + id});
+        });
 };
 
-//Delete a Sendmail by Id
+//Delete a sendmail by ID
 exports.delete = (req, res) => {
     const id = req.params.id;
     Sendmail.destroy({
@@ -47,7 +44,7 @@ exports.delete = (req, res) => {
     });
 };
 
-//Edit a Sendmail by Id
+//Edit a Registration by Id
 exports.edit = (req, res) => {
 	const id = req.params.id;
 	Sendmail.edit({

@@ -3,18 +3,21 @@ module.exports = (sequelize, Sequelize) => {
         name: {
             type: Sequelize.STRING
         },
-
         email: {
             type: Sequelize.STRING
         },
-
         phone: {
-            type: Sequelize.STRING
+            type: Sequelize.NUMBER
         },
-
         message: {
             type: Sequelize.STRING
         },
+        createdAt: {
+            type: Sequelize.DATE
+        },
+        updatedAt: {
+            type: Sequelize.DATE
+        }
     });
-    return Sendmail
+    return Sendmail;
 }

@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-    const Registration = sequelize.define('registration', {
+    const Registrations = sequelize.define('registrations', {
         regid: {
             type: Sequelize.INTEGER
         },
@@ -14,8 +14,14 @@ module.exports = (sequelize, Sequelize) => {
         },
         lastname: {
             type: Sequelize.STRING
+        },
+        createdAt: {
+            type: Sequelize.DATE
+        },
+        updatedAt: {
+            type: Sequelize.DATE
         }
     });
 
-    return Registration;
+    return Registrations;
 } 

@@ -1,42 +1,39 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Sendmail } from '../models/sendmail';
 import { SendmailService } from '../services/sendmail.service';
-import 'rxjs/add/operator/take';
-import { FormGroup } from '@angular/forms';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-sendmail',
   templateUrl: './sendmail.component.html',
   styleUrls: ['./sendmail.component.css']
 })
-export class SendmailComponent implements OnInit {
-  sendmail: FormGroup;
-  model = new Sendmail;
+export class SendmailComponent {
+  id: number;
+  sendmail = new Sendmail();
   submitted = false;
-  error: {};
-  addmessage: any;
 
   constructor(
-    private router: Router,
-    private sendmailService: SendmailService
+    private sendmailService: SendmailService,
+    private location: Location
   ) { }
 
-  ngOnInit() {
+  newsendMail(): void {
+    this.submitted = false;
+    this.sendmail = new Sendmail();
   }
 
-  onSubmit() {
+  sendMail() {
     this.submitted = true;
-    return this.sendmailService.sendmailForm(this.model).subscribe(
-      data => this.model = data,
-      error => this.error = error,
-    );
+    this.save();
   }
 
-  get message() {
-    return this.addmessage.get('message').value;
+  goBack(): void {
+    this.location.back();
   }
 
-  gotoHome() {
-    this. router.navigate(['/']);
+  private save(): void {
+    console.log(this.sendmail);
+    this.sendmailService.sendMail(this.sendmail)
+    .subscribe();
   }
 }

@@ -20,12 +20,10 @@ db.sequelize = sequelize;
 
 //Models/tables
 db.questions = require('../model/questions.model.js')(sequelize, Sequelize);
-db.Tests = require('../model/tests.model.js')(sequelize, Sequelize);
-db.Companies = require('../model/companies.model.js')(sequelize, Sequelize);
-db.Registration = require('../model/registration.model.js')(sequelize, Sequelize);
-db.Blogform = require('../model/blogform.model.js')(sequelize, Sequelize);
-db.Sendmail = require('../model/sendmail.model.js')(sequelize, Sequelize);
-db.Product = require('../model/product.model.js')(sequelize, Sequelize);
+db.tests = require('../model/tests.model.js')(sequelize, Sequelize);
+db.companies = require('../model/companies.model.js')(sequelize, Sequelize);
+db.registrations = require('../model/registrations.model.js')(sequelize, Sequelize);
+db.sendmail = require('../model/sendmail.model.js')(sequelize, Sequelize);
 
 
 module.exports = db;

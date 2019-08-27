@@ -1,53 +1,89 @@
-<section class="sendmail mtb-40">
-    <div class="container">
-      <div class="page-desc" [hidden]="submitted">
-        <div class="row justify-content-center">
-          <div class="col-md-8">
-            <h1>Contact</h1>
-            <form (ngSubmit)="onSubmit()" #sendmailForm="ngForm">
-              <div class="form-group">
-                <input type="text" name="name" id="name" [(ngModel)]="model.name" class="form-control" placeholder="Name" required #name="ngModel">
-                <div *ngIf="name.invalid && (name.dirty || name.touched)" class="error">
-                  <div *ngIf="name.errors.required">
-                    Name is required.
-                  </div>
-                </div>
+<div class="col-md-6 col-md-offset-8">
+  <div class="container">
+    <div [hidden]="submitted">
+      <form #sendMailForm="ngForm">
+          <div style="text-align: center">
+            <h2> Send Mail </h2>
+          </div>
+
+          <div class="form-group">
+            <label for="id"> ID </label>
+            <input type="number" class="form-control" id="id" placeholder="id"
+            required
+            [(ngModel)]="sendmail.id" id="id" #id="ngModel">
+            <div [hidden]="id.valid  || id.pristine"
+                  class="alert alert-danger">
+          </div>
+          </div>
+
+          <div class="form-group">
+              <label for="name"> Name </label>
+              <input type="text" class="form-control" id="name" placeholder="name"
+              required
+              [(ngModel)]="sendmail.name" name="name" #name="ngModel">
+              <div [hidden]="name.valid || name.pristine"
+                   class="alert alert-danger">
               </div>
-              <div class="form-group">
-                <input type="text" name="email" id="email" [(ngModel)]="model.email" class="form-control" placeholder="E-Mail" required email #email="ngModel">
+            </div>
+
+          <div class="form-group">
+              <label for="email"> Email </label>
+              <input type="text" name="email" id="email" [(ngModel)]="sendmail.email" class="form-control" placeholder="E-Mail" required email #email="ngModel">
                 <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error">
                   <div *ngIf="email.errors.required">Email is required.</div>
                   <div *ngIf="email.errors.email">Email must be a valid email address.</div>
                 </div>
+          </div>
+
+          <div class="form-group">
+            <label for="phone"> Phone No </label>
+            <input type="number" class="form-control" id="phone" placeholder="phone"
+            required
+            [(ngModel)]="sendmail.phone" phone="phone" #phone="ngModel">
+            <div [hidden]="phone.valid || phone.pristine"
+                  class="alert alert-danger"> 
+          </div>
+          </div>
+
+          <div class="form-group">
+              <label for="message"> Message </label>
+              <textarea name="message" id="message" [(ngModel)]="sendmail.message" rows="5" class="form-control" placeholder="Message" required #message="ngModel"></textarea>
+              <div *ngIf="message.invalid && (message.dirty || message.touched)" class="error">
+                <div *ngIf="message.errors.required">Message is required.</div>
               </div>
-              <div class="form-group">
-                <input type="text" name="phone" id="phone" [(ngModel)]="model.phone" class="form-control" placeholder="Phone">
-              </div>
-              <div class="form-group">
-                <textarea name="message" id="message" [(ngModel)]="model.message" rows="5" class="form-control" placeholder="Message" required #message="ngModel"></textarea>
-                <div *ngIf="message.invalid && (message.dirty || message.touched)" class="error">
-                  <div *ngIf="message.errors.required">Message is required.</div>
+            </div>
+
+            <div class="form-group">
+                <label for="createdAt"> CreatedAt </label>
+                <input type="text" class="form-control" id="createdAt" placeholder="createdAt"
+                required
+                [(ngModel)]="sendmail.createdAt" createdAt="createdAt" #createdAt="ngModel">
+                <div [hidden]="createdAt.valid || createdAt.pristine"
+                     class="alert alert-danger">
                 </div>
               </div>
+
               <div class="form-group">
-                <button type="submit" class="button is primary"> Send Message </button>
+                  <label for="updatedAt"> UpdatedAt </label>
+                  <input type="text" class="form-control" id="updatedAt" placeholder="updatedAt"
+                  required
+                  [(ngModel)]="sendmail.updatedAt" updatedAt="updatedAt" #updatedAt="ngModel">
+                  <div [hidden]="updatedAt.valid || updatedAt.pristine"
+                       class="alert alert-danger">
+                  </div>
+                </div>
+
+            <div class="btn-group btn-group-sm">
+                <button type="button" class="btn btn-dark" (click)="sendMail()" [disabled]="!sendMailForm.form.valid">SendMail</button>
               </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="service-error" *ngIf="error">
-        <h1>{{error.errorTitle}}</h1>
-        <h3>{{error.errorDesc}}</h3>
-      </div>
-      <div [hidden]="!submitted" class="sendmail-message">
-        <div *ngIf="model.id" class="sendmail-success">
-          <h2 class="success">Success!</h2>
-          <h4>Contact form has been successfully submitted.</h4>
-          <br />
-          <button (click)="gotoHome()" class="btn btn-info">Go to Home</button>
-        </div>
-      </div>
+              
+        </form>
+            <div [hidden]="!submitted">
+                <p>Submitted Successfully! -> <span class="badge badge-light"> {{sendmail.id}} {{sendmail.name}} {{sendmail.email}} {{sendmail.phone}} {{sendmail.message}} {{sendmail.createdAt}} {{sendmail.updatedAt}} </span></p>
+                <div class="btn-group btn-group-sm">
+                    <button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+                    <button type="button" class="btn btn-dark" (click)="sendMail(); sendMailForm.reset()"> Continue </button>
+                  </div>
+            </div>
     </div>
-  </section>
-  
+  </div>

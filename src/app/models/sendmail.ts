@@ -4,4 +4,6 @@ export class Sendmail {
     email: string;
     phone: string;
     message: string;
+    createdAt: Date;
+    updatedAt: Date;
 }

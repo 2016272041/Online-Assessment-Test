@@ -28,7 +28,7 @@ var Questions = sequelize.define("Questions", {
         }
     },
     tableName: 'questions',
-    createdAt: false,
-    updatedAt: false
+    createdAt: true,
+    updatedAt: true
 });
 return Questions;

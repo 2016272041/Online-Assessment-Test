@@ -22,10 +22,8 @@ db.sequelize.sync({force: true}).then(() => {
 require('./src/app/route/questions.route.js')(app);
 require('./src/app/route/tests.route.js')(app);
 require('./src/app/route/companies.route.js')(app);
-require('./src/app/route/registration.route.js')(app);
-require('./src/app/route/blogform.route.js')(app);
+require('./src/app/route/registrations.route.js')(app);
 require('./src/app/route/sendmail.route.js')(app);
-require('./src/app/route/product.route.js')(app);
  
 // Create a Server
 var server = app.listen(8080, function () {
@@ -131,97 +129,76 @@ function initial(){
       }
     ]
 
-    let registration = [
+    let registrations = [
       {
         id: 1,
         regid: 12,
         username: 2016272041,
         password: "Si7373198816",
         firstname: "Shiva",
-        lastname: "Balachandran"
-      }
-    ]
+        lastname: "Balachandran",
+        createdAt: 09-08-19,
+        updatedAt: 09-08-19
 
-    let blogform = [
-      {
-        id: 1,
-        title: "Angular Core",
-        description: "Angular App Development",
-        is_featured: "Yes",
-        is_active: "Yes",
-        image: "Angular ICON"
       }
     ]
 
     let sendmail = [
       {
         id: 1,
-        name: "shiva",
+        name: "Steve",
         email: "sivakumar@venzoconsulting.com",
-        phone: +917373198816,
-        messsage: "Send Updated Information"
+        phone: 7373198816,
+        message: "Mail received with you",
+        createdAt: 09-08-19,
+        updatedAt: 09-08-19
       }
     ]
 
-    let product = [
-      {
-        id: 1,
-        name: "shiva",
-        size: "Medium",
-        progress: "Percentage",
-        status: "completed",
-        action: "complete",
-        createdAt: 26-08-19,
-        updatedAt: 26-08-19
-      }
-    ]
 
 
   // Init data -> save to MySQL
   const Questions = db.questions;
+  console.log(db);
+  console.log(db.questions);
+  console.log(Questions);
   for (let i = 0; i < questions.length; i++) { 
     Questions.create(questions[i]);  
   }
 
   // Init data -> save to MySQL
-  const Tests = db.Tests;
-  console.log
+  const Tests = db.tests;
+  console.log(db);
+  console.log(db.tests);
+  console.log(Tests);
   for (let i = 0; i < tests.length; i++)  {
     Tests.create(tests[i])
   }
 
   //Init data -> save to MySQL
-  const Companies = db.Companies;
-  console.log
+  const Companies = db.companies;
+  console.log(db);
+  console.log(db.companies);
+  console.log(Companies);
   for (let i = 0; i < companies.length; i++) {
     Companies.create(companies[i]);
   }
 
   //Init data -> save to MySQL
-  const Registration = db.Registration;
-  console.log
-  for (let i = 0; i < registration.length; i++) {
-    Registration.create(registration[i]);
+  const Registrations = db.registrations;
+  console.log(db);
+  console.log(db.registrations);
+  console.log(Registrations);
+  for (let i = 0; i < registrations.length; i++) {
+    Registrations.create(registrations[i]);
   }
 
   //Init data -> save to MySQL
-  const Blogform = db.Blogform;
-  console.log
-  for (let i = 0; i < blogform.length; i++){
-    Blogform.create(blogform[i]);
-  }
-
-  //Init data -> save to MySQL
-  const Sendmail = db.Sendmail;
-  console.log
-  for(let i = 0; i < sendmail.length; i++){
+  const Sendmail = db.sendmail;
+  console.log(db);
+  console.log(db.sendmail);
+  console.log(Sendmail);
+  for (let i = 0; i < sendmail.length; i++) {
     Sendmail.create(sendmail[i]);
-  }
-
-  //Init data -> save to MySQL
-  const Product = db.Product;
-  console.log
-  for(let i = 0; i < product.length; i++){
-    Product.create(product[i]);
   }
  } 

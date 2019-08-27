@@ -1,11 +1,11 @@
 const db = require('../config/db.config.js');
-const Registration = db.registration;
+const Registrations = db.registrations;
 
 //Post a Registration data
 exports.create = (req, res) => {
     //save to MYSQL DATABASE
-    let registration = req.body;
-    Registration.create(registration).then(result => {
+    let registrations = req.body;
+    Registrations.create(registrations).then(result => {
         // Send created registration to client
         res.json(result);
     });
@@ -13,24 +13,24 @@ exports.create = (req, res) => {
 
 //Fetch all Registrations
 exports.findAll = (req, res) => {
-    Registration.findAll().then(registration => {
+    Registrations.findAll().then(registrations => {
         // Send all Registration to client
-        res.json(registration);
+        res.json(registrations);
     });
 };
 
 //Find a Registration by Id
 exports.findById = (req, res) => {
-    Registration.findById(req.params.registrationId).then(registration => {
-        res.json(registration);
+    Registrations.findById(req.params.registrationsId).then(registrations => {
+        res.json(registrations);
     })
 };
 
 //Update a Registration by Id
 exports.update = (req, res) => {
-    let registration = req.body;
+    let registrations = req.body;
     let regid = req.body.regid;
-    Registration.update(registration,
+    Registrations.update(registrations,
             { where: {regid: regid} }
         ).then( () => {
             res.status(200).json({msg:"updated successfully a registration with regid = " + regid});
@@ -39,8 +39,8 @@ exports.update = (req, res) => {
 
 // Delete a Registration by Id
 exports.delete = (req, res) => {
-	const regid = req.params.registrationId;
-	Registration.destroy({
+	const regid = req.params.registrationsId;
+	Registrations.destroy({
 	  where: { regid: regid }
 	}).then(() => {
 	  res.status(200).json({msg:'deleted successfully a registration with regid = ' + regid});
@@ -49,8 +49,8 @@ exports.delete = (req, res) => {
 
 //Edit a Registration by Id
 exports.edit = (req, res) => {
-	const regid = req.params.registrationId;
-	Registration.edit({
+	const regid = req.params.registrationsId;
+	Registrations.edit({
 		wherer: { regid: regid }
 	}).then(() => {
 		res.status(200).json({msg: 'edited successfully a registration with regid = ' + regid});

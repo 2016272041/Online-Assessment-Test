@@ -23,7 +23,7 @@ var Tests = sequelize.define("tests", {
         }
     },
     tableName: 'tests',
-    createdAt: false,
-    updatedAt: false
+    createdAt: true,
+    updatedAt: true
 });
 return Tests;
