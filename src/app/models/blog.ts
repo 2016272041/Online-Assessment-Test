@@ -6,3 +6,4 @@ export class Blog {
     image: any;
     description: String;
 }
+

@@ -23,7 +23,7 @@ require('./src/app/route/questions.route.js')(app);
 require('./src/app/route/tests.route.js')(app);
 require('./src/app/route/companies.route.js')(app);
 require('./src/app/route/registrations.route.js')(app);
-require('./src/app/route/sendmail.route.js')(app);
+require('./src/app/route/fileupload.route.js')(app);
  
 // Create a Server
 var server = app.listen(8080, function () {
@@ -143,19 +143,13 @@ function initial(){
       }
     ]
 
-    let sendmail = [
+    let fileupload = [
       {
-        id: 1,
-        name: "Steve",
-        email: "sivakumar@venzoconsulting.com",
-        phone: 7373198816,
-        message: "Mail received with you",
-        createdAt: 09-08-19,
-        updatedAt: 09-08-19
+        type: "PDF",
+        name: "Sample 1.1",
+        data: 2188986
       }
     ]
-
-
 
   // Init data -> save to MySQL
   const Questions = db.questions;
@@ -194,11 +188,11 @@ function initial(){
   }
 
   //Init data -> save to MySQL
-  const Sendmail = db.sendmail;
+  const Fileupload = db.fileupload;
   console.log(db);
-  console.log(db.sendmail);
-  console.log(Sendmail);
-  for (let i = 0; i < sendmail.length; i++) {
-    Sendmail.create(sendmail[i]);
+  console.log(db.fileupload);
+  console.log(Fileupload);
+  for (let i = 0; i < fileupload.length; i++) {
+    Fileupload.create(fileupload[i]);
   }
  } 

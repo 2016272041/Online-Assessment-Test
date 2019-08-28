@@ -11,7 +11,7 @@ const httpOptions = {
 })
 
 export class SendmailService {
-  [x: string]: any;
+
   private sendmailUrl = 'http://localhost:8080/api/sendmail';
   constructor(private http: HttpClient) { }
 
@@ -26,5 +26,12 @@ export class SendmailService {
 
   sendMail (sendmail: Sendmail): Observable<Sendmail> {
     return this.http.post<Sendmail>(this.sendmailUrl, sendmail, httpOptions);
+  }
+
+  deletesendMail (sendmail: Sendmail | number): Observable<Sendmail> {
+    const id = typeof sendmail === 'number' ? sendmail : sendmail.id;
+    const url = `${this.sendmailUrl}/${id}`;
+
+    return this.http.delete<Sendmail>(url, httpOptions);
   }
 }

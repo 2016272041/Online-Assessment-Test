@@ -8,6 +8,7 @@ var Registrations = sequelize.define("Registrations", {
         foreignKey: true,
         allowNull: false
     },
+    id: DataTypes.NUMBER,
     regid: DataTypes.NUMBER,
     username: DataTypes.STRING,
     password: DataTypes.STRING,

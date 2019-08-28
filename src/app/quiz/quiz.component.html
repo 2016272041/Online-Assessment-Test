@@ -32,9 +32,9 @@
     </div>
     <hr />
     <div class="text-center">
-      <button class="btn btn-success" *ngIf="config.allowBack" (click)="goTo(0);">First</button>
-      <button class="btn btn-info" *ngIf="config.allowBack" (click)="goTo(pager.index - 1);">Preview</button>
-      <button class="btn btn-primary" (click)="goTo(pager.index + 1);">Next</button>
+      <button class="btn btn-success" *ngIf="config.allowBack" (click)="goTo(0);">First</button> | 
+      <button class="btn btn-info" *ngIf="config.allowBack" (click)="goTo(pager.index - 1);">Preview</button> |
+      <button class="btn btn-primary" (click)="goTo(pager.index + 1);">Next</button> |
       <button class="btn btn-warning" *ngIf="config.allowBack" (click)="goTo(pager.count - 1);">Last</button>
       <!--<pagination *ngIf="config.showPager" direction-links="false" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>-->
     </div>
@@ -62,8 +62,8 @@
   </div>
   <hr />
   <div *ngIf="mode!='result'">
-    <button class="btn btn-warning" (click)="mode = 'quiz'">MCQ</button>
-    <button class="btn btn-info" (click)="mode = 'review'">Review</button>
+    <button class="btn btn-warning" (click)="mode = 'quiz'">MCQ</button> | 
+    <button class="btn btn-info" (click)="mode = 'review'">Review</button> |
     <button class="btn btn-primary" (click)="onSubmit();">Submit</button>
   </div>
 </div>

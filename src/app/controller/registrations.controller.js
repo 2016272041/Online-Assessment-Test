@@ -3,7 +3,6 @@ const Registrations = db.registrations;
 
 //Post a Registration data
 exports.create = (req, res) => {
-    //save to MYSQL DATABASE
     let registrations = req.body;
     Registrations.create(registrations).then(result => {
         // Send created registration to client

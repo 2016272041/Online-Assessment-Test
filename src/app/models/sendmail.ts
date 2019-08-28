@@ -2,7 +2,7 @@ export class Sendmail {
     id: number;
     name: string;
     email: string;
-    phone: string;
+    phone: number;
     message: string;
     createdAt: Date;
     updatedAt: Date;

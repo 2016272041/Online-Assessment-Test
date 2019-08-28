@@ -8,12 +8,12 @@
 
           <div class="form-group">
             <label for="id"> ID </label>
-            <input type="number" class="form-control" id="id" placeholder="id"
+            <input type="number" class="form-control" id="id" placeholder="id" 
             required
-            [(ngModel)]="sendmail.id" id="id" #id="ngModel">
-            <div [hidden]="id.valid  || id.pristine"
-                  class="alert alert-danger">
-          </div>
+            [(ngModel)]="sendmail.id" name="id" #id="ngModel">
+            <div [hidden]="id.valid || id.pristine"
+                 class="alert alert-danger">
+            </div>
           </div>
 
           <div class="form-group">
@@ -30,42 +30,42 @@
               <label for="email"> Email </label>
               <input type="text" name="email" id="email" [(ngModel)]="sendmail.email" class="form-control" placeholder="E-Mail" required email #email="ngModel">
                 <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error">
-                  <div *ngIf="email.errors.required">Email is required.</div>
-                  <div *ngIf="email.errors.email">Email must be a valid email address.</div>
+                  <div *ngIf="email.errors['required']">Email is required.</div>
+                  <div *ngIf="email.errors['email']">Email must be a valid email address.</div>
                 </div>
           </div>
 
           <div class="form-group">
-            <label for="phone"> Phone No </label>
-            <input type="number" class="form-control" id="phone" placeholder="phone"
+            <label for="phone"> Phone </label>
+            <input type="number" class="form-control" id="phone" placeholder="phone" 
             required
             [(ngModel)]="sendmail.phone" phone="phone" #phone="ngModel">
             <div [hidden]="phone.valid || phone.pristine"
-                  class="alert alert-danger"> 
-          </div>
+                 class="alert alert-danger">
+            </div>
           </div>
 
           <div class="form-group">
               <label for="message"> Message </label>
               <textarea name="message" id="message" [(ngModel)]="sendmail.message" rows="5" class="form-control" placeholder="Message" required #message="ngModel"></textarea>
               <div *ngIf="message.invalid && (message.dirty || message.touched)" class="error">
-                <div *ngIf="message.errors.required">Message is required.</div>
+                <div *ngIf="message.errors['required']">Message is required.</div>
               </div>
             </div>
 
             <div class="form-group">
-                <label for="createdAt"> CreatedAt </label>
-                <input type="text" class="form-control" id="createdAt" placeholder="createdAt"
-                required
-                [(ngModel)]="sendmail.createdAt" createdAt="createdAt" #createdAt="ngModel">
-                <div [hidden]="createdAt.valid || createdAt.pristine"
-                     class="alert alert-danger">
-                </div>
+              <label for="createdAt"> CreatedAt </label>
+              <input type="date" class="form-control" id="createdAt" placeholder="createdAt"
+              required
+              [(ngModel)]="sendmail.createdAt" createdAt="createdAt" #createdAt="ngModel">
+              <div [hidden]="createdAt.valid || createdAt.pristine"
+                   class="alert alert-danger">
               </div>
+            </div>
 
               <div class="form-group">
                   <label for="updatedAt"> UpdatedAt </label>
-                  <input type="text" class="form-control" id="updatedAt" placeholder="updatedAt"
+                  <input type="date" class="form-control" id="updatedAt" placeholder="updatedAt"
                   required
                   [(ngModel)]="sendmail.updatedAt" updatedAt="updatedAt" #updatedAt="ngModel">
                   <div [hidden]="updatedAt.valid || updatedAt.pristine"
