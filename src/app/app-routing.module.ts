@@ -23,8 +23,10 @@ import { ManageBlogsComponent } from './manageblogs/manageblogs.component';
 import { ManagecategoriesComponent } from './managecategories/managecategories.component';
 import { ManagepagesComponent } from './managepages/managepages.component';
 import { SendmailComponent } from './sendmail/sendmail.component';
-import { FileuploadComponent } from './fileupload/fileupload.component';
 import { ProductComponent } from './product/product.component';
+import { DetailsUploadComponent } from './upload/details-upload/details-upload.component';
+import { FormUploadComponent } from './upload/form-upload/form-upload.component';
+import { ListUploadComponent } from './upload/list-upload/list-upload.component';
 
 const routes: Routes = [
 {
@@ -143,13 +145,23 @@ const routes: Routes = [
 },
 
 {
-    path: 'fileupload',
-    component: FileuploadComponent
+    path: 'product',
+    component: ProductComponent
 },
 
 {
-    path: 'product',
-    component: ProductComponent
+    path: 'formupload',
+    component: FormUploadComponent
+},
+
+{
+    path: 'listupload',
+    component: ListUploadComponent
+},
+
+{
+    path: 'detailsupload',
+    component: DetailsUploadComponent
 },
 
 {

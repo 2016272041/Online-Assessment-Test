@@ -23,7 +23,7 @@ db.questions = require('../model/questions.model.js')(sequelize, Sequelize);
 db.tests = require('../model/tests.model.js')(sequelize, Sequelize);
 db.companies = require('../model/companies.model.js')(sequelize, Sequelize);
 db.registrations = require('../model/registrations.model.js')(sequelize, Sequelize);
-db.fileupload = require('../model/fileupload.model.js')(sequelize, Sequelize);
+db.file = require('../model/file.model.js')(sequelize, Sequelize);
 
 
 module.exports = db;

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -34,12 +35,15 @@ import { ManageBlogsComponent } from './manageblogs/manageblogs.component';
 import { ManagecategoriesComponent } from './managecategories/managecategories.component';
 import { ManagepagesComponent } from './managepages/managepages.component';
 import { SendmailComponent } from './sendmail/sendmail.component';
-import { FileuploadComponent } from './fileupload/fileupload.component';
 import { AlertModule } from 'ngx-bootstrap';
 import { ProductComponent } from './product/product.component';
 import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
 import { RouterModule } from '@angular/router';
 import { NotfoundComponent } from './error-pages/notfound/notfound.component';
+import { FormUploadComponent } from './upload/form-upload/form-upload.component';
+import { ListUploadComponent } from './upload/list-upload/list-upload.component';
+import { DetailsUploadComponent } from './upload/details-upload/details-upload.component';
+import { MyInterceptor } from './my-interceptor';
 
  @NgModule({
   declarations: [
@@ -64,10 +68,12 @@ import { NotfoundComponent } from './error-pages/notfound/notfound.component';
     ManagecategoriesComponent,
     ManagepagesComponent,
     SendmailComponent,
-    FileuploadComponent,
     ProductComponent,
     InternalServerComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    FormUploadComponent,
+    ListUploadComponent,
+    DetailsUploadComponent
   ],
   imports: [
     BrowserModule,
@@ -100,7 +106,12 @@ import { NotfoundComponent } from './error-pages/notfound/notfound.component';
       useClass: JwtInterceptor,
       multi: true
     },
-    fakeBackendProvider
+    fakeBackendProvider,
+    MyInterceptor
+  ],
+
+  schemas: [
+      CUSTOM_ELEMENTS_SCHEMA
   ],
   bootstrap: [AppComponent]
 })

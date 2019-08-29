@@ -23,7 +23,10 @@ require('./src/app/route/questions.route.js')(app);
 require('./src/app/route/tests.route.js')(app);
 require('./src/app/route/companies.route.js')(app);
 require('./src/app/route/registrations.route.js')(app);
-require('./src/app/route/fileupload.route.js')(app);
+
+let router = require ('./src/app/route/file.route.js');
+app.use('/', router);
+
  
 // Create a Server
 var server = app.listen(8080, function () {
@@ -143,13 +146,18 @@ function initial(){
       }
     ]
 
-    let fileupload = [
+    let file = [
       {
-        type: "PDF",
-        name: "Sample 1.1",
-        data: 2188986
+        id: 1,
+        type: "pdf",
+        name: "Sample Document",
+        data: 6439345234,
+        createdAt: 29-08-19,
+        updatedAt: 29-08-19
       }
     ]
+
+    
 
   // Init data -> save to MySQL
   const Questions = db.questions;
@@ -188,11 +196,11 @@ function initial(){
   }
 
   //Init data -> save to MySQL
-  const Fileupload = db.fileupload;
+  const File = db.file;
   console.log(db);
-  console.log(db.fileupload);
-  console.log(Fileupload);
-  for (let i = 0; i < fileupload.length; i++) {
-    Fileupload.create(fileupload[i]);
+  console.log(db.file);
+  console.log(File);
+  for (let i = 0; i < file.length; i++) {
+    File.create(file[i]);
   }
  } 
