@@ -5,6 +5,7 @@ var Registrations = sequelize.define("Registrations", {
     id: DataTypes.STRING,
     type: {
         type: DataTypes.INTEGER,
+        primaryKey: true,
         foreignKey: true,
         allowNull: false
     },
@@ -16,7 +17,6 @@ var Registrations = sequelize.define("Registrations", {
     lastname: DataTypes.STRING,
     createdAt: DataTypes.DATE,
     updatedAt: DataTypes.DATE
-
 }, {
     classMethods: {
         associate: function(models) {
@@ -26,8 +26,8 @@ var Registrations = sequelize.define("Registrations", {
             Registrations.belongsTo(models.Password, { foreignKey: {fieldName:'password'}});
             Registrations.belongsTo(models.Firstname, { foreignKey: {fieldName:'firstname'}});
             Registrations.belongsTo(models.Lastname, { foreignKey: {fieldName:'lastname'}});
-            Registrations.belongsTo(models.createdAt, { foreignKey: {fieldName: 'createdAt'}});
-            Registrations.belongsTo(models.updatedAt, { foreignKey: {fieldName: 'updatedAt'}});
+            Registrations.belongsTo(models.createdAt, { foreignKey: {fieldName:'createdAt'}});
+            Registrations.belongsTo(models.updatedAt, { foreignKey: {fieldName:'updatedAt'}});
         }
     },
     tableName: 'registrations',

@@ -5,6 +5,7 @@ var Questions = sequelize.define("Questions", {
     ques_id: DataTypes.STRING,
     type: {
         type: DataTypes.INTEGER,
+        primaryKey: true,
         foreignKey: true,
         allowNull: false
     },

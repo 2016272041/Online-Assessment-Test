@@ -36,13 +36,12 @@
           </div>
 
           <div class="form-group">
-            <label for="phone"> Phone </label>
-            <input type="number" class="form-control" id="phone" placeholder="phone" 
-            required
-            [(ngModel)]="sendmail.phone" phone="phone" #phone="ngModel">
-            <div [hidden]="phone.valid || phone.pristine"
-                 class="alert alert-danger">
-            </div>
+            <label for="phone"> Phone No </label>
+            <input type="tel" name="phone" id="phone" [(ngModel)]="sendmail.phone" class="form-control" placeholder="PHONE" required phone #phone="ngModel">
+              <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="error">
+                <div *ngIf="phone.errors['required']"> Phone is Required </div>
+                <div *ngIf="phone.errors['phone']"> Phone must be a valid phone number. </div>
+              </div>
           </div>
 
           <div class="form-group">
@@ -54,21 +53,21 @@
             </div>
 
             <div class="form-group">
-              <label for="createdAt"> CreatedAt </label>
-              <input type="date" class="form-control" id="createdAt" placeholder="createdAt"
+              <label for="createdat"> CreatedAt </label>
+              <input type="datetime" class="form-control" id="createdat" placeholder="createdat"
               required
-              [(ngModel)]="sendmail.createdAt" createdAt="createdAt" #createdAt="ngModel">
-              <div [hidden]="createdAt.valid || createdAt.pristine"
+              [(ngModel)]="sendmail.createdAt" createdat="createdat" #createdat="ngModel">
+              <div [hidden]="createdat.valid || createdat.pristine"
                    class="alert alert-danger">
               </div>
             </div>
 
               <div class="form-group">
-                  <label for="updatedAt"> UpdatedAt </label>
-                  <input type="date" class="form-control" id="updatedAt" placeholder="updatedAt"
+                  <label for="updatedat"> UpdatedAt </label>
+                  <input type="datetime" class="form-control" id="updatedat" placeholder="updatedat"
                   required
-                  [(ngModel)]="sendmail.updatedAt" updatedAt="updatedAt" #updatedAt="ngModel">
-                  <div [hidden]="updatedAt.valid || updatedAt.pristine"
+                  [(ngModel)]="sendmail.updatedAt" updatedAt="updatedat" #updatedat="ngModel">
+                  <div [hidden]="updatedat.valid || updatedat.pristine"
                        class="alert alert-danger">
                   </div>
                 </div>

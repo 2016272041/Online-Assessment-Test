@@ -6,6 +6,7 @@ var Companies = sequelize.define("Companies", {
     id: DataTypes.STRING,
     type: {
         type: DataTypes.INTEGER,
+        primaryKey: true,
         foreignKey: true,
         allowNull: false
     },

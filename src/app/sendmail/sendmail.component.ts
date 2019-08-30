@@ -32,7 +32,7 @@ export class SendmailComponent {
   }
 
   private save(): void {
-    console.log(this.sendmail);
+    console.log(this.sendMail);
     this.sendmailService.sendMail(this.sendmail)
     .subscribe();
   }

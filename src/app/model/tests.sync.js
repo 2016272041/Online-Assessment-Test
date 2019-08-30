@@ -4,6 +4,7 @@ var Tests = sequelize.define("tests", {
     test_id: DataTypes.STRING,
     type: {
         type: DataTypes.INTEGER,
+        primarykey: true,
         foreignKey: true,
         allowNull: false
     },

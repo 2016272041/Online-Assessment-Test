@@ -14,12 +14,6 @@ module.exports = (sequelize, Sequelize) => {
         },
         lastname: {
             type: Sequelize.STRING
-        },
-        createdAt: {
-            type: Sequelize.DATE
-        },
-        updatedAt: {
-            type: Sequelize.DATE
         }
     });
 
