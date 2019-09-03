@@ -1,31 +1,52 @@
 var stream = require('stream');
 const db = require('../config/db.config.js');
-const File = db.files;
+const Files = db.files;
+
+exports.create = (req, res) => {
+    //Save to MySQL database
+    let files = req.body;
+    Files.create(files).then(result => {
+        //send uploaded files to client
+        res.json(result);
+    });
+};
+
+exports.findAll = (req, res) => {
+    Files.findall().then(files => {
+        res.json(files);
+    });
+};
+
+exports.findById = (req, res) => {
+    Files.findById(req.params.id).then(files => {
+        res.json(files);
+    });
+};
 
 exports.uploadFile = (req, res) => {
-    File.create({
-        type: req.file.mimetype,
-        name: req.file.originalname,
-        data: req.file.buffer
+    Files.create({
+        type: req.files.mimetype,
+        name: req.files.originalname,
+        data: req.files.buffer
     }).then(() => {
-        res.json({msg:'File upload successfully! -> filename = ' + req.file.originalname});
+        res.json({msg:'File upload successfully! -> filename = ' + req.files.originalname});
     })
 }
 
 exports.listAllFiles = (req, res) => {
-    File.findAll({attributes: ['id', 'name']}).then(files => {
+    Files.findAll({attributes: ['id', 'name']}).then(files => {
         res.json(files);
     });
 }
 
 exports.downloadFile = (req, res) => {
-    File.findById(req.params.id).then(file => {
-        var fileContents = Buffer.from(file.data, "base64");
+    Files.findById(req.params.id).then(files => {
+        var fileContents = Buffer.from(files.data, "base64");
         var readStream = new stream.PassThrough();
         readStream.end(fileContents);
 
-        res.set('Content-dispositiion', 'attachment; filename=' + file.name);
-        res.set('Content-Type', file.type);
+        res.set('Content-dispositiion', 'attachment; filename=' + files.name);
+        res.set('Content-Type', files.type);
 
         readStream.pipe(res);
     })

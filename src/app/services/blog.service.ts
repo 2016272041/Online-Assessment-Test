@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Blog } from '../models/blog';
+import { Blogs } from '../models/blogs';
 
 const httpOptions = {
   hearders: new HttpHeaders({'Content-Type': 'application/json'})
@@ -12,30 +12,30 @@ const httpOptions = {
 })
 export class BlogService {
   [x: string]: any;
-  private blogUrl = 'http://localhost:8080/api/blog';
+  private blogUrl = 'http://localhost:8080/api/blogs';
   constructor(private http: HttpClient) { }
 
-  getblog (): Observable<Blog[]> {
-    return this.http.get<Blog[]>(this.blogUrl);
+  getblogs (): Observable<Blogs[]> {
+    return this.http.get<Blogs[]>(this.blogUrl);
   }
 
-  getBlog (id: number): Observable<Blog> {
+  getBlogs (id: number): Observable<Blogs> {
     const url = `${this.blogUrl}/${id}`;
-    return this.http.get<Blog>(url);
+    return this.http.get<Blogs>(url);
   }
 
-  addBlog (blog: Blog): Observable<Blog> {
-    return this.http.post<Blog>(this.blogUrl, blog );
+  addBlogs (blogs: Blogs): Observable<Blogs> {
+    return this.http.post<Blogs>(this.blogUrl, blogs );
   }
 
-  deleteBlog (blog: Blog | number): Observable<Blog> {
-    const id = typeof blog === 'number' ? blog : blog.id;
+  deleteBlogs (blogs: Blogs | number): Observable<Blogs> {
+    const id = typeof blogs === 'number' ? blogs : blogs.id;
     const url = `${this.blogUrl}/${id}`;
 
-    return this.http.delete<Blog>(url);
+    return this.http.delete<Blogs>(url);
   }
 
-  updateBlogform (blogform: Blog): Observable<any> {
+  updateBlogform (blogform: Blogs): Observable<any> {
     return this.http.put(this.blogUrl, blogform );
   }
 }

@@ -1,14 +1,11 @@
-import { sequelize } from "../config/db.config";
-import { DataTypes } from "sequelize/types";
-
 //file sync table initilization//
-var File =  sequelize.define("File", {
+var Files =  sequelize.define("Files", {
     // File datatype initilization//
     id: DataTypes.STRING,
     type: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        foreignkey: false,
+        foreignkey: true,
         allowNull: false
     },
     id: DataTypes.NUMBER,
@@ -18,10 +15,10 @@ var File =  sequelize.define("File", {
 },  {
     classMethods: {
         associate: function(models) {
-            File.hasMany(models.id, {primaryKey: {fieldName: 'id'}});
-            File.belongsTo(models.type, {fieldName: 'type'});
-            File.belongsTo(models.type, {fieldName: 'name'});
-            File.belongsTo(models.type, {fieldName: 'data'});            
+            Files.hasMany(models.id, {primaryKey: {fieldName: 'id'}});
+            Files.belongsTo(models.type, {fieldName: 'type'});
+            Files.belongsTo(models.type, {fieldName: 'name'});
+            Files.belongsTo(models.type, {fieldName: 'data'});            
         }
     },
     tableName: 'files',
@@ -29,4 +26,4 @@ var File =  sequelize.define("File", {
     updatedAt: true
 });
 
-return File;
+return Files;

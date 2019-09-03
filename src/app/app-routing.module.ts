@@ -27,6 +27,7 @@ import { ProductComponent } from './product/product.component';
 import { DetailsUploadComponent } from './upload/details-upload/details-upload.component';
 import { FormUploadComponent } from './upload/form-upload/form-upload.component';
 import { ListUploadComponent } from './upload/list-upload/list-upload.component';
+import { PriceComponent } from './price/price.component';
 
 const routes: Routes = [
 {
@@ -174,6 +175,11 @@ const routes: Routes = [
     path: '**',
     redirectTo: ''
 },
+
+{
+    path: 'price',
+    component: PriceComponent
+}
 
 ];
 @NgModule({

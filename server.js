@@ -23,6 +23,7 @@ require('./src/app/route/questions.route.js')(app);
 require('./src/app/route/tests.route.js')(app);
 require('./src/app/route/companies.route.js')(app);
 require('./src/app/route/registrations.route.js')(app);
+require('./src/app/route/blogs.route.js')(app);
 
 let router = require ('./src/app/route/file.route.js');
 app.use('/', router);
@@ -157,6 +158,17 @@ function initial(){
       }
     ]
 
+    let blogs = [
+      {
+        id: 1,
+        title: "Sample Document",
+        is_featured: "yes",
+        is_active: "yes",
+        image: 897235828523001,
+        description: "Long Data Type"
+      }
+    ]
+
     
 
   // Init data -> save to MySQL
@@ -202,5 +214,14 @@ function initial(){
   console.log(File);
   for (let i = 0; i < file.length; i++) {
     File.create(file[i]);
+  }
+
+  //Init data -> save to MySQL
+  const Blogs = db.blogs;
+  console.log(db);
+  console.log(db.blogs);
+  console.log(blogs);
+  for (let i = 0; i < file.length; i++) {
+    Blogs.create(blogs[i]);
   }
  } 

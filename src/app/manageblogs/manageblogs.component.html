@@ -3,6 +3,14 @@
     <div class="dash-title">
         <h1>{{title}}</h1>
     </div>
+
+    <h4> Choose Blog Reading Sites: </h4>
+      <div style="text-align: center">
+          <button type="button" class="btn btn-info"><a href="https://wordpress.com/" routerLinkActive="active"><b><font color="black">Word Press</font></b></a></button> | 
+          <button type="button" class="btn btn-success"><a href="https://medium.com/" routerLinkActive="active"><b><font color="black">Medium</font></b></a></button> |
+          <button type="button" class="btn btn-danger"><a href="https://www.blogger.com/blogger.g?rinli=1&pli=1#welcome" routerLinkActive="active"><b><font color="black">Blogger</font></b></a></button> |
+          <button type="button" class="btn btn-primary"><a href="https://www.tumblr.com/" routerLinkActive="active"><b><font color="black">Tumblr</font></b></a></button>
+      </div>
     <div class="dash-nav">
         <a [routerLink]="['/admin/blogs/create']" class="btn btn-success">Add Post</a>
     </div>

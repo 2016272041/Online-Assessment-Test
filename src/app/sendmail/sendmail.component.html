@@ -52,33 +52,14 @@
               </div>
             </div>
 
-            <div class="form-group">
-              <label for="createdat"> CreatedAt </label>
-              <input type="datetime" class="form-control" id="createdat" placeholder="createdat"
-              required
-              [(ngModel)]="sendmail.createdAt" createdat="createdat" #createdat="ngModel">
-              <div [hidden]="createdat.valid || createdat.pristine"
-                   class="alert alert-danger">
-              </div>
-            </div>
-
-              <div class="form-group">
-                  <label for="updatedat"> UpdatedAt </label>
-                  <input type="datetime" class="form-control" id="updatedat" placeholder="updatedat"
-                  required
-                  [(ngModel)]="sendmail.updatedAt" updatedAt="updatedat" #updatedat="ngModel">
-                  <div [hidden]="updatedat.valid || updatedat.pristine"
-                       class="alert alert-danger">
-                  </div>
-                </div>
-
+            
             <div class="btn-group btn-group-sm">
                 <button type="button" class="btn btn-dark" (click)="sendMail()" [disabled]="!sendMailForm.form.valid">SendMail</button>
               </div>
               
         </form>
             <div [hidden]="!submitted">
-                <p>Submitted Successfully! -> <span class="badge badge-light"> {{sendmail.id}} {{sendmail.name}} {{sendmail.email}} {{sendmail.phone}} {{sendmail.message}} {{sendmail.createdAt}} {{sendmail.updatedAt}} </span></p>
+                <p>Submitted Successfully! -> <span class="badge badge-light"> {{sendmail.id}} {{sendmail.name}} {{sendmail.email}} {{sendmail.phone}} {{sendmail.message}} </span></p>
                 <div class="btn-group btn-group-sm">
                     <button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
                     <button type="button" class="btn btn-dark" (click)="sendMail(); sendMailForm.reset()"> Continue </button>

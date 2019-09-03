@@ -1,4 +1,4 @@
-export class Blog {
+export class Blogs {
     id: Number;
     title: String;
     is_featured: String;

@@ -18,7 +18,7 @@ export class SendmailComponent {
   ) { }
 
   newsendMail(): void {
-    this.submitted = false;
+    this.submitted = true;
     this.sendmail = new Sendmail();
   }
 
