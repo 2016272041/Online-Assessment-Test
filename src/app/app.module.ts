@@ -45,6 +45,7 @@ import { ListUploadComponent } from './upload/list-upload/list-upload.component'
 import { DetailsUploadComponent } from './upload/details-upload/details-upload.component';
 import { MyInterceptor } from './my-interceptor';
 import { PriceComponent } from './price/price.component';
+import { MCQComponent } from './mcq/mcq.component';
 
  @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { PriceComponent } from './price/price.component';
     FormUploadComponent,
     ListUploadComponent,
     DetailsUploadComponent,
-    PriceComponent
+    PriceComponent,
+    MCQComponent
   ],
   imports: [
     BrowserModule,

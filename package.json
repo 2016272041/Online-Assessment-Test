@@ -22,6 +22,7 @@
     "@angular/router": "^8.0.2",
     "angular-ai-chat-bot": "^1.1.1",
     "angular-in-memory-web-api": "^0.5.4",
+    "angular2-flash-messages": "^3.0.1",
     "bootstrap": "^4.3.1",
     "core-js": "^3.1.4",
     "cors": "^2.8.5",

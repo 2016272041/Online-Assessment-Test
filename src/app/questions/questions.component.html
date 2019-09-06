@@ -20,7 +20,35 @@
         <div [hidden]="questions1.valid || questions1.pristine"
              class="alert alert-danger">
         </div>
+        <form #addOptionsForm="ngForm">
+        <p> Options: </p>
+        <label class="col-md-6">
+          <label for="option1">option 1:</label>
+          <input type="text" class="form-control" id="option1" placeholder="option1" 
+          required
+          [(ngModel)]="questions.option1" name="option1" #option1="ngModel"><br>
+          <label for="option2">option 2:</label>
+          <input type="text" class="form-control" id="option2" placeholder="option2"
+          required
+          [(ngModel)]="questions.option2" name="option2" #option2="ngModel"><br>
+          <label>option 3:</label>
+          <input type="text" class="form-control" id="option3" placeholder="option3"
+          required
+          [(ngModel)]="questions.option3" name="option3" #option3="ngModel"><br>
+          <label>option 4:</label>
+          <input type="text" class="form-control" id="option4" placeholder="option4"
+          required
+          [(ngModel)]="questions.option4" name="option4" #option4="ngModel"><br>
+        <div class="btn-group btn-group-sm">
+            <button type="button" class="btn btn-dark" (click)="addOptions()" [disabled]="!addOptions1Form.form.valid">Add Options</button>
+        </div>
+        </label>
+        </form>  
+          <div [hidden]="!submitted">
+            <p> Submitted Successfully! -> <span class="badge badge-light"> {{questions.option1}} {{questions.option2}} {{questions.option3}} {{questions.option4}} </span></p>
+          </div>
       </div>
+      
       
       <div class="form-group">
         <label for="questions2"> Question 2 </label>
@@ -29,6 +57,33 @@
         [(ngModel)]="questions.questions2" name="questions2" #questions2="ngModel">
         <div [hidden]="questions2.valid || questions2.pristine"
              class="alert alert-danger">
+        </div>
+        <form #addOptionsForm="ngForm">
+        <p> Options: </p>
+        <label class="col-md-6">
+            <label for="option1">option 1:</label>
+            <input type="text" class="form-control" id="option1" placeholder="option1" 
+            required
+            [(ngModel)]="questions.option1" name="option1" #option1="ngModel"><br>
+            <label for="option2">option 2:</label>
+            <input type="text" class="form-control" id="option2" placeholder="option2"
+            required
+            [(ngModel)]="questions.option2" name="option2" #option2="ngModel"><br>
+            <label>option 3:</label>
+            <input type="text" class="form-control" id="option3" placeholder="option3"
+            required
+            [(ngModel)]="questions.option3" name="option3" #option3="ngModel"><br>
+            <label>option 4:</label>
+            <input type="text" class="form-control" id="option4" placeholder="option4"
+            required
+            [(ngModel)]="questions.option4" name="option4" #option4="ngModel"><br>
+            <div class="btn-group btn-group-sm">
+                <button type="button" class="btn btn-dark" (click)="addOptions()" [disabled]="!addOptionsForm.form.valid">Add Options</button>
+            </div>
+        </label> 
+        </form>
+        <div [hidden]="!submitted">
+            <p> Submitted Successfully! -> <span class="badge badge-light"> {{questions.option1}} {{questions.option2}} {{questions.option3}} {{questions.option4}} </span></p>
         </div>
       </div>
 
@@ -39,6 +94,33 @@
         [(ngModel)]="questions.questions3" name="questions3" #questions3="ngModel">
         <div [hidden]="questions3.valid || questions3.pristine"
              class="alert alert-danger">
+        </div>
+        <form #addOptionsForm="ngForm">
+          <p> Options: </p>
+          <label class="col-md-6">
+            <label for="option1"> Option 1: </label>
+            <input type="text" class="form-control" id="option1" placeholder="option1" 
+            required
+            [(ngModel)]="questions.option1" name="option1" #option1="ngModel"><br>
+            <label for="option2"> Option 2: </label>
+            <input type="text" class="form-control" id="option2" placeholder="option2"
+            required
+            [(ngModel)]="questions.option2" name="option2" #option2="ngModel"><br>
+            <label for="option3"> Option 3: </label>
+            <input type="text" class="form-control" id="option3" placeholder="option3"
+            required
+            [(ngModel)]="questions.option3" name="option3" #option3="ngModel"><br>
+            <label for="option4"> Option 4: </label>
+            <input type="text" class="form-control" id="option4" placeholder="option4"
+            required
+            [(ngModel)]="questions.option4" name="option4" #option4="ngModel"><br>
+            <div class="btn-group btn-group-sm">
+                <button type="button" class="btn btn-dark" (click)="addOptions()" [disabled]="!addOptionsForm.form.valid">Add Options</button>
+            </div>            
+          </label>
+        </form>
+        <div [hidden]="!submitted">
+            <p> Submitted Successfully! -> <span class="badge badge-light"> {{questions.option1}} {{questions.option2}} {{questions.option3}} {{questions.option4}} </span></p>
         </div>
       </div>
 

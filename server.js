@@ -170,6 +170,7 @@ function initial(){
     ]
 
     
+    
 
   // Init data -> save to MySQL
   const Questions = db.questions;
@@ -224,4 +225,4 @@ function initial(){
   for (let i = 0; i < file.length; i++) {
     Blogs.create(blogs[i]);
   }
- } 
+} 

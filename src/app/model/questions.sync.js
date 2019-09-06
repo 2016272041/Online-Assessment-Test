@@ -14,8 +14,11 @@ var Questions = sequelize.define("Questions", {
     questions2: DataTypes.STRING,
     questions3: DataTypes.STRING,
     created_by: DataTypes.DATE,
-    updated_by: DataTypes.DATE
-
+    updated_by: DataTypes.DATE,
+    option1: DataTypes.STRING,
+    option2: DataTypes.STRING,
+    option3: DataTypes.STRING,
+    option4: DataTypes.STRING
 }, {
     classMethods: {
         associate: function(models) {
@@ -26,6 +29,10 @@ var Questions = sequelize.define("Questions", {
             Questions.belongsTo(models.Questions3, { foreignKey: {fieldName:'questions3'}});
             Questions.belongsTo(models.Createdat, { foreignKey: {fieldName:'createdat'}});
             Questions.belongsTo(models.Updatedat, { foreignKey: {fieldName:'updatedat'}});
+            Questions.belongsTo(models.Option1, { foreignKey: {fieldName:'option1'}});
+            Questions.belongsTo(models.Option2, { foreignKey: {fieldName:'option2'}});
+            Questions.belongsTo(models.Option3, { foreignKey: {fieldName:'option3'}});
+            Questions.belongsTo(models.Option4, { foreignKey: {fieldName:'option4'}});
         }
     },
     tableName: 'questions',

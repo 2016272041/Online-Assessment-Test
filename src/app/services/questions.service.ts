@@ -10,6 +10,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class QuestionsService {
+  [x: string]: any;
   private questionsUrl = 'http://localhost:8080/api/questions';  // URL to web api
   constructor(private http: HttpClient) { }
 
@@ -23,6 +24,10 @@ export class QuestionsService {
   }
 
   addQuestions (questions: Questions): Observable<Questions> {
+    return this.http.post<Questions>(this.questionsUrl, questions, httpOptions);
+  }
+
+  addOptions (questions: Questions): Observable<Questions> {
     return this.http.post<Questions>(this.questionsUrl, questions, httpOptions);
   }
 

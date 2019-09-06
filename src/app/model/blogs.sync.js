@@ -26,7 +26,7 @@ var Blogs = sequelize.define("Blogs",{
             Blogs.belongsTo(models.description,{foreignKey: {fieldName: 'description'}});            
         }
     },
-    tbaleName: 'blogs',
+    tableName: 'blogs',
     createdAt: true,
     updatedAt: true
 });

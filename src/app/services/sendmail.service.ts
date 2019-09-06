@@ -6,13 +6,13 @@ import { Sendmail } from '../models/sendmail';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
-@Injectable ({
+
+@Injectable({
   providedIn: 'root'
 })
-
 export class SendmailService {
-
   private sendmailUrl = 'http://localhost:8080/api/sendmail';
+  sendMail: any;
   constructor(private http: HttpClient) { }
 
   getsendmail(): Observable<Sendmail[]> {
@@ -20,18 +20,17 @@ export class SendmailService {
   }
 
   getSendmail(id: number): Observable<Sendmail> {
-    const url = `${this.sendmailUrl}/${id}`;
+    const url = '${this.sendmailUrl}/${id}';
     return this.http.get<Sendmail>(url);
   }
 
-  sendMail (sendmail: Sendmail): Observable<Sendmail> {
-    return this.http.post<Sendmail>(this.sendmailUrl, sendmail, httpOptions);
-  }
-
-  deletesendMail (sendmail: Sendmail | number): Observable<Sendmail> {
-    const id = typeof sendmail === 'number' ? sendmail : sendmail.id;
-    const url = `${this.sendmailUrl}/${id}`;
-
-    return this.http.delete<Sendmail>(url, httpOptions);
+  sendmail(id, name, email, message): Observable<any> {
+    const obj = {
+      id: id,
+      name: name,
+      email: email,
+      message: message,
+    };
+    return this.http.post(this.sendmailUrl, obj);
   }
 }

@@ -14,6 +14,18 @@ module.exports = (sequelize, Sequelize) => {
 	  },
 	  updatedAt: {
 		  type: Sequelize.DATE
+	  },
+	  option1: {
+		  type: Sequelize.STRING
+	  },
+	  option2: {
+		  type: Sequelize.STRING
+	  },
+	  option3: {
+		  type: Sequelize.STRING
+	  },
+	  option4: {
+		  type: Sequelize.STRING
 	  }
 	});
 	

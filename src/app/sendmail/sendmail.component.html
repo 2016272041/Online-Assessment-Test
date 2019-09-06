@@ -1,69 +1,55 @@
-<div class="col-md-6 col-md-offset-8">
-  <div class="container">
-    <div [hidden]="submitted">
-      <form #sendMailForm="ngForm">
-          <div style="text-align: center">
-            <h2> Send Mail </h2>
+<div class="panel-body">
+<form [formGroup]="angForm" novalidate method="POST">
+  <div class="message">
+    <h3> Write to us </h3>
+  </div>
+  <div class="form__top">
+    <div class="form__left">
+      <div class="form__group">
+            <input class="form__input form__input--id" type="number"   formControlName="id" placeholder="id" #id>
           </div>
-
-          <div class="form-group">
-            <label for="id"> ID </label>
-            <input type="number" class="form-control" id="id" placeholder="id" 
-            required
-            [(ngModel)]="sendmail.id" name="id" #id="ngModel">
-            <div [hidden]="id.valid || id.pristine"
-                 class="alert alert-danger">
+          <div *ngIf="angForm.controls['id'].invalid && (angForm.controls['id'].dirty || angForm.controls['id'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['id'].errors.required">
+              ID is required.
             </div>
           </div>
 
-          <div class="form-group">
-              <label for="name"> Name </label>
-              <input type="text" class="form-control" id="name" placeholder="name"
-              required
-              [(ngModel)]="sendmail.name" name="name" #name="ngModel">
-              <div [hidden]="name.valid || name.pristine"
-                   class="alert alert-danger">
-              </div>
-            </div>
-
-          <div class="form-group">
-              <label for="email"> Email </label>
-              <input type="text" name="email" id="email" [(ngModel)]="sendmail.email" class="form-control" placeholder="E-Mail" required email #email="ngModel">
-                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error">
-                  <div *ngIf="email.errors['required']">Email is required.</div>
-                  <div *ngIf="email.errors['email']">Email must be a valid email address.</div>
-                </div>
-          </div>
-
-          <div class="form-group">
-            <label for="phone"> Phone No </label>
-            <input type="tel" name="phone" id="phone" [(ngModel)]="sendmail.phone" class="form-control" placeholder="PHONE" required phone #phone="ngModel">
-              <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="error">
-                <div *ngIf="phone.errors['required']"> Phone is Required </div>
-                <div *ngIf="phone.errors['phone']"> Phone must be a valid phone number. </div>
-              </div>
-          </div>
-
-          <div class="form-group">
-              <label for="message"> Message </label>
-              <textarea name="message" id="message" [(ngModel)]="sendmail.message" rows="5" class="form-control" placeholder="Message" required #message="ngModel"></textarea>
-              <div *ngIf="message.invalid && (message.dirty || message.touched)" class="error">
-                <div *ngIf="message.errors['required']">Message is required.</div>
-              </div>
-            </div>
-
-            
-            <div class="btn-group btn-group-sm">
-                <button type="button" class="btn btn-dark" (click)="sendMail()" [disabled]="!sendMailForm.form.valid">SendMail</button>
-              </div>
-              
-        </form>
-            <div [hidden]="!submitted">
-                <p>Submitted Successfully! -> <span class="badge badge-light"> {{sendmail.id}} {{sendmail.name}} {{sendmail.email}} {{sendmail.phone}} {{sendmail.message}} </span></p>
-                <div class="btn-group btn-group-sm">
-                    <button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
-                    <button type="button" class="btn btn-dark" (click)="sendMail(); sendMailForm.reset()"> Continue </button>
-                  </div>
-            </div>
+      <div class="form__group">
+        <input class="form__input form__input--name" type="text"   formControlName="name" placeholder="name" #name>
+      </div>
+      <div *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['name'].errors.required">
+          Name is required.
+        </div>
+      </div>
+      <div class="form__group">
+        <input class="form__input form__input--email" type="email"  formControlName="email" placeholder="email" #email>
+      </div>
+      <div *ngIf="angForm.controls['email'].invalid && (angForm.controls['message'].dirty || angForm.controls['message'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="angForm.controls['message'].errors.required">
+          message is required.
+        </div>
+      </div>
+    </div>
+    <div class="form__right">
+      <div class="form__group">
+        <textarea class="form__input form__input--textarea" placeholder="Message" formControlName="message"  #message
+          rows="3"></textarea>
+      </div>
+      <div *ngIf="angForm.controls['message'].invalid && (angForm.controls['message'].dirty || angForm.controls['message'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="angForm.controls['message'].errors.required">
+          message is required.
+        </div>
+      </div>
     </div>
   </div>
+  <flash-messages></flash-messages>
+  <div class="form__down">
+    <div class="form__group">
+      <button (click)="sendMail(id.value, name.value, email.value, message.value)" [disabled]="angForm.pristine || angForm.invalid"  class="form__input form__input--submit" name="submit" type="submit" value="SEND MESSAGE">SEND MESSAGE
+      </button>
+    </div>
+  </div>
+</form>

@@ -28,6 +28,7 @@ import { DetailsUploadComponent } from './upload/details-upload/details-upload.c
 import { FormUploadComponent } from './upload/form-upload/form-upload.component';
 import { ListUploadComponent } from './upload/list-upload/list-upload.component';
 import { PriceComponent } from './price/price.component';
+import { MCQComponent } from './mcq/mcq.component';
 
 const routes: Routes = [
 {
@@ -163,6 +164,11 @@ const routes: Routes = [
 {
     path: 'detailsupload',
     component: DetailsUploadComponent
+},
+
+{
+    path: 'mcq',
+    component: MCQComponent
 },
 
 {

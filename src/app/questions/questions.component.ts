@@ -10,6 +10,7 @@ import { Location } from '@angular/common';
 })
 export class QuestionsComponent {
   id: number;
+  formdata: any;
   questions = new Questions();
   submitted = false;
 
@@ -24,6 +25,11 @@ export class QuestionsComponent {
   }
 
   addQuestions() {
+    this.submitted = true;
+    this.save();
+  }
+
+  addOptions() {
     this.submitted = true;
     this.save();
   }

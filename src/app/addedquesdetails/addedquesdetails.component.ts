@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Questions } from '../services/questions';
 import { QuestionsService } from '../services/questions.service';
-
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
