@@ -28,6 +28,10 @@ export class QuestionsComponent {
     this.submitted = true;
     this.save();
   }
+  addAnswers() {
+    this.submitted = true;
+    this.save();
+  }
 
   addOptions() {
     this.submitted = true;

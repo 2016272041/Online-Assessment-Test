@@ -18,7 +18,8 @@ var Questions = sequelize.define("Questions", {
     option1: DataTypes.STRING,
     option2: DataTypes.STRING,
     option3: DataTypes.STRING,
-    option4: DataTypes.STRING
+    option4: DataTypes.STRING,
+    answers: DataTypes.STRING
 }, {
     classMethods: {
         associate: function(models) {
@@ -33,6 +34,7 @@ var Questions = sequelize.define("Questions", {
             Questions.belongsTo(models.Option2, { foreignKey: {fieldName:'option2'}});
             Questions.belongsTo(models.Option3, { foreignKey: {fieldName:'option3'}});
             Questions.belongsTo(models.Option4, { foreignKey: {fieldName:'option4'}});
+            Questions.belongsTo(models.Answers, { foreignKey: {fieldName: 'answers'}});
         }
     },
     tableName: 'questions',

@@ -125,6 +125,25 @@
       </div>
 
       <div class="form-group">
+      <form #addAnswersForm="ngForm">
+        <p> Answers: </p>
+        <p> Enter answer with questions id and answer </p>
+        <label class="col-md-4">
+            <label for="answers"> Load Answers for questions: </label>
+            <input type="text" class="form-control" id="answers" placeholder="eg.5 Data Inheritence" 
+            required
+            [(ngModel)]="questions.answers" name="answers" #answers="ngModel"><br>
+        <div class="btn-group btn-group-sm">
+          <button type="button" class="btn btn-dark" (click)="addAnswers()" [disabled]="!addAnswersForm.form.valid">Add Answers</button>
+        </div>
+        </label>
+      </form>
+      <div [hidden]="!submitted">
+          <p> Submitted Successfully! -> <span class="badge badge-light"> {{questions.answers}} </span></p>
+      </div>
+      </div>
+
+      <div class="form-group">
         <label for="createdAt"> CreatedAt </label>
         <input type="text" class="form-control" id="createdAt" placeholder="createdAt" 
         required

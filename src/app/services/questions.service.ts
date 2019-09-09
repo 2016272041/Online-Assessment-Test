@@ -31,6 +31,10 @@ export class QuestionsService {
     return this.http.post<Questions>(this.questionsUrl, questions, httpOptions);
   }
 
+  addAnswers (questions: Questions): Observable<Questions> {
+    return this.http.post<Questions>(this.questionsUrl, questions, httpOptions);
+  }
+
   deleteQuestions (questions: Questions | number): Observable<Questions> {
     const id = typeof questions === 'number' ? questions : questions.id;
     const url = `${this.questionsUrl}/${id}`;

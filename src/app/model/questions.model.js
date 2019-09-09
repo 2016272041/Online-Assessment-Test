@@ -26,6 +26,9 @@ module.exports = (sequelize, Sequelize) => {
 	  },
 	  option4: {
 		  type: Sequelize.STRING
+	  },
+	  answers: {
+		  type: Sequelize.STRING
 	  }
 	});
 	

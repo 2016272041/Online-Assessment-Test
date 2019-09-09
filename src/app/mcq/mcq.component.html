@@ -1,28 +1,38 @@
-<h5> Multiple Choice Questions </h5>
-<div *ngFor="let ques of questions">
-    <div> {{ques}} </div>
-    <div style="text-align: center">
-        <a [routerLink]="['/questions',ques.id]"><span>{{ques.id}}</span></a>
-        <a [routerLink]="['/questions',ques.questions1]"><span>{{ques.questions1}}</span></a>
-        <a [routerLink]="['/questions',ques.option1]"><span>{{ques.option1}}</span></a>
-        <a [routerLink]="['/questions',ques.questions2]">{{ques.questions2}}<span></span></a>
-        <a [routerLink]="['/questions',ques.option2]"><span>{{ques.option2}}</span></a>
-        <a [routerLink]="['/questions',ques.questions3]"><span>{{ques.questions3}}</span></a>
-        <a [routerLink]="['/questions',ques.option3]"><span>{{ques.option3}}</span></a>
-    </div>
-</div>
-<div *ngFor="let msg of message">
-    <div> {{ msg }} </div>
-</div>
+<div class="container py-5">
+    <h3 class="text-center text-uppercase"> Multiple Choice Questions </h3>
+    <table class="table table-boredered table-striped">
+        <thead>
+            <tr class="text-center text-uppercase">
+                <th>id</th>
+                <th>questions</th>
+                <th>option1</th>
+                <th>option2</th>
+                <th>option3</th>
+                <th>option4</th>
+                <th>createdAt</th>
+                <th>updatedAt</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let ques of questions">
+                <td>{{ques.id}}</td>
+                <td>{{ques.questions1}}</td>
+                <td><input type="radio"> {{ques.option1}} </td>
+                <td>{{ques.questions2}}</td>
+                <td><input type="radio"> {{ques.option2}} </td>
+                <td>{{ques.questions3}}</td>
+                <td><input type="radio"> {{ques.option3}} </td>
+                <td><input type="radio"> {{ques.option4}} </td>
+                <td>{{ques.createdAt}}</td>
+                <td>{{ques.updatedAt}}</td>
+            </tr>
+        </tbody>
+        <br>
+    </table>
+    <div>
+            <tr *ngFor="let ques of questions">
+                 <td> {{ques.answers}} </td>
+            </tr>   
+        </div>
 
-<div *ngFor="let question of questions | async">
-    <div> ID: {{questions.id}} </div>
-    <div> Questions: {{questions.questions1}} </div>
-    <div> Options: {{questions.option1}} </div>
-    <div> Questions: {{questions.questions2}} </div>
-    <div> Options: {{questions.option2}} </div>
-    <div> Questions: {{questions.questions3}} </div>
-    <div> Options: {{questions.option3}} </div>
-    <div> Create Date: {{questions.createdAt}} </div>
-    <div> Update Date: {{questions.updatedAt}} </div>
-</div>
+<div>

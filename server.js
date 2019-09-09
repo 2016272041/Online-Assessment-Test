@@ -72,6 +72,17 @@ function initial(){
       questions3: "In SOLID principle, O stands",
       createdAt: "13-AUG-19",
       updatedAt: "13-AUG-19"
+    },
+    {
+      id: 5,
+      questions1: "Data Structure Page Segmaentation",
+      option1: "Memory Allocation",
+      option2: "Data Hierarchy",
+      option3: "Data Inheritence",
+      option4: "Data Instances",
+      createdAt: "09-SEP-19",
+      updatedAt: "09-SEP-19",
+      answers: "5 -> Data Inheritence"
     }
   ]
 
