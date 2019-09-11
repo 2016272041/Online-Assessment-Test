@@ -13,6 +13,7 @@ export class QuestionsComponent {
   formdata: any;
   questions = new Questions();
   submitted = false;
+  tabs: any[];
 
   constructor(
     private questionsservice: QuestionsService,

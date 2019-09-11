@@ -27,6 +27,10 @@ export class QuizService {
     return this.http.get(url);
   }
 
+  getUrl(url: string) {
+    return this.get('http://localhost:8080/api/questions');
+  }
+
   getAll() {
     return [
       { id: 'data/javascript.json', name: 'JavaScript' },
@@ -34,8 +38,9 @@ export class QuizService {
       { id: 'data/csharp.json', name: 'C Sharp' },
       { id: 'data/designPatterns.json', name: 'Design Patterns' },
       { id: 'data/tradefinance.json', name: 'Trade Finance' },
-      { id: '/questions', name: 'Questions'}
+      { id: '/questions', name: 'Questions'},
+      { id: '/questions', name: 'http://localhost:8080/api/questions' },
+      { id: '/tests', name: 'http://localhost:8080/api/tests' }
     ];
   }
-
 }

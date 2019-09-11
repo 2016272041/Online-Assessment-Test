@@ -1,5 +1,6 @@
 import { QuizConfig } from './quiz-config';
 import { Question } from './question';
+import { Questions } from '../services/questions';
 
 export class Quiz {
     id: number;

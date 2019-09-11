@@ -29,7 +29,8 @@ export class DataAccessService {
                 'option1': questions['option1'] || '',
                 'option2': questions['option2'] || '',
                 'option3': questions['option3'] || '',
-                'option4': questions['option4'] || ''
+                'option4': questions['option4'] || '',
+                'answers': questions['answers'] || ''
             })));
         });
 

@@ -24,6 +24,7 @@ require('./src/app/route/tests.route.js')(app);
 require('./src/app/route/companies.route.js')(app);
 require('./src/app/route/registrations.route.js')(app);
 require('./src/app/route/blogs.route.js')(app);
+require('./src/app/route/answers.route.js')(app);
 
 let router = require ('./src/app/route/file.route.js');
 app.use('/', router);
@@ -82,7 +83,6 @@ function initial(){
       option4: "Data Instances",
       createdAt: "09-SEP-19",
       updatedAt: "09-SEP-19",
-      answers: "5 -> Data Inheritence"
     }
   ]
 
@@ -180,6 +180,12 @@ function initial(){
       }
     ]
 
+    let answers = [
+      {
+        id: 5,
+        answers: "Data Inheritence"
+      }
+    ]
     
     
 
@@ -235,5 +241,14 @@ function initial(){
   console.log(blogs);
   for (let i = 0; i < file.length; i++) {
     Blogs.create(blogs[i]);
+  }
+
+  //Init data -> save to MySQL
+  const Answers = db.answers;
+  console.log(db);
+  console.log(db.answers);
+  console.log(answers);
+  for (let i = 0; i < answers.length; i++) {
+    Answers.create(answers[i]);
   }
 } 

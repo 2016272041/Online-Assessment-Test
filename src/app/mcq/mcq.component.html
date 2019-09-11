@@ -17,22 +17,16 @@
             <tr *ngFor="let ques of questions">
                 <td>{{ques.id}}</td>
                 <td>{{ques.questions1}}</td>
-                <td><input type="radio"> {{ques.option1}} </td>
+                <td>{{ques.option1}} </td>
                 <td>{{ques.questions2}}</td>
-                <td><input type="radio"> {{ques.option2}} </td>
+                <td>{{ques.option2}} </td>
                 <td>{{ques.questions3}}</td>
-                <td><input type="radio"> {{ques.option3}} </td>
-                <td><input type="radio"> {{ques.option4}} </td>
+                <td>{{ques.option3}} </td>
+                <td>{{ques.option4}} </td>
                 <td>{{ques.createdAt}}</td>
                 <td>{{ques.updatedAt}}</td>
             </tr>
         </tbody>
         <br>
     </table>
-    <div>
-            <tr *ngFor="let ques of questions">
-                 <td> {{ques.answers}} </td>
-            </tr>   
-        </div>
-
 <div>

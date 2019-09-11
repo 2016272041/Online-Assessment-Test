@@ -10,4 +10,6 @@ export class Questions {
     createdAt: Date;
     updatedAt: Date;
     questions: any;
+    answers: any;
+  data: Answers[];
 }

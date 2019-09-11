@@ -25,5 +25,6 @@ db.companies = require('../model/companies.model.js')(sequelize, Sequelize);
 db.registrations = require('../model/registrations.model.js')(sequelize, Sequelize);
 db.file = require('../model/file.model.js')(sequelize, Sequelize);
 db.blogs = require('../model/blogs.model.js')(sequelize, Sequelize);
+db.answers = require('../model/answers.model.js')(sequelize, Sequelize);
 
 module.exports = db;
