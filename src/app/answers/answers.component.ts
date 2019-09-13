@@ -1,36 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
 import { AnswersService } from '../services/answers.service';
-import { Location } from '@angular/common';
-import 'rxjs/add/operator/map';
+import { Answers } from '../models/answers';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-answers',
   templateUrl: './answers.component.html',
   styleUrls: ['./answers.component.css']
 })
 export class AnswersComponent implements OnInit {
-  url = 'http://localhost:8080/answers';
-  res = [];
-  public answers: Answers[];
+  [x: string]: any;
 
-  constructor(private http: HttpClient) {
-      http.get(this.url).subscribe(result => {
-        this.answers = result as Answers[];
-      }, error => console.error(error));
-   }
+  answers: Answers[];
+
+  // tslint:disable-next-line:no-shadowed-variable
+  constructor(private AnswersService: AnswersService) {}
 
   ngOnInit(): void {
-    this.http.get(this.url).subscribe(data => {
-      this.res = [];
-    },
-      (err: HttpErrorResponse) => {
-        if (err.error instanceof Error) {
-          console.log('Client-Side error occured.');
-        } else {
-          console.log('Server-Side error occured.');
-        }
-      });
+    this.getAnswers();
   }
 
+  get Answers() {
+    return this.AnswersService.getanswers()
+               .subscribe(
+                 answers => {
+                   console.log(answers);
+                   this.answers = answers;
+                 }
+               );
+  }
 }

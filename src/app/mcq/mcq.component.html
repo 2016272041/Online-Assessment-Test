@@ -1,4 +1,4 @@
-<div class="container py-5">
+<div class="container py-10">
     <h3 class="text-center text-uppercase"> Multiple Choice Questions </h3>
     <table class="table table-boredered table-striped">
         <thead>
@@ -13,20 +13,44 @@
                 <th>updatedAt</th>
             </tr>
         </thead>
-        <tbody>
+    <div [hidden]="submitted">
+        <form #submitOptionsForm="ngForm">
+        <tbody width:200px> 
             <tr *ngFor="let ques of questions">
-                <td>{{ques.id}}</td>
-                <td>{{ques.questions1}}</td>
-                <td>{{ques.option1}} </td>
-                <td>{{ques.questions2}}</td>
-                <td>{{ques.option2}} </td>
-                <td>{{ques.questions3}}</td>
-                <td>{{ques.option3}} </td>
-                <td>{{ques.option4}} </td>
-                <td>{{ques.createdAt}}</td>
-                <td>{{ques.updatedAt}}</td>
+                <p><b>Question Id:</b>{{ques.id}}</p>
+                <label for="id">Enter Question ID Here</label>
+                <input type="number" class="form-control" id="id" placeholder="id"
+                required [(ngModel)]="mcq.id" name="id" #id="ngModel">
+                <p><b>{{ques.questions1}}</b></p>
+                <p><b>{{ques.questions2}}</b></p>
+                <p><b>{{ques.questions3}}</b></p>
+                <th>
+                    <p><label><input type="checkbox" name="option1" ng-model="formData.questions.option1"
+                        [(ngModel)]="mcq.option1" name=option1 #option1="ngModel"><td>{{ques.option1}}</td></label></p>
+                
+                    <p><label><input type="checkbox" name="option2" ng-model="formData.questions.option2"
+                        [(ngModel)]="mcq.option2" name=option2 #option2="ngModel"><td>{{ques.option2}}</td></label></p>
+                </th>
+                <th>
+                    <p><label><input type="checkbox" name="option3" ng-model="formData.questions.option3"
+                        [(ngModel)]="mcq.option3" name=option3 #option3="ngModel"><td>{{ques.option3}}</td></label></p>
+                
+                    <p><label><input type="checkbox" name="option4" ng-model="formData.questions.option4"
+                        [(ngModel)]="mcq.option4" name=option4 #option4="ngModel"><td>{{ques.option4}}</td></label></p>
+                </th>
+                <div class="btn-group btn-group-sm">
+                        <button type="button" class="btn btn-danger btn-lg" (click)="submitOptions()" [disabled]="!submitOptionsForm.form.valid">Submit!</button>
+                </div>
             </tr>
         </tbody>
-        <br>
+        <div class="btn-group btn-group-sm">
+            <button type="button" class="btn btn-dark" (click)="goBack()">Back</button> |
+            <button type="button" class="btn btn-danger btn-lg" (click)="submitOptions()" [disabled]="!submitOptionsForm.form.valid">Submit!</button>
+        </div>
+        </form>
+    </div>
+    <div [hidden]="!submitted">
+        <p> Submitted Successfully! -> <span class="badge badge-light"> {{mcq.id}} {{mcq.option1}} {{mcq.option2}} {{mcq.option3}} {{mcq.option4}} </span></p>
+    </div>
     </table>
 <div>

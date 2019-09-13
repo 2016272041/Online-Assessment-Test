@@ -1,4 +1,4 @@
-interface Answers {
+export class Answers {
     id: number;
     answers: string;
 }

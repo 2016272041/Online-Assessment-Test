@@ -2,50 +2,57 @@ import { Component, OnInit } from '@angular/core';
 import { Questions } from '../services/questions';
 import { QuestionsService } from '../services/questions.service';
 import { Dataaccess } from '../models/dataaccess';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-// tslint:disable-next-line:import-blacklist
-import 'rxjs/Rx';
+import { McqService } from '../services/mcq.service';
+import { Mcq } from '../models/mcq';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-mcq',
   templateUrl: './mcq.component.html',
   styleUrls: ['./mcq.component.css']
 })
 export class MCQComponent implements OnInit {
-  [x: string]: any;
-  dataAccess: any;
-  message: any;
-  Questions: Questions[];
-  tabs: any[];
-  Dataaccess: Dataaccess[];
-  Answers: string[];
-  selectedQuestions: string[];
+  id: number;
+  mcq = new Mcq();
+  submitted = false;
 
-  constructor(private questionsService: QuestionsService, private httpService: HttpClient) {}
-  questions: string[];
+  questions: Questions[];
+  location: any;
+  constructor(
+    private questionsService: QuestionsService,
+    private mcqService: McqService
+    ) {}
 
-  onSubmit(ques: Questions) {
-    this.selectedQuestionsText = ques.answers;
-    this.selectedQuestions = ques.questions;
+  newMcq() {
+    this.submitted = false;
+    this.mcq = new Mcq;
   }
-  ngOnInit() {
-    this.httpService.get('http://localhost:8080/api/questions').subscribe(
-      data => {
-        this.questions = data as string [];
-      }
-    );
 
-    this.httpService.get('http://localhost:8080/api/questions/answers').subscribe(
-      data => {
-        this.Answers = data as string [];
-      }
-    );
-    this.dataAccess.onSelect('http://localhost:8080/api/questions/answers').subscribe(
-      answers => {
-        this.questions = answers();
-        console.log(answers);
-      },
-      error => this.message.push(error)
-    );
+  submitOptions() {
+    this.submitted = true;
+    this.save();
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
+
+  private save(): void {
+    console.log(this.mcq);
+    this.mcqService.submitOptions(this.mcq)
+        .subscribe();
+  }
+
+  ngOnInit(): void {
+    this.getQuestions();
+  }
+
+  getQuestions() {
+    return this.questionsService.getquestions()
+               .subscribe(
+                 questions => {
+                   console.log(questions);
+                   this.questions = questions;
+                 }
+               );
   }
 }

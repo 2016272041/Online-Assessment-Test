@@ -25,6 +25,7 @@ require('./src/app/route/companies.route.js')(app);
 require('./src/app/route/registrations.route.js')(app);
 require('./src/app/route/blogs.route.js')(app);
 require('./src/app/route/answers.route.js')(app);
+require('./src/app/route/mcqs.route.js')(app);
 
 let router = require ('./src/app/route/file.route.js');
 app.use('/', router);
@@ -45,37 +46,35 @@ function initial(){
     {
       id: 1,
       questions1: "Who is father of JAVA",
-      questions2: "Abbreviation of XHTML",
-      questions3: "What is diffrent between 'let' and 'var'",
+      option1: "Dennis Ritchie",
+      option2: "James Goseling",
+      option3: "Martin Roderigus",
+      option4: "Kevin Peterson",
       createdAt: "30-JUN-19",
       updatedAt: "02-Jul-19"
     },
     {
       id: 2,
-      questions1: "What is Typescript",
-      questions2: "Which is following right syntax for arrow function",
-      questions3: "Which HTML tag do we use to put the Javascript",
-      createdAt: "03-JUL-19",
-      updatedAt: "04-JUL-19"
+      questions2: "Abbreviation of XHTML",
+      option1: "Extensible Markup Language",
+      option2: "Hypertext Markup Language",
+      option3: "Document Type Definition",
+      option4: "Extensible Hypertext Markup Language",
+      createdAt: "30-JUN-19",
+      updatedAt: "02-Jul-19"
     },
     {
       id: 3,
-      questions1: "What is the diffrent between == and ===",
-      questions2: "Which is the following NOT method of an Array",
-      questions3: "Which HTML tag used to highlights the fonts",
-      createdAt: "04-JUL-19",
-      updatedAt: "03-JUL-19"
+      questions3: "What is diffrent between 'let' and 'var'",
+      option1: "Scoping Rules",
+      option2: "Enclosing Blocks",
+      option3: "Function Scope",
+      option4: "Hoisted",
+      createdAt: "09-SEP-19",
+      updatedAt: "09-SEP-19",
     },
     {
       id: 4,
-      questions1: "What is Design and Patterns",
-      questions2: " In SOLID principles 'S' stands",
-      questions3: "In SOLID principle, O stands",
-      createdAt: "13-AUG-19",
-      updatedAt: "13-AUG-19"
-    },
-    {
-      id: 5,
       questions1: "Data Structure Page Segmaentation",
       option1: "Memory Allocation",
       option2: "Data Hierarchy",
@@ -186,6 +185,13 @@ function initial(){
         answers: "Data Inheritence"
       }
     ]
+
+    let mcqs = [
+      {
+        id: 1,
+        answers: "James Goesling"
+      }
+    ]
     
     
 
@@ -250,5 +256,14 @@ function initial(){
   console.log(answers);
   for (let i = 0; i < answers.length; i++) {
     Answers.create(answers[i]);
+  }
+
+  //Init data -> save to MySQL
+  const Mcqs = db.mcqs;
+  console.log(db);
+  console.log(db.mcqs);
+  console.log(mcqs);
+  for (let i = 0; i < mcq.length; i++) {
+    Mcqs.create(mcqs[i]);
   }
 } 

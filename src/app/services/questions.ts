@@ -11,5 +11,4 @@ export class Questions {
     updatedAt: Date;
     questions: any;
     answers: any;
-  data: Answers[];
 }

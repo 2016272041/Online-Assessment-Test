@@ -1,17 +1,5 @@
 <p> View Answers </p>
-<div class style="text-align: center">
-<thead>
-   <tr class="text-center text-uppercase">
-       <th>id</th>
-       <th>answers</th>
-   </tr>
-</thead>
-
-<ul *ngIf="answers">
-   <li *ngFor="let ans of answers">
-      {{ans.id}}
-      {{ans.answers}}
-   </li>
-</ul>
-
+<div *ngFor="let ans of answers">
+   <a [routerLink]="['/answers', ans.id]">{{ans.id}}</a>
+   <a [routerLink]="['/answers', ans.answers]">{{ans.answers}}</a>
 </div>
