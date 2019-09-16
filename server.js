@@ -26,6 +26,7 @@ require('./src/app/route/registrations.route.js')(app);
 require('./src/app/route/blogs.route.js')(app);
 require('./src/app/route/answers.route.js')(app);
 require('./src/app/route/mcqs.route.js')(app);
+require('./src/app/route/router.js')(app);
 
 let router = require ('./src/app/route/file.route.js');
 app.use('/', router);
@@ -192,7 +193,23 @@ function initial(){
         answers: "James Goesling"
       }
     ]
-    
+
+    let role = [
+      Role.create({
+        id: 1,
+        name: "USER"
+      }),
+
+      Role.create({
+        id: 2,
+        name: "ADMIN"
+      }),
+
+      Role.create({
+        id: 3,
+        name: "PM"
+      })
+    ]
     
 
   // Init data -> save to MySQL
@@ -265,5 +282,14 @@ function initial(){
   console.log(mcqs);
   for (let i = 0; i < mcq.length; i++) {
     Mcqs.create(mcqs[i]);
+  }
+
+  //Init data -> save to MySQL
+  const Role = db.role;
+  console.log(db);
+  console.log(db.role);
+  console.log(role);
+  for (let i = 0; i < role.length; i++) {
+    Role.create(role[i]);
   }
 } 

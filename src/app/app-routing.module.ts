@@ -30,6 +30,7 @@ import { ListUploadComponent } from './upload/list-upload/list-upload.component'
 import { PriceComponent } from './price/price.component';
 import { MCQComponent } from './mcq/mcq.component';
 import { AnswersComponent } from './answers/answers.component';
+import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
 {
@@ -175,6 +176,11 @@ const routes: Routes = [
 {
     path: 'price',
     component: PriceComponent
+},
+
+{
+    path: 'user',
+    component: UserComponent
 },
 
 {

@@ -27,6 +27,7 @@ db.file = require('../model/file.model.js')(sequelize, Sequelize);
 db.blogs = require('../model/blogs.model.js')(sequelize, Sequelize);
 db.answers = require('../model/answers.model.js')(sequelize, Sequelize);
 db.mcqs = require('../model/mcqs.model.js')(sequelize, Sequelize);
-db.admin = require('../model/admin.model.js')(sequelize, Sequelize);
+db.user = require('../model/user.model.js')(sequelize, Sequelize);
+db.roles = require('../model/role.model.js')(sequelize, Sequelize);
 
 module.exports = db;

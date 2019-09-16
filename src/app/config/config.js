@@ -10,3 +10,4 @@ var sequelize = new Sequelize("testdb",
         schema: "core"
 }
 });
+
