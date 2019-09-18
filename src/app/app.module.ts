@@ -47,7 +47,7 @@ import { MyInterceptor } from './my-interceptor';
 import { PriceComponent } from './price/price.component';
 import { MCQComponent } from './mcq/mcq.component';
 import { AnswersComponent } from './answers/answers.component';
-import { UserComponent } from './user/user.component';
+import { UserregComponent } from './userreg/userreg.component';
 
  @NgModule({
   declarations: [
@@ -81,7 +81,7 @@ import { UserComponent } from './user/user.component';
     PriceComponent,
     MCQComponent,
     AnswersComponent,
-    UserComponent
+    UserregComponent
   ],
   imports: [
     BrowserModule,

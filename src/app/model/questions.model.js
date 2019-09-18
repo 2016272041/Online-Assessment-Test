@@ -9,6 +9,27 @@ module.exports = (sequelize, Sequelize) => {
 	  questions3: {
 		    type: Sequelize.STRING
 	  },
+	  questions4: {
+			type: Sequelize.STRING
+	  },
+	  questions5: {
+			type: Sequelize.STRING
+	  },
+	  questions6: {
+			type: Sequelize.STRING
+	  },
+	  questions7: {
+			type: Sequelize.STRING
+	  },
+	  questions8: {
+			type: Sequelize.STRING
+	  },
+	  questions9: {
+			type: Sequelize.STRING
+	  },
+	  questions10: {
+			type: Sequelize.STRING
+	  },
 	  createdAt: {
 		  type: Sequelize.DATE
 	  },

@@ -48,16 +48,12 @@
             <p> Submitted Successfully! -> <span class="badge badge-light"> {{questions.option1}} {{questions.option2}} {{questions.option3}} {{questions.option4}} </span></p>
           </div>
       </div>
-      
-      
+       
       <div class="form-group">
         <label for="questions2"> Question 2 </label>
         <input type="text" class="form-control" id="questions2" placeholder="questions2"
         required
         [(ngModel)]="questions.questions2" name="questions2" #questions2="ngModel">
-        <div [hidden]="questions2.valid || questions2.pristine"
-             class="alert alert-danger">
-        </div>
         <form #addOptionsForm="ngForm">
         <p> Options: </p>
         <label class="col-md-6">
@@ -92,9 +88,6 @@
         <input type="text" class="form-control" id="questions3" placeholder="questions3" 
         required
         [(ngModel)]="questions.questions3" name="questions3" #questions3="ngModel">
-        <div [hidden]="questions3.valid || questions3.pristine"
-             class="alert alert-danger">
-        </div>
         <form #addOptionsForm="ngForm">
           <p> Options: </p>
           <label class="col-md-6">
@@ -124,24 +117,261 @@
         </div>
       </div>
 
-      <div class="form-group">
-      <form #addAnswersForm="ngForm">
-        <p> Answers: </p>
-        <p> Enter answer with questions id and answer </p>
-        <label class="col-md-4">
-            <label for="answers"> Load Answers for questions: </label>
-            <input type="text" class="form-control" id="answers" placeholder="eg.5 Data Inheritence" 
+      <div class= "form-group">
+        <label for="questions4"> Question 4 </label>
+        <input type="text" class="form-control" id="questions4" placeholder="questions4"
+        required
+        [(ngModel)]="questions.questions4" name="questions4" #questions4="ngModel">
+        <form #addOptionsForm="ngForm">
+          <p> Options: </p>
+          <label class="col-md-6">
+            <label for="option1"> Option 1: </label>
+            <input type="text" class="form-control" id="option1" placeholder="option1"
             required
-            [(ngModel)]="questions.answers" name="answers" #answers="ngModel"><br>
-        <div class="btn-group btn-group-sm">
-          <button type="button" class="btn btn-dark" (click)="addAnswers()" [disabled]="!addAnswersForm.form.valid">Add Answers</button>
+            [(ngModel)]="questions.option1" name="option1" #option1="ngModel"><br>
+            <label for="option2"> Option 2: </label>
+            <input type="text" class="form-control" id="option2" placeholder="option2"
+            required
+            [(ngModel)]="questions.option2" name="option2" #option2="ngModel"><br>
+            <label for="option3"> Option 3: </label>
+            <input type="text" class="form-control" id="option3" placeholder="option3"
+            required
+            [(ngModel)]="questions.option3" name="option3" #option3="ngModel">
+            <label for="option4"> Option 4: </label>
+            <input type="text" class="form-control" id="option4" placeholder="option4"
+            required
+            [(ngModel)]="questions.option4" name="option4" #option4="ngModel"><br>
+            <div class="btn-group btn-group-sm">
+                <button type="button" class="btn btn-dark" (click)="addOptions()" [disabled]="!addOptionsForm.form.valid">Add Options</button>
+            </div>  
+          </label>
+        </form>
+        <div [hidden]="!submitted">
+            <p> Submitted Successfully! -> <span class="badge badge-light"> {{questions.option1}} {{questions.option2}} {{questions.option3}} {{questions.option4}} </span></p>
         </div>
-        </label>
-      </form>
-      <div [hidden]="!submitted">
-          <p> Submitted Successfully! -> <span class="badge badge-light"> {{questions.answers}} </span></p>
-      </div>
-      </div>
+      </div>      
+
+      <div class= "form-group">
+          <label for="questions5"> Question 5 </label>
+          <input type="text" class="form-control" id="questions5" placeholder="questions5"
+          required
+          [(ngModel)]="questions.questions5" name="questions5" #questions5="ngModel">
+          <div [hidden]="questions5.valid || questions5.pristine"
+              class="alert alert-danger">
+          </div>
+          <form #addOptionsForm="ngForm">
+            <p> Options: </p>
+            <label class="col-md-6">
+              <label for="option1"> Option 1: </label>
+              <input type="text" class="form-control" id="option1" placeholder="option1"
+              required
+              [(ngModel)]="questions.option1" name="option1" #option1="ngModel"><br>
+              <label for="option2"> Option 2: </label>
+              <input type="text" class="form-control" id="option2" placeholder="option2"
+              required
+              [(ngModel)]="questions.option2" name="option2" #option2="ngModel"><br>
+              <label for="option3"> Option 3: </label>
+              <input type="text" class="form-control" id="option3" placeholder="option3"
+              required
+              [(ngModel)]="questions.option3" name="option3" #option3="ngModel">
+              <label for="option4"> Option 4: </label>
+              <input type="text" class="form-control" id="option4" placeholder="option4"
+              required
+              [(ngModel)]="questions.option4" name="option4" #option4="ngModel"><br>
+              <div class="btn-group btn-group-sm">
+                  <button type="button" class="btn btn-dark" (click)="addOptions()" [disabled]="!addOptionsForm.form.valid">Add Options</button>
+              </div>  
+            </label>
+          </form>
+          <div [hidden]="!submitted">
+              <p> Submitted Successfully! -> <span class="badge badge-light"> {{questions.option1}} {{questions.option2}} {{questions.option3}} {{questions.option4}} </span></p>
+          </div>
+        </div>
+
+        <div class= "form-group">
+            <label for="questions6"> Question 6 </label>
+            <input type="text" class="form-control" id="questions6" placeholder="questions6"
+            required
+            [(ngModel)]="questions.questions6" name="questions6" #questions6="ngModel">
+            <div [hidden]="questions6.valid || questions6.pristine"
+                class="alert alert-danger">
+            </div>
+            <form #addOptionsForm="ngForm">
+              <p> Options: </p>
+              <label class="col-md-6">
+                <label for="option1"> Option 1: </label>
+                <input type="text" class="form-control" id="option1" placeholder="option1"
+                required
+                [(ngModel)]="questions.option1" name="option1" #option1="ngModel"><br>
+                <label for="option2"> Option 2: </label>
+                <input type="text" class="form-control" id="option2" placeholder="option2"
+                required
+                [(ngModel)]="questions.option2" name="option2" #option2="ngModel"><br>
+                <label for="option3"> Option 3: </label>
+                <input type="text" class="form-control" id="option3" placeholder="option3"
+                required
+                [(ngModel)]="questions.option3" name="option3" #option3="ngModel">
+                <label for="option4"> Option 4: </label>
+                <input type="text" class="form-control" id="option4" placeholder="option4"
+                required
+                [(ngModel)]="questions.option4" name="option4" #option4="ngModel"><br>
+                <div class="btn-group btn-group-sm">
+                    <button type="button" class="btn btn-dark" (click)="addOptions()" [disabled]="!addOptionsForm.form.valid">Add Options</button>
+                </div>  
+              </label>
+            </form>
+            <div [hidden]="!submitted">
+                <p> Submitted Successfully! -> <span class="badge badge-light"> {{questions.option1}} {{questions.option2}} {{questions.option3}} {{questions.option4}} </span></p>
+            </div>
+          </div>
+    
+          <div class= "form-group">
+              <label for="questions7"> Question 7 </label>
+              <input type="text" class="form-control" id="questions7" placeholder="questions7"
+              required
+              [(ngModel)]="questions.questions7" name="questions7" #questions7="ngModel">
+              <div [hidden]="questions7.valid || questions7.pristine"
+                  class="alert alert-danger">
+              </div>
+              <form #addOptionsForm="ngForm">
+                <p> Options: </p>
+                <label class="col-md-6">
+                  <label for="option1"> Option 1: </label>
+                  <input type="text" class="form-control" id="option1" placeholder="option1"
+                  required
+                  [(ngModel)]="questions.option1" name="option1" #option1="ngModel"><br>
+                  <label for="option2"> Option 2: </label>
+                  <input type="text" class="form-control" id="option2" placeholder="option2"
+                  required
+                  [(ngModel)]="questions.option2" name="option2" #option2="ngModel"><br>
+                  <label for="option3"> Option 3: </label>
+                  <input type="text" class="form-control" id="option3" placeholder="option3"
+                  required
+                  [(ngModel)]="questions.option3" name="option3" #option3="ngModel">
+                  <label for="option4"> Option 4: </label>
+                  <input type="text" class="form-control" id="option4" placeholder="option4"
+                  required
+                  [(ngModel)]="questions.option4" name="option4" #option4="ngModel"><br>
+                  <div class="btn-group btn-group-sm">
+                      <button type="button" class="btn btn-dark" (click)="addOptions()" [disabled]="!addOptionsForm.form.valid">Add Options</button>
+                  </div>  
+                </label>
+              </form>
+              <div [hidden]="!submitted">
+                  <p> Submitted Successfully! -> <span class="badge badge-light"> {{questions.option1}} {{questions.option2}} {{questions.option3}} {{questions.option4}} </span></p>
+              </div>
+            </div>
+
+            <div class= "form-group">
+                <label for="questions8"> Question 8 </label>
+                <input type="text" class="form-control" id="questions8" placeholder="questions8"
+                required
+                [(ngModel)]="questions.questions8" name="questions8" #questions8="ngModel">
+                <div [hidden]="questions8.valid || questions8.pristine"
+                    class="alert alert-danger">
+                </div>
+                <form #addOptionsForm="ngForm">
+                  <p> Options: </p>
+                  <label class="col-md-6">
+                    <label for="option1"> Option 1: </label>
+                    <input type="text" class="form-control" id="option1" placeholder="option1"
+                    required
+                    [(ngModel)]="questions.option1" name="option1" #option1="ngModel"><br>
+                    <label for="option2"> Option 2: </label>
+                    <input type="text" class="form-control" id="option2" placeholder="option2"
+                    required
+                    [(ngModel)]="questions.option2" name="option2" #option2="ngModel"><br>
+                    <label for="option3"> Option 3: </label>
+                    <input type="text" class="form-control" id="option3" placeholder="option3"
+                    required
+                    [(ngModel)]="questions.option3" name="option3" #option3="ngModel">
+                    <label for="option4"> Option 4: </label>
+                    <input type="text" class="form-control" id="option4" placeholder="option4"
+                    required
+                    [(ngModel)]="questions.option4" name="option4" #option4="ngModel"><br>
+                    <div class="btn-group btn-group-sm">
+                        <button type="button" class="btn btn-dark" (click)="addOptions()" [disabled]="!addOptionsForm.form.valid">Add Options</button>
+                    </div>  
+                  </label>
+                </form>
+                <div [hidden]="!submitted">
+                    <p> Submitted Successfully! -> <span class="badge badge-light"> {{questions.option1}} {{questions.option2}} {{questions.option3}} {{questions.option4}} </span></p>
+                </div>
+              </div>
+
+              <div class= "form-group">
+                  <label for="questions9"> Question 9 </label>
+                  <input type="text" class="form-control" id="questions9" placeholder="questions9"
+                  required
+                  [(ngModel)]="questions.questions9" name="questions9" #questions9="ngModel">
+                  <div [hidden]="questions9.valid || questions9.pristine"
+                      class="alert alert-danger">
+                  </div>
+                  <form #addOptionsForm="ngForm">
+                    <p> Options: </p>
+                    <label class="col-md-6">
+                      <label for="option1"> Option 1: </label>
+                      <input type="text" class="form-control" id="option1" placeholder="option1"
+                      required
+                      [(ngModel)]="questions.option1" name="option1" #option1="ngModel"><br>
+                      <label for="option2"> Option 2: </label>
+                      <input type="text" class="form-control" id="option2" placeholder="option2"
+                      required
+                      [(ngModel)]="questions.option2" name="option2" #option2="ngModel"><br>
+                      <label for="option3"> Option 3: </label>
+                      <input type="text" class="form-control" id="option3" placeholder="option3"
+                      required
+                      [(ngModel)]="questions.option3" name="option3" #option3="ngModel">
+                      <label for="option4"> Option 4: </label>
+                      <input type="text" class="form-control" id="option4" placeholder="option4"
+                      required
+                      [(ngModel)]="questions.option4" name="option4" #option4="ngModel"><br>
+                      <div class="btn-group btn-group-sm">
+                          <button type="button" class="btn btn-dark" (click)="addOptions()" [disabled]="!addOptionsForm.form.valid">Add Options</button>
+                      </div>  
+                    </label>
+                  </form>
+                  <div [hidden]="!submitted">
+                      <p> Submitted Successfully! -> <span class="badge badge-light"> {{questions.option1}} {{questions.option2}} {{questions.option3}} {{questions.option4}} </span></p>
+                  </div>
+                </div>
+
+                <div class= "form-group">
+                    <label for="questions10"> Question 10 </label>
+                    <input type="text" class="form-control" id="questions10" placeholder="questions10"
+                    required
+                    [(ngModel)]="questions.questions10" name="questions10" #questions10="ngModel">
+                    <div [hidden]="questions10.valid || questions10.pristine"
+                        class="alert alert-danger">
+                    </div>
+                    <form #addOptionsForm="ngForm">
+                      <p> Options: </p>
+                      <label class="col-md-6">
+                        <label for="option1"> Option 1: </label>
+                        <input type="text" class="form-control" id="option1" placeholder="option1"
+                        required
+                        [(ngModel)]="questions.option1" name="option1" #option1="ngModel"><br>
+                        <label for="option2"> Option 2: </label>
+                        <input type="text" class="form-control" id="option2" placeholder="option2"
+                        required
+                        [(ngModel)]="questions.option2" name="option2" #option2="ngModel"><br>
+                        <label for="option3"> Option 3: </label>
+                        <input type="text" class="form-control" id="option3" placeholder="option3"
+                        required
+                        [(ngModel)]="questions.option3" name="option3" #option3="ngModel">
+                        <label for="option4"> Option 4: </label>
+                        <input type="text" class="form-control" id="option4" placeholder="option4"
+                        required
+                        [(ngModel)]="questions.option4" name="option4" #option4="ngModel"><br>
+                        <div class="btn-group btn-group-sm">
+                            <button type="button" class="btn btn-dark" (click)="addOptions()" [disabled]="!addOptionsForm.form.valid">Add Options</button>
+                        </div>  
+                      </label>
+                    </form>
+                    <div [hidden]="!submitted">
+                        <p> Submitted Successfully! -> <span class="badge badge-light"> {{questions.option1}} {{questions.option2}} {{questions.option3}} {{questions.option4}} </span></p>
+                    </div>
+                  </div>
 
       <div class="form-group">
         <label for="createdAt"> CreatedAt </label>
@@ -171,7 +401,7 @@
 </div>
 
 <div [hidden]="!submitted">
-  <p>Submitted Successfully! -> <span class="badge badge-light"> {{questions.id}}  {{questions.questions1}} {{questions.questions2}} {{questions.questions3}} {{questions.createdAt}} {{questions.updatedAt}} </span></p>
+  <p>Submitted Successfully! -> <span class="badge badge-light"> {{questions.id}}  {{questions.questions1}} {{questions.questions2}} {{questions.questions3}} {{questions.questions4}} {{questions.questions5}} {{questions.questions6}} {{questions.questions7}} {{questions.questions8}} {{questions.questions9}} {{questions.questions10}} {{questions.createdAt}} {{questions.updatedAt}} </span></p>
 	<div class="btn-group btn-group-sm">
       <button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
       <button type="button" class="btn btn-dark" (click)="addQuestions(); addQuestionsForm.reset()"> Continue </button>

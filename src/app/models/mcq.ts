@@ -5,4 +5,3 @@ export class Mcq {
     option3: String;
     option4: String;
 }
-

@@ -1,0 +1,56 @@
+<div style="text-align: left">
+    <div class="col-md-6 col-md-offset-3">
+        <div [hidden]="submitted">
+        <h2> User registration </h2>
+        <form #addUserregForm="ngForm">
+
+            <div class="form-group">
+                <label for="userid"> User ID: </label>
+                <input type="number" class="form-control" userid="userid" placeholder="userid"
+                required
+                [(ngModel)]="userreg.userid" name="userid" #userid="ngModel">
+            </div>
+
+            <div class="form-group">
+                <label for="name"> Name: </label>
+                <input type="text" class="form-control" name="name" placeholder="name"
+                required
+                [(ngModel)]="userreg.name" name="name" #name="ngModel">
+            </div>
+
+            <div class="form-group">
+                <label for="username"> User Name: </label>
+                <input type="text" class="form-control" username="username" placeholder="username"
+                required
+                [(ngModel)]="userreg.username" name="username" #username="ngModel">
+            </div>
+
+            <div class="form-group">
+                <label for="email"> Email: </label>
+                <input type="text" class="form-control" email="email" placeholder="email"
+                required
+                [(ngModel)]="userreg.email" name="email" #email="ngModel">
+            </div>
+
+            <div class="form-group">
+                <label for="password"> Password: </label>
+                <input type="text" class="form-control" password="password" placeholder="password"
+                required
+                [(ngModel)]="userreg.password" name="password" #password="ngModel">
+            </div>
+
+            <div class="btn-group btn-group-sm">
+                    <button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+                  <button type="button" class="btn btn-dark" (click)="addUserreg()" [disabled]="!addUserregForm.form.valid">Add User</button>
+            </div>
+        </form>
+        </div>
+        <div [hidden]="!submitted">
+                <p>Submitted Successfully! -> <span class="badge badge-light"> {{userreg.userid}} {{userreg.name}} {{userreg.username}} {{userreg.email}} {{userreg.password}} </span></p>
+                  <div class="btn-group btn-group-sm">
+                    <button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+                    <button type="button" class="btn btn-dark" (click)="addUserreg(); addUserregForm.reset()"> Continue </button>
+                  </div>
+              </div>
+    </div>
+</div>

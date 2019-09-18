@@ -26,12 +26,11 @@ require('./src/app/route/registrations.route.js')(app);
 require('./src/app/route/blogs.route.js')(app);
 require('./src/app/route/answers.route.js')(app);
 require('./src/app/route/mcqs.route.js')(app);
-require('./src/app/route/router.js')(app);
+require('./src/app/route/userreg.route.js')(app);
 
 let router = require ('./src/app/route/file.route.js');
 app.use('/', router);
 
- 
 // Create a Server
 var server = app.listen(8080, function () {
  
@@ -194,23 +193,24 @@ function initial(){
       }
     ]
 
-    let role = [
-      Role.create({
-        id: 1,
-        name: "USER"
-      }),
-
-      Role.create({
-        id: 2,
-        name: "ADMIN"
-      }),
-
-      Role.create({
-        id: 3,
-        name: "PM"
-      })
+    let userreg = [
+      {
+        userid: 1,
+        name: "Shiva",
+        username: "SHIVA5374",
+        email: "sivakumar@venzoconsulting.com",
+        password: "Si7373198816"
+      },
+      {
+        userid: 2,
+        name: "Sakthi",
+        username: "Sakthi2041",
+        email: "balachandarsivakumar@gmail.com",
+        password: "si7373198816"
+      }
     ]
-    
+
+        
 
   // Init data -> save to MySQL
   const Questions = db.questions;
@@ -285,11 +285,11 @@ function initial(){
   }
 
   //Init data -> save to MySQL
-  const Role = db.role;
+  const Userreg = db.userreg;
   console.log(db);
-  console.log(db.role);
-  console.log(role);
-  for (let i = 0; i < role.length; i++) {
-    Role.create(role[i]);
+  console.log(db.userreg);
+  console.log(userreg);
+  for (let i = 0; i < userreg.length; i++) {
+    Userreg.create(userreg[i]);
   }
 } 

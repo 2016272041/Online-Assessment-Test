@@ -7,12 +7,30 @@
     <div class="container">
         <div style="text-align: center">
                 <button type="button" class="btn btn-info"><a routerLink="questions" routerLinkActive="active"><b><font color="black">Create Questions</font></b></a></button> |
-                <button type="button" class="btn btn-info"><a routerLink="users" routerLinkActive="active"><b><font color="black">Users</font></b></a></button> |
-                <button type="button" class="btn btn-info"><a routerLink="#" routerLinkActive="active"><b><font color="black">Verify Test</font></b></a></button> |
+                <button type="button" class="btn btn-info"><a routerLink="users" routerLinkActive="active"><b><font color="black">users</font></b></a></button> |
                 <button type="button" class="btn btn-info"><a routerLink="#" routerLinkActive="active"><b><font color="black">Score </font></b></a></button> |
                 <button type="button" class="btn btn-info"><a routerLink="#" routerLinkActive="active"><b><font color="black">Admin</font></b></a></button> 
-        </div>
+        </div> 
     </div>
 
+    <div style="width: 400px;margin: auto;">
+        <h4> Select User ID and assign Test </h4>
+        <input type="number" [(ngModel)]="userid" placeholder="userid">
+        <button type="button" (click)="getUserreg()"> Get User </button>
+        <br>
+        <button type="button" (click)="getAllUserreg()"> Get all users </button>
+    </div>
+
+    <div *ngIf="userreg">
+        User is called {{userreg.userid}}. This person has the following Test
+        <ul>
+            <li *ngFor="let use of userreg;">
+                <th>{{userreg.userid}}</th>
+                <th>{{userreg.name}}</th>
+                <th>{{userreg.username}}</th>
+                <th>{{userreg.email}}</th>
+            </li>
+        </ul>
+    </div>
     <router-outlet> </router-outlet>
 </div>
