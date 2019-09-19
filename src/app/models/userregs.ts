@@ -1,4 +1,4 @@
-export class Userreg {
+export class Userregs {
     userid: number;
     name: String;
     username: String;

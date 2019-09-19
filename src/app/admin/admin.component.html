@@ -16,21 +16,28 @@
     <div style="width: 400px;margin: auto;">
         <h4> Select User ID and assign Test </h4>
         <input type="number" [(ngModel)]="userid" placeholder="userid">
-        <button type="button" (click)="getUserreg()"> Get User </button>
+        <button type="button" (click)="getUserid()"> Get User </button>
         <br>
-        <button type="button" (click)="getAllUserreg()"> Get all users </button>
+        <button type="button" (click)="getAlluserregs()"> Get all users </button>
     </div>
 
-    <div *ngIf="userreg">
-        User is called {{userreg.userid}}. This person has the following Test
+    <div *ngIf="userregs">
         <ul>
-            <li *ngFor="let use of userreg;">
-                <th>{{userreg.userid}}</th>
-                <th>{{userreg.name}}</th>
-                <th>{{userreg.username}}</th>
-                <th>{{userreg.email}}</th>
+            <li *ngFor="let user of userregs">
+                <th>{{user.userid}}</th>
+                <th>{{user.name}}</th>
+                <th>{{user.username}}</th>
+                <th>{{user.email}}</th>
             </li>
         </ul>
     </div>
-    <router-outlet> </router-outlet>
+
+    <tbody width:200px>
+        <tr *ngFor="let user of userregs">
+            <p><b>{{user.userid}}</b></p>
+            <p><b>{{user.name}}</b></p>
+            <p><b>{{user.username}}</b></p>
+            <p><b>{{user.email}}</b></p>
+        </tr>
+    </tbody>
 </div>

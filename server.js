@@ -26,7 +26,7 @@ require('./src/app/route/registrations.route.js')(app);
 require('./src/app/route/blogs.route.js')(app);
 require('./src/app/route/answers.route.js')(app);
 require('./src/app/route/mcqs.route.js')(app);
-require('./src/app/route/userreg.route.js')(app);
+require('./src/app/route/userregs.route.js')(app);
 
 let router = require ('./src/app/route/file.route.js');
 app.use('/', router);
@@ -153,7 +153,6 @@ function initial(){
         lastname: "Balachandran",
         createdAt: 09-08-19,
         updatedAt: 09-08-19
-
       }
     ]
 
@@ -193,20 +192,24 @@ function initial(){
       }
     ]
 
-    let userreg = [
+    let userregs = [
       {
         userid: 1,
         name: "Shiva",
         username: "SHIVA5374",
         email: "sivakumar@venzoconsulting.com",
-        password: "Si7373198816"
+        password: "Si7373198816",
+        createdAt: "19-09-19",
+        updatedAt: "19-09-19"
       },
       {
         userid: 2,
         name: "Sakthi",
         username: "Sakthi2041",
         email: "balachandarsivakumar@gmail.com",
-        password: "si7373198816"
+        password: "si7373198816",
+        createdAt: "19-09-19",
+        updatedAt: "19-09-19"
       }
     ]
 
@@ -285,11 +288,11 @@ function initial(){
   }
 
   //Init data -> save to MySQL
-  const Userreg = db.userreg;
+  const Userregs = db.userregs;
   console.log(db);
-  console.log(db.userreg);
-  console.log(userreg);
-  for (let i = 0; i < userreg.length; i++) {
-    Userreg.create(userreg[i]);
+  console.log(db.userregs);
+  console.log(userregs);
+  for (let i = 0; i < userregs.length; i++) {
+    Userregs.create(userregs[i]);
   }
 } 

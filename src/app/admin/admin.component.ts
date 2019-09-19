@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserregService } from '../services/userreg.service';
-import { Userreg } from '../models/userreg';
-import { Questions } from '../services/questions';
-import { QuestionsService } from '../services/questions.service';
+import { UserregsService } from '../services/userregs.service';
+import { Userregs } from '../models/userregs';
 import { Location } from '@angular/common';
 @Component({
   selector: 'app-admin',
@@ -10,53 +8,40 @@ import { Location } from '@angular/common';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  public userid: number;
-  public name: string;
-  public username: string;
-  userreg: Userreg[];
-  questions: Questions[];
-  Userreg: Userreg;
-  constructor(
-    private userregService: UserregService,
-    private questionsService: QuestionsService
-    ) { }
-
-    public getUserid() {
-      this.userregService.getUserreg(this.userid).subscribe(userreg => this.Userreg = userreg);
-    }
-
-    public getAllUserreg() {
-      this.userregService.getAllUserreg().subscribe(userreg => this.userreg = userreg);
-    }
+  userregs: Userregs[];
+  location: Location;
+  constructor(private userregsService: UserregsService) {}
 
   ngOnInit(): void {
-    this.getQuestions();
+    this.getUserregs();
+    this.getUserid();
+    this.getAlluserregs();
   }
 
-  assign() {
-    return this.questionsService.getassign()
-      .subscribe(
-        questions => {
-          console.log(questions);
-          this.assign = questions;
-        });
+  getUserregs() {
+    return this.userregsService.getuserregs()
+                .subscribe(
+                  userregs => {
+                    console.log(userregs);
+                    this.userregs = userregs;
+                  });
   }
 
-  getUserreg() {
-    return this.userregService.getuserreg()
+  getUserid() {
+    return this.userregsService.getuserregs()
                .subscribe(
-                 userreg => {
-                    console.log(userreg);
-                    this.userreg = userreg;
+                 userregs => {
+                  console.log(userregs);
+                  this.userregs = userregs;
                  });
   }
 
-  getQuestions() {
-    return this.questionsService.getquestions()
+  getAlluserregs() {
+    return this.userregsService.getuserregs()
                .subscribe(
-                 questions => {
-                   console.log(questions);
-                   this.questions = questions;
+                 userregs => {
+                   console.log(userregs);
+                   this.userregs = userregs;
                  });
   }
 }
