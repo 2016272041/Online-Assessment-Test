@@ -27,6 +27,7 @@ require('./src/app/route/blogs.route.js')(app);
 require('./src/app/route/answers.route.js')(app);
 require('./src/app/route/mcqs.route.js')(app);
 require('./src/app/route/userregs.route.js')(app);
+require('./src/app/route/assigners.route.js')(app);
 
 let router = require ('./src/app/route/file.route.js');
 app.use('/', router);
@@ -213,6 +214,18 @@ function initial(){
       }
     ]
 
+    let assigners = [
+      {
+        userid: 1,
+        username: "Shiva",
+        testid: 2,
+        testname: "Network Analyse",
+        testdate: 29-09-19,
+        createdAt: 23-09-19,
+        updatedAt: 21-09-19
+      }
+    ]
+
         
 
   // Init data -> save to MySQL
@@ -294,5 +307,14 @@ function initial(){
   console.log(userregs);
   for (let i = 0; i < userregs.length; i++) {
     Userregs.create(userregs[i]);
+  }
+
+  //Init data -> save to MySQL
+  const Assigners = db.assigners;
+  console.log(db);
+  console.log(db.assigners);
+  console.log(assigners);
+  for (let i = 0; i < assigners.length; i++) {
+    Assigners.create(assigners[i]);
   }
 } 

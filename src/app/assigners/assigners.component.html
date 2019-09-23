@@ -1,0 +1,24 @@
+<table id="table" class="table table-striped">
+    <thead>
+        <tr>
+            <th> USER ID </th>
+            <th> USER NAME </th>
+            <th> TEST ID </th>
+            <th> TEST NAME </th>
+            <th> TEST DATE </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of userregs">
+            <td>{{user.userid}}</td>
+            <td>{{user.username}}</td>
+        <tr *ngFor="let test of tests">
+            <td>{{test.testid}}</td>
+            <td>{{test.testname}}</td>
+            <td>{{test.testdate}}</td>
+        </tr>
+    </tbody>
+    <button type="button" (click)="getAll()"> All Assigns</button>
+    <button type="button" (click)="getQuestions()"> Assign Test </button>
+    <button type="button" (click)="getUserregs()"> Get Registered Users</button>
+</table>

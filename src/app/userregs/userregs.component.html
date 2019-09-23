@@ -8,48 +8,48 @@
                 <label for="userid"> User ID: </label>
                 <input type="number" class="form-control" userid="userid" placeholder="userid"
                 required
-                [(ngModel)]="userreg.userid" name="userid" #userid="ngModel">
+                [(ngModel)]="userregs.userid" name="userid" #userid="ngModel">
             </div>
 
             <div class="form-group">
                 <label for="name"> Name: </label>
                 <input type="text" class="form-control" name="name" placeholder="name"
                 required
-                [(ngModel)]="userreg.name" name="name" #name="ngModel">
+                [(ngModel)]="userregs.name" name="name" #name="ngModel">
             </div>
 
             <div class="form-group">
                 <label for="username"> User Name: </label>
                 <input type="text" class="form-control" username="username" placeholder="username"
                 required
-                [(ngModel)]="userreg.username" name="username" #username="ngModel">
+                [(ngModel)]="userregs.username" name="username" #username="ngModel">
             </div>
 
             <div class="form-group">
                 <label for="email"> Email: </label>
                 <input type="text" class="form-control" email="email" placeholder="email"
                 required
-                [(ngModel)]="userreg.email" name="email" #email="ngModel">
+                [(ngModel)]="userregs.email" name="email" #email="ngModel">
             </div>
 
             <div class="form-group">
                 <label for="password"> Password: </label>
                 <input type="text" class="form-control" password="password" placeholder="password"
                 required
-                [(ngModel)]="userreg.password" name="password" #password="ngModel">
+                [(ngModel)]="userregs.password" name="password" #password="ngModel">
             </div>
 
             <div class="btn-group btn-group-sm">
-                    <button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
-                  <button type="button" class="btn btn-dark" (click)="addUserreg()" [disabled]="!addUserregForm.form.valid">Add User</button>
+                    <button type="button" class="btn btn-dark" (click)="goBack()">Back</button><br>
+                  <button type="button" class="btn btn-dark" (click)="addUserregs()" [disabled]="!addUserregsForm.form.valid">Add User</button>
             </div>
         </form>
         </div>
         <div [hidden]="!submitted">
-                <p>Submitted Successfully! -> <span class="badge badge-light"> {{userreg.userid}} {{userreg.name}} {{userreg.username}} {{userreg.email}} {{userreg.password}} </span></p>
+                <p>Submitted Successfully! -> <span class="badge badge-light"> {{userregs.userid}} {{userregs.name}} {{userregs.username}} {{userregs.email}} {{userregs.password}} </span></p>
                   <div class="btn-group btn-group-sm">
-                    <button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
-                    <button type="button" class="btn btn-dark" (click)="addUserreg(); addUserregForm.reset()"> Continue </button>
+                    <button type="button" class="btn btn-dark" (click)="goBack()">Back</button><br>
+                    <button type="button" class="btn btn-dark" (click)="addUserregs(); addUserregForm.reset()"> Continue </button>
                   </div>
               </div>
     </div>

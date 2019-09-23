@@ -48,6 +48,7 @@ import { PriceComponent } from './price/price.component';
 import { MCQComponent } from './mcq/mcq.component';
 import { AnswersComponent } from './answers/answers.component';
 import { UserregsComponent } from './userregs/userregs.component';
+import { AssignersComponent } from './assigners/assigners.component';
 
  @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import { UserregsComponent } from './userregs/userregs.component';
     PriceComponent,
     MCQComponent,
     AnswersComponent,
-    UserregsComponent
+    UserregsComponent,
+    AssignersComponent,
   ],
   imports: [
     BrowserModule,

@@ -15,29 +15,18 @@
 
     <div style="width: 400px;margin: auto;">
         <h4> Select User ID and assign Test </h4>
-        <input type="number" [(ngModel)]="userid" placeholder="userid">
+        <p>Enter User ID Here <input type="number" [(ngModel)]="userid" placeholder="userid"></p>
         <button type="button" (click)="getUserid()"> Get User </button>
         <br>
         <button type="button" (click)="getAlluserregs()"> Get all users </button>
     </div>
 
-    <div *ngIf="userregs">
-        <ul>
-            <li *ngFor="let user of userregs">
-                <th>{{user.userid}}</th>
-                <th>{{user.name}}</th>
-                <th>{{user.username}}</th>
-                <th>{{user.email}}</th>
-            </li>
-        </ul>
-    </div>
 
-    <tbody width:200px>
-        <tr *ngFor="let user of userregs">
-            <p><b>{{user.userid}}</b></p>
-            <p><b>{{user.name}}</b></p>
-            <p><b>{{user.username}}</b></p>
-            <p><b>{{user.email}}</b></p>
-        </tr>
-    </tbody>
+    <td *ngFor="let test of tests">
+        <div>{{test.id}}</div>
+        <div>{{test.testname}}</div>
+    </td>
+
+    <button type="button" class="btn btn-danger"><a routerLink="assigner" routerLinkActive="active"><b><font color="black">Assigner</font></b></a></button>
+<router-outlet></router-outlet>
 </div>

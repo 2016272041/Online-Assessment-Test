@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserregsService } from '../services/userregs.service';
+import { TestsService } from '../services/tests.service';
 import { Userregs } from '../models/userregs';
+import { Tests } from '../services/tests';
 import { Location } from '@angular/common';
 @Component({
   selector: 'app-admin',
@@ -9,13 +11,18 @@ import { Location } from '@angular/common';
 })
 export class AdminComponent implements OnInit {
   userregs: Userregs[];
+  tests: Tests[];
   location: Location;
-  constructor(private userregsService: UserregsService) {}
+  constructor(
+    private userregsService: UserregsService,
+    private testsService: TestsService
+    ) {}
 
   ngOnInit(): void {
     this.getUserregs();
     this.getUserid();
     this.getAlluserregs();
+    this.getTests();
   }
 
   getUserregs() {
@@ -42,6 +49,15 @@ export class AdminComponent implements OnInit {
                  userregs => {
                    console.log(userregs);
                    this.userregs = userregs;
+                 });
+  }
+
+  getTests() {
+    return this.testsService.gettests()
+               .subscribe(
+                 tests => {
+                   console.log(tests);
+                   this.tests = tests;
                  });
   }
 }

@@ -67,3 +67,25 @@ mysql> describe user_roles;
 | userId    | int(11)  | NO   | PRI | NULL    |       |
 +-----------+----------+------+-----+---------+-------+
 4 rows in set (0.00 sec)
+
++------------------+
+| Tables_in_testdb |
++------------------+
+| answers          |
+| blogforms        |
+| blogs            |
+| companies        |
+| customers        |
+| files            |
+| fileupload       |
+| images           |
+| mcqs             |
+| products         |
+| quescategory     |
+| questions        |
+| registrations    |
+| roles            |
+| tests            |
+| userregs         |
++------------------+
+16 rows in set (0.03 sec)

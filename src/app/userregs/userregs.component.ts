@@ -35,7 +35,7 @@ export class UserregsComponent {
 
  private save(): void {
     console.log(this.userregs);
-    this.userregsservice.addUserreg(this.userregs)
+    this.userregsservice.addUserregs(this.userregs)
         .subscribe();
   }
 }

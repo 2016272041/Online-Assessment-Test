@@ -31,6 +31,7 @@ import { PriceComponent } from './price/price.component';
 import { MCQComponent } from './mcq/mcq.component';
 import { AnswersComponent } from './answers/answers.component';
 import { UserregsComponent } from './userregs/userregs.component';
+import { AssignersComponent } from './assigners/assigners.component';
 
 const routes: Routes = [
 {
@@ -197,6 +198,11 @@ const routes: Routes = [
 {
     path: 'answers',
     component: AnswersComponent
+},
+
+{
+    path: 'assigners',
+    component: AssignersComponent
 }
 
 ];
