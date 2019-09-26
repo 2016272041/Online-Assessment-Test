@@ -49,7 +49,8 @@ import { MCQComponent } from './mcq/mcq.component';
 import { AnswersComponent } from './answers/answers.component';
 import { UserregsComponent } from './userregs/userregs.component';
 import { AssignersComponent } from './assigners/assigners.component';
-
+import { UpdatetestsComponent } from './admin/updatetests/updatetests.component';
+import { DeletetestsComponent } from './admin/deletetests/deletetests.component';
  @NgModule({
   declarations: [
     AppComponent,
@@ -84,6 +85,8 @@ import { AssignersComponent } from './assigners/assigners.component';
     AnswersComponent,
     UserregsComponent,
     AssignersComponent,
+    UpdatetestsComponent,
+    DeletetestsComponent,
   ],
   imports: [
     BrowserModule,

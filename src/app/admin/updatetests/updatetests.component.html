@@ -1,0 +1,37 @@
+<h3> Tests Update Details </h3>
+<ng-template [ngIf]="utils.isLoading(loading)">
+<div style="text-align: center">
+    <div *ngIf="updatetests" class="card">
+        <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+                <li class="nav-item">
+                    <a
+                    class="nav-link"
+                    [routerLink]="[]"
+                    [queryParams]="{ tab: 'edit' }"
+                    [ngClass]="{ 'active': utils.tabIs(tab, 'edit') }">Edit Tests</a>
+                </li>
+
+                <li class="nav-item">
+                    <a
+                    class="nav-link"
+                    [routerLink]="[]"
+                    [queryParams]="{ tab: 'delete' }"
+                    [ngClass]="{'active': utils.tabIs(tab, 'delete')}">Delete Tests</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="card-body">
+                <!-- Edit Tests form -->
+                <app-edit-form
+                  *ngIf="utils.tabIs(tab, 'edit')"
+                  [updatetests]="updatetests"></app-edit-form>
+                <!-- Delete Tests -->
+                <app-delete-event
+                  *ngIf="utils.tabIs(tab, 'delete')"
+                  [updatetests]="updatetests"></app-delete-event>
+        </div>
+    </div>
+</div>
+</ng-template>

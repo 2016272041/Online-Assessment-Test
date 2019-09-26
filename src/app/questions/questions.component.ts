@@ -43,6 +43,10 @@ export class QuestionsComponent {
     this.location.back();
   }
 
+  gotoBack(): void {
+    this.location.back();
+  }
+
   private save(): void {
     console.log(this.questions);
     this.questionsservice.addQuestions(this.questions)

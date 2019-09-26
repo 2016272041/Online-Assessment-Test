@@ -1,0 +1,32 @@
+<h3> Delete Test Details </h3>
+<p class="lead">
+        You are deleting the "<strong [innerHTML]="deletetests.title"></strong>" tests.
+      </p>
+      <p class="text-danger">
+        Deleting this tests will also remove all associated RSVPs. Please proceed with caution!
+      </p>
+      <label for="deletetestsid">deletetests id: </label>
+      <input type="number" class="form-control" id="deletetestsid" placeholder="deletetests id"
+      required
+      [(ngModel)]="deletetests.deletetestsid" name="deletestsid" #id="ngModel">
+      <div class="form-group">
+        <label for="deleteTests">Confirm Tests title:</label>
+        <input
+          type="text"
+          deletetests id="deleteTests"
+          class="form-control"
+          [(ngModel)]="confirmDelete">
+      </div>
+      <!-- Delete button -->
+      <p>
+        <button
+          class="btn btn-danger"
+          (click)="RemoveTests()"
+          [disabled]="confirmDelete !== deletetests.title || submitting">Delete Tests</button>
+        <app-submitting *ngIf="submitting"></app-submitting>
+      </p>
+      <!-- Error deleting tests -->
+      <p *ngIf="error" class="alert alert-danger">
+        <strong>Oops!</strong> There was an error deleting this event. Please try again.
+      </p>
+  

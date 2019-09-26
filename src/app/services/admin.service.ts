@@ -14,13 +14,20 @@ export class Adminservice {
     public getUserregs(userid: number): Observable<Userregs> {
         return this.httpService.get<Userregs>('http://localhost:8080/userregs/${userid}').pipe(
             map(data => new Userregs().deserialize(data)),
-            catchError(() => throwError('User not found'))
+            catchError(() => throwError('Userregs not found'))
         );
     }
 
     public getAllUserregs(): Observable<Userregs[]> {
         return this.httpService.get<Userregs>('http://localhost:8080/userregs').pipe(
-            map(data => new Userregs().deserialize(data))
+            map(data => new Userregs().deserialize(data)),
+            catchError(() => throwError('AllUsers not found'))
+        );
+    }
+    public getUserid(userid: number): Observable<Userregs> {
+        return this.httpService.get<Userregs>('http://localhost:8080/userregs/${userid}').pipe(
+            map(data => new Userregs().deserialize(data)),
+            catchError(() => throwError('userid not found'))
         );
     }
 }

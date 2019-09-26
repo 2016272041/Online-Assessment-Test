@@ -1,29 +1,18 @@
 <div class="container py-10">
     <h3 class="text-center text-uppercase"> Multiple Choice Questions </h3>
-    <table class="table table-boredered table-striped">
-        <thead>
-            <tr class="text-center text-uppercase">
-                <th>id</th>
-                <th>questions</th>
-                <th>option1</th>
-                <th>option2</th>
-                <th>option3</th>
-                <th>option4</th>
-                <th>createdAt</th>
-                <th>updatedAt</th>
-            </tr>
-        </thead>
     <div [hidden]="submitted">
         <form #submitOptionsForm="ngForm">
         <tbody width:200px> 
             <tr *ngFor="let ques of questions">
-                <p><b>Question Id:</b>{{ques.id}}</p>
+                <span><p><b>Question Id:</b>{{ques.id}}</p></span>
+                <label class="col-md-6">
                 <label for="id">Enter Question ID Here</label>
+                </label>
                 <input type="number" class="form-control" id="id" placeholder="id"
                 required [(ngModel)]="mcq.id" name="id" #id="ngModel">
-                <p><b>{{ques.questions1}}</b></p>
-                <p><b>{{ques.questions2}}</b></p>
-                <p><b>{{ques.questions3}}</b></p>
+                <span><p><b>{{ques.questions1}}</b></p></span>
+                <span><p><b>{{ques.questions2}}</b></p></span>
+                <span><p><b>{{ques.questions3}}</b></p></span>
                 <th>
                     <p><label><input type="checkbox" name="option1" ng-model="formData.questions.option1"
                         [(ngModel)]="mcq.option1" name=option1 #option1="ngModel"><td>{{ques.option1}}</td></label></p>
@@ -52,5 +41,4 @@
     <div [hidden]="!submitted">
         <p> Submitted Successfully! -> <span class="badge badge-light"> {{mcq.id}} {{mcq.option1}} {{mcq.option2}} {{mcq.option3}} {{mcq.option4}} </span></p>
     </div>
-    </table>
 <div>

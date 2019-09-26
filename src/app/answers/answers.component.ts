@@ -28,4 +28,13 @@ export class AnswersComponent implements OnInit {
                  }
                );
   }
+
+  getAnswers() {
+    return this.AnswersService.getanswers()
+               .subscribe(
+                 answers => {
+                   console.log(answers);
+                   this.answers = answers;
+                 });
+  }
 }

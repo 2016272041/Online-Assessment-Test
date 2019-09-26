@@ -15,18 +15,46 @@
 
     <div style="width: 400px;margin: auto;">
         <h4> Select User ID and assign Test </h4>
-        <p>Enter User ID Here <input type="number" [(ngModel)]="userid" placeholder="userid"></p>
-        <button type="button" (click)="getUserid()"> Get User </button>
-        <br>
-        <button type="button" (click)="getAlluserregs()"> Get all users </button>
+        <p>Enter User ID Here <input type="number" [(ngModel)]="userid" placeholder="userid"></p> <button type="button" (click)="getUserid()"> Get User </button><br>
+    </div>
+    <br>
+    <div>
+            <button type="button" (click)="getAlluserregs()"> Get all users </button> | 
+            <button type="button" (click)="getTests()"> Get all Test List </button> |
+            <button type="button" (click)="getUserregs()"> Get Registered Users </button> |
+            <button type="button" (click)="getMcq()"> Get MCQ </button>
+    </div>
+    <br>
+    <button type="button" class="btn btn-danger"><a routerLink="assigners" routerLinkActive="active"><b><font color="black">Assigner</font></b></a></button>
+    <br>
+    <button type="button" class="btn btn-success"><a routerLink="updatetests" routerLinkActive="active"><b><font color=black> Update Tests </font></b></a></button> | 
+    <button type="button" class="btn btn-info"><a routerLink="deletetests" routerLinkActive="active"><b><font color=black> Delete Tests </font></b></a></button> 
+    <br>
+    </div>
+
+    <div style="text-align:initial">
+        <p><b>Tests Details:</b></p>
+        <ul *ngFor="let test of tests">
+            <li>{{test.id}}</li>
+            <li>{{test.testname}}</li>
+            <li>{{test.testcreator}}</li>
+        </ul>
+    </div>
+
+    <div style="text-align:initial">
+    <p><b>Users Details:</b></p>
+        <ul *ngFor="let test of tests">
+            <li>{{test.id}}</li>
+            <li>{{test.testname}}</li>
+            <li>{{test.testcreator}}</li>
+        </ul>
+        <ul *ngFor="let user of userregs">
+            <li>{{user.userid}}</li>
+            <li>{{user.name}}</li>
+            <li>{{user.username}}</li>
+            <li>{{user.email}}</li>
+        </ul>
+        <button type="button" class="btn btn-primary"><a routerLink="questions" routerLinkActive="active"><font color="black">get Tests</font></a></button>
     </div>
 
 
-    <td *ngFor="let test of tests">
-        <div>{{test.id}}</div>
-        <div>{{test.testname}}</div>
-    </td>
-
-    <button type="button" class="btn btn-danger"><a routerLink="assigner" routerLinkActive="active"><b><font color="black">Assigner</font></b></a></button>
-<router-outlet></router-outlet>
-</div>

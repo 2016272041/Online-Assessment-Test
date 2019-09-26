@@ -200,8 +200,8 @@ function initial(){
         username: "SHIVA5374",
         email: "sivakumar@venzoconsulting.com",
         password: "Si7373198816",
-        createdAt: "19-09-19",
-        updatedAt: "19-09-19"
+        createdAt: 19-09-19,
+        updatedAt: 19-09-19
       },
       {
         userid: 2,
@@ -209,8 +209,8 @@ function initial(){
         username: "Sakthi2041",
         email: "balachandarsivakumar@gmail.com",
         password: "si7373198816",
-        createdAt: "19-09-19",
-        updatedAt: "19-09-19"
+        createdAt: 19-09-19,
+        updatedAt: 19-09-19
       }
     ]
 
@@ -223,6 +223,24 @@ function initial(){
         testdate: 29-09-19,
         createdAt: 23-09-19,
         updatedAt: 21-09-19
+      }
+    ]
+
+    let updatetests = [
+      {
+        updatetestsid: 1,
+        tabsub: "test updated",
+        sub: "test uploading"
+      }
+    ]
+    
+    let deletetests = [
+      {
+        deletetestsid: 1,
+        confirmdelete: "Yes",
+        deletesub: "Yes",
+        submitting: 1,
+        error: 1
       }
     ]
 
