@@ -86,7 +86,7 @@ import { DeletetestsComponent } from './admin/deletetests/deletetests.component'
     UserregsComponent,
     AssignersComponent,
     UpdatetestsComponent,
-    DeletetestsComponent,
+    DeletetestsComponent
   ],
   imports: [
     BrowserModule,

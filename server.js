@@ -225,25 +225,6 @@ function initial(){
         updatedAt: 21-09-19
       }
     ]
-
-    let updatetests = [
-      {
-        updatetestsid: 1,
-        tabsub: "test updated",
-        sub: "test uploading"
-      }
-    ]
-    
-    let deletetests = [
-      {
-        deletetestsid: 1,
-        confirmdelete: "Yes",
-        deletesub: "Yes",
-        submitting: 1,
-        error: 1
-      }
-    ]
-
         
 
   // Init data -> save to MySQL

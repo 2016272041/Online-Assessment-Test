@@ -1,6 +1,7 @@
 import { ProductService } from '../services/product.service';
 import { Component, OnInit } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload';
+import { Product } from '../models/product';
 
 @Component({
   selector: 'app-product',
@@ -8,6 +9,8 @@ import { FileUploader } from 'ng2-file-upload';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
+  [x: string]: any;
+  product: Product[];
 
   constructor(private productservice: ProductService) { }
   private files = [];
@@ -16,6 +19,9 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {
     this.uploader = new FileUploader({url: this.url});
+    this.uploadAll();
+    this.cancelAll();
+    this.clearQueue();
 
     this.productservice.showFileNames().subscribe(response => {
       for (let i = 0; i < response.json().length; i++) {
@@ -36,5 +42,32 @@ export class ProductComponent implements OnInit {
       window.open(fileURL);
       }
     );
+  }
+
+  uploadAll() {
+    return this.productservice.putProduct()
+               .subscribe(
+                product => {
+                  console.log(product);
+                  this.product = product;
+                });
+  }
+
+  cancelAll() {
+    return this.productservice.cancelProduct()
+               .subscribe(
+                product => {
+                  console.log(product);
+                  this.product = product;
+                });
+  }
+
+  clearQueue() {
+    return this.productservice.clearProduct()
+               .subscribe(
+                product => {
+                  console.log(product);
+                  this.product = product;
+                });
   }
 }

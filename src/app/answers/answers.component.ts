@@ -9,7 +9,6 @@ import { Observable } from 'rxjs';
 })
 export class AnswersComponent implements OnInit {
   [x: string]: any;
-
   answers: Answers[];
 
   // tslint:disable-next-line:no-shadowed-variable
@@ -17,6 +16,7 @@ export class AnswersComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAnswers();
+    this.selectedAnswers();
   }
 
   get Answers() {
@@ -36,5 +36,15 @@ export class AnswersComponent implements OnInit {
                    console.log(answers);
                    this.answers = answers;
                  });
+  }
+
+  selectedAnswers() {
+    return this.AnswersService.getanswers()
+               .subscribe(
+                answers => {
+                  console.log(answers);
+                  this.answers = answers;
+                }
+               );
   }
 }

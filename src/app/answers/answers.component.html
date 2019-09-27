@@ -1,8 +1,8 @@
 <p> View Answers </p>
-<div *ngFor="let ans of answers">
-   <a [routerLink]="['/answers', ans.id]">{{ans.id}}</a>
-   <a [routerLink]="['/answers', ans.answers]">{{ans.answers}}</a>
-</div>
+<ul *ngFor="let ans of answers">
+   <li>{{ans.id}}</li>
+   <li>{{ans.answers}}</li>
+</ul>
 
 <h4> Welcome to Answers Page </h4>
 <div style="text-align: center">

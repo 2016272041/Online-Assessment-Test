@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Assigners } from '../models/assigners';
+import 'rxjs/add/operator/map';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -12,7 +13,7 @@ const httpOptions = {
 })
 export class AssignersService {
   [x: string]: any;
-    private assignerUrl = 'http://localhost:8080/api/assigners';
+    private assignersUrl = 'http://localhost:8080/api/assigners';
     constructor(private http: HttpClient) { }
 
     getassigners(): Observable<Assigners[]> {
@@ -37,5 +38,10 @@ export class AssignersService {
 
     updateAssigners(assigners: Assigners): Observable<any> {
         return this.http.put(this.assignersUrl, assigners, httpOptions);
+    }
+
+    getUserregs() {
+        return this._http.get('https://randomuserregs.me/api/?inc=userid,name,username,email')
+        .map(res => res.json());
     }
 }

@@ -1,8 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, ResponseContentType } from '@angular/http';
+import { Observable } from 'rxjs';
+import { Product } from '../models/product';
+import { HttpHeaders } from '@angular/common/http';
 
-@Injectable()
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+@Injectable({
+  providedIn: 'root'
+})
 export class ProductService {
+  [x: string]: any;
 
   constructor(private http: Http) { }
 
