@@ -1,5 +1,6 @@
 import { Userregs } from './userregs';
 import { Deserializable } from 'deserialize';
+import { Ability, AbilityBuilder } from '@casl/ability';
 
 export class Admin implements Deserializable {
     public id: number;
@@ -19,4 +20,16 @@ export class Admin implements Deserializable {
     getAlluserregs() {
         return this.id + '' + this.id;
     }
+}
+
+export function defineAbilitiesFor(role) {
+    const { can, rules } = AbilityBuilder.extract();
+
+    if (role === 'admin') {
+        can('manage', 'all');
+    } else {
+        can('read', 'all');
+        can('manage', 'Todo', {assign: 'me'});
+    }
+    return rules;
 }

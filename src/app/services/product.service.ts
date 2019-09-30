@@ -14,7 +14,7 @@ export class ProductService {
   [x: string]: any;
 
   constructor(private http: Http) { }
-
+product: Product[];
     downloadPDF(filename, filetype): any {
     return this.http.get('http://127.0.0.1:3000/file/' + filename,
     { responseType: ResponseContentType.Blob });
@@ -22,5 +22,9 @@ export class ProductService {
 
   showFileNames() {
     return this.http.get('http://127.0.0.1:3000/files');
+  }
+
+  uploadAll(observable: Product[]) {
+    return this.productservice.getProduct();
   }
 }

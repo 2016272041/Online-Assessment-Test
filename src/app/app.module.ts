@@ -51,6 +51,8 @@ import { UserregsComponent } from './userregs/userregs.component';
 import { AssignersComponent } from './assigners/assigners.component';
 import { UpdatetestsComponent } from './admin/updatetests/updatetests.component';
 import { DeletetestsComponent } from './admin/deletetests/deletetests.component';
+import { RandomizersComponent } from './randomizers/randomizers.component';
+
  @NgModule({
   declarations: [
     AppComponent,
@@ -86,7 +88,8 @@ import { DeletetestsComponent } from './admin/deletetests/deletetests.component'
     UserregsComponent,
     AssignersComponent,
     UpdatetestsComponent,
-    DeletetestsComponent
+    DeletetestsComponent,
+    RandomizersComponent
   ],
   imports: [
     BrowserModule,

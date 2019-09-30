@@ -34,6 +34,7 @@ import { UserregsComponent } from './userregs/userregs.component';
 import { AssignersComponent } from './assigners/assigners.component';
 import { UpdatetestsComponent } from './admin/updatetests/updatetests.component';
 import { DeletetestsComponent } from './admin/deletetests/deletetests.component';
+import { RandomizersComponent } from './randomizers/randomizers.component';
 
 const routes: Routes = [
 {
@@ -215,6 +216,11 @@ const routes: Routes = [
 {
     path: 'deletetests',
     component: DeletetestsComponent
+},
+
+{
+    path: 'randomizers',
+    component: RandomizersComponent
 }
 
 ];

@@ -28,6 +28,7 @@ require('./src/app/route/answers.route.js')(app);
 require('./src/app/route/mcqs.route.js')(app);
 require('./src/app/route/userregs.route.js')(app);
 require('./src/app/route/assigners.route.js')(app);
+require('./src/app/route/randomizers.route.js')(app);
 
 let router = require ('./src/app/route/file.route.js');
 app.use('/', router);
@@ -225,6 +226,17 @@ function initial(){
         updatedAt: 21-09-19
       }
     ]
+
+    let randomizers = [
+      {
+        userid: 1,
+        name: "shiva",
+        username: "shiva2016272041",
+        email: "sivakumar@venzoconsulting.com",
+        testsid: "1",
+        questions: "type script and nativescript functions are"  
+      }
+    ]
         
 
   // Init data -> save to MySQL
@@ -315,5 +327,14 @@ function initial(){
   console.log(assigners);
   for (let i = 0; i < assigners.length; i++) {
     Assigners.create(assigners[i]);
+  }
+
+  //Init data -> save to NySQL
+  const Randomizers = db.randomizers;
+  console.log(db);
+  console.log(db.randomizers);
+  console.log(randomizers);
+  for (let i = 0; i < randomizers.length; i++){
+    Randomizers.create(randomizers[i]);
   }
 } 

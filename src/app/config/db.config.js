@@ -29,5 +29,6 @@ db.answers = require('../model/answers.model.js')(sequelize, Sequelize);
 db.mcqs = require('../model/mcqs.model.js')(sequelize, Sequelize);
 db.userregs = require('../model/userregs.model.js')(sequelize, Sequelize);
 db.assigners = require('../model/assigners.model.js')(sequelize, Sequelize);
+db.randomizers = require('../model/randomizers.model.js')(sequelize, Sequelize);
 
 module.exports = db;
