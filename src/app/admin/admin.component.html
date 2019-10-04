@@ -28,7 +28,8 @@
     <button type="button" class="btn btn-danger"><a routerLink="assigners" routerLinkActive="active"><b><font color="black">Assigner</font></b></a></button>
     <br>
     <button type="button" class="btn btn-success"><a routerLink="updatetests" routerLinkActive="active"><b><font color=black> Update Tests </font></b></a></button> | 
-    <button type="button" class="btn btn-info"><a routerLink="deletetests" routerLinkActive="active"><b><font color=black> Delete Tests </font></b></a></button> 
+    <button type="button" class="btn btn-info"><a routerLink="deletetests" routerLinkActive="active"><b><font color=black> Delete Tests </font></b></a></button> |
+    <button type="button" class="btn btn-primary"><a [routerLink]="['randomizers']"><b><font color=black> Randomizers </font></b></a></button>
     <br>
     </div>
 
@@ -56,4 +57,6 @@
         </ul>
         <button type="button" class="btn btn-primary"><a routerLink="questions" routerLinkActive="active"><font color="black">get Tests</font></a></button>
     </div>
+    
+<router-outlet></router-outlet>
 

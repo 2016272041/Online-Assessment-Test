@@ -1,0 +1,11 @@
+<section class="main" *ngIf="asslist.length > 0">
+        <ul class="asslist">
+          <li *ngFor="let asslist of asslists" [class.completed]="asslist.complete">
+            <app-asslist-item
+              [asslist]="asslist"
+              (toggleComplete)="onToggleTodoComplete($event)"
+              (remove)="onRemoveTodo($event)"></app-asslist-item>
+          </li>
+        </ul>
+      </section>
+      

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RandomizersComponent } from './randomizers.component';
+import { AsslistHeaderComponent } from './asslist-header.component';
 
-describe('RandomizersComponent', () => {
-  let component: RandomizersComponent;
-  let fixture: ComponentFixture<RandomizersComponent>;
+describe('AsslistHeaderComponent', () => {
+  let component: AsslistHeaderComponent;
+  let fixture: ComponentFixture<AsslistHeaderComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RandomizersComponent ]
+      declarations: [ AsslistHeaderComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RandomizersComponent);
+    fixture = TestBed.createComponent(AsslistHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -11,8 +11,9 @@ export class AnswersComponent implements OnInit {
   [x: string]: any;
   answers: Answers[];
 
-  // tslint:disable-next-line:no-shadowed-variable
-  constructor(private AnswersService: AnswersService) {}
+  constructor(
+    private answersService: AnswersService
+    ) {}
 
   ngOnInit(): void {
     this.getAnswers();

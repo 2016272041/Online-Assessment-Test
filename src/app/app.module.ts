@@ -24,6 +24,8 @@ import { AuthGuard } from './guards/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { AlertService } from './services/alert.service';
 import { AuthenticationService } from './services/alert.authenticate';
+import { ApiService } from './assigners/api.service';
+import { ApiMockService } from './assigners/api-mock.service';
 import { UserService } from './services/user.service';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { fakeBackendProvider } from './helpers/fake-backend';
@@ -51,7 +53,11 @@ import { UserregsComponent } from './userregs/userregs.component';
 import { AssignersComponent } from './assigners/assigners.component';
 import { UpdatetestsComponent } from './admin/updatetests/updatetests.component';
 import { DeletetestsComponent } from './admin/deletetests/deletetests.component';
-import { RandomizersComponent } from './randomizers/randomizers.component';
+import { AsslistComponent } from './assigners/asslist/asslist.component';
+import { AsslistFooterComponent } from './assigners/asslist-footer/asslist-footer.component';
+import { AsslistHeaderComponent } from './assigners/asslist-header/asslist-header.component';
+import { AsslistItemComponent } from './assigners/asslist-item/asslist-item.component';
+import { Mock } from 'protractor/built/driverProviders';
 
  @NgModule({
   declarations: [
@@ -89,7 +95,10 @@ import { RandomizersComponent } from './randomizers/randomizers.component';
     AssignersComponent,
     UpdatetestsComponent,
     DeletetestsComponent,
-    RandomizersComponent
+    AsslistComponent,
+    AsslistFooterComponent,
+    AsslistHeaderComponent,
+    AsslistItemComponent
   ],
   imports: [
     BrowserModule,
@@ -116,6 +125,8 @@ import { RandomizersComponent } from './randomizers/randomizers.component';
     AuthGuard,
     AlertService,
     AuthenticationService,
+    ApiService,
+    ApiMockService,
     UserService,
     {
       provide: HTTP_INTERCEPTORS,

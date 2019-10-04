@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Sendmail } from '../models/sendmail';
+import { FormBuilder } from '@angular/forms';
 import { SendmailService } from '../services/sendmail.service';
 import { Location } from '@angular/common';
 @Component({
@@ -9,6 +10,8 @@ import { Location } from '@angular/common';
 })
 export class SendmailComponent {
   id: number;
+  form: any;
+  formbuilder: FormBuilder;
   sendmail = new Sendmail();
   submitted = false;
 

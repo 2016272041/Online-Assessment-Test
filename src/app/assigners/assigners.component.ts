@@ -7,6 +7,8 @@ import { QuestionsService } from '../services/questions.service';
 import { Questions } from '../services/questions';
 import { TestsService } from '../services/tests.service';
 import { Tests } from '../services/tests';
+import { AsslistDataService } from './asslist-data.service';
+import { Asslist } from '../assigners/asslist';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -15,16 +17,20 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./assigners.component.css']
 })
 export class AssignersComponent implements OnInit {
-  Userid: String;
+  Userid: Number;
   X: String;
   Forms: FormsModule;
   questions: Questions[];
   tests: Tests[];
   userregs: Userregs[];
   assigners: Assigners[];
+  testid: Number;
+  testdate: Date;
   userid: string = '_' + Math.random().toString(40).substr(2, 10);
   id: string = '_' + Math.random().toString(32).substring(2, 10);
   selected: any;
+  asslist: any;
+  asslists: any;
 
   quesAssigner() {
     const id = document.getElementById(this.id) as HTMLSelectElement;
@@ -43,6 +49,7 @@ export class AssignersComponent implements OnInit {
     private userregsService: UserregsService,
     private questionsService: QuestionsService,
     private testsService: TestsService,
+    private asslistDataService: AsslistDataService,
     private formsModule: FormsModule
     ) { }
 
@@ -55,6 +62,35 @@ export class AssignersComponent implements OnInit {
       this.assignersService.getUserregs().subscribe((userregs) => {
         console.log(userregs.userid);
       });
+      this.asslistDataService.getAllAsslist().subscribe(
+        (asslists) => {
+          this.asslist = asslists;
+        }
+      );
+    }
+
+    onAddAsslists(asslists) {
+      this.asslistDataService.addAsslist(asslists).subscribe(
+        (newAsslist) => {
+          this.asslists = this.asslists.concat(newAsslist);
+        }
+      );
+    }
+
+    onToggleAsslistComplete(asslist) {
+      this.asslistDataService.toggleAsslistComplete(asslist).subscribe(
+        (updatedAsslist) => {
+          asslist = updatedAsslist;
+        }
+      );
+    }
+
+    onRemoveAsslsist(asslist) {
+      this.asslistDataService.deleteAsslistById(asslist.id).subscribe(
+        (_) => {
+          this.asslists = this.asslists.filter((a) => a.id !== asslist.id);
+        }
+      );
     }
 
     getAll() {

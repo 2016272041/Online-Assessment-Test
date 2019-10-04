@@ -34,8 +34,10 @@ import { UserregsComponent } from './userregs/userregs.component';
 import { AssignersComponent } from './assigners/assigners.component';
 import { UpdatetestsComponent } from './admin/updatetests/updatetests.component';
 import { DeletetestsComponent } from './admin/deletetests/deletetests.component';
-import { RandomizersComponent } from './randomizers/randomizers.component';
-
+import { AsslistComponent } from './assigners/asslist/asslist.component';
+import { AsslistFooterComponent } from './assigners/asslist-footer/asslist-footer.component';
+import { AsslistHeaderComponent } from './assigners/asslist-header/asslist-header.component';
+import { AsslistItemComponent } from './assigners/asslist-item/asslist-item.component';
 const routes: Routes = [
 {
   path: 'tests',
@@ -104,7 +106,21 @@ const routes: Routes = [
 
 {
     path: 'admin',
-    component: AdminComponent
+    component: AdminComponent,
+    children: [
+        {
+            path: 'assigners',
+            component: AssignersComponent
+        },
+        {
+            path: 'updatetests',
+            component: UpdatetestsComponent
+        },
+        {
+            path: 'deletetests',
+            component: DeletetestsComponent
+        }
+    ]
 },
 
 {
@@ -204,25 +220,24 @@ const routes: Routes = [
 },
 
 {
-    path: 'assigners',
-    component: AssignersComponent
+    path: 'asslist',
+    component: AsslistComponent
 },
 
 {
-    path: 'updatetests',
-    component: UpdatetestsComponent
+    path: 'asslistfooter',
+    component: AsslistFooterComponent
 },
 
 {
-    path: 'deletetests',
-    component: DeletetestsComponent
+    path: 'asslistheader',
+    component: AsslistHeaderComponent
 },
 
 {
-    path: 'randomizers',
-    component: RandomizersComponent
+    path: 'asslistitem',
+    component: AsslistItemComponent
 }
-
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes, {useHash: true})],

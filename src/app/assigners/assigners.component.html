@@ -34,3 +34,17 @@
     <button type="button" (click)="getTests()"> Get Tests </button>
     <button type="button" (click)="quesAssigner(questions)"> Assign Questions </button>
 </table>
+
+<section class="asslistapp">
+    <app-asslist-header
+        (add) = "onAddAsslist($event)"
+    ></app-asslist-header>
+    <app-asslist
+        [Asslists]="asslists"
+        (toggleComplete)="onToggleAsslistComplete($event)"
+        (remove)="onRemoveAsslist($event)"
+    ></app-asslist>
+    <app-asslist-footer
+        [asslists]="asslist"
+    ></app-asslist-footer>
+</section>

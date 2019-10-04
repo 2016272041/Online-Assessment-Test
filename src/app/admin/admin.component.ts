@@ -12,6 +12,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
+
   userid: Number;
   userregs: Userregs[];
   tests: Tests[];
