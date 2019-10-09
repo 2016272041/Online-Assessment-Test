@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { Asslist } from './asslist';
 import { ApiService } from './api.service';
 import { Observable } from 'rxjs/Observable';
+import { Subscription  } from 'rxjs';
 
 @Injectable()
 export class AsslistDataService {
 
-  isLoading = Boolean; true;
+  isLoading: Boolean = true;
   constructor(
     private api: ApiService
   ) {

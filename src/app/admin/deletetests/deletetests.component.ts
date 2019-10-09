@@ -2,7 +2,7 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { DeletetestsService } from '../deletetests.service';
 import { Deletetests } from '../deletetests';
 import { Subscription } from 'rxjs';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-deletetests',
   templateUrl: './deletetests.component.html',
@@ -19,7 +19,8 @@ export class DeletetestsComponent implements OnDestroy {
 
   constructor(
     private deletetestsService: DeletetestsService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
     ) { }
 
     RemoveTests() {

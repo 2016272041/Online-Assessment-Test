@@ -8,8 +8,10 @@ import { Questions } from '../services/questions';
 import { TestsService } from '../services/tests.service';
 import { Tests } from '../services/tests';
 import { AsslistDataService } from './asslist-data.service';
-import { Asslist } from '../assigners/asslist';
+import { Asslist } from './asslist';
+import { ApiService } from './api.service';
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-assigners',
@@ -29,7 +31,7 @@ export class AssignersComponent implements OnInit {
   userid: string = '_' + Math.random().toString(40).substr(2, 10);
   id: string = '_' + Math.random().toString(32).substring(2, 10);
   selected: any;
-  asslist: any;
+  asslist: Asslist[];
   asslists: any;
 
   quesAssigner() {
@@ -50,7 +52,8 @@ export class AssignersComponent implements OnInit {
     private questionsService: QuestionsService,
     private testsService: TestsService,
     private asslistDataService: AsslistDataService,
-    private formsModule: FormsModule
+    private route: ActivatedRoute,
+    private router: Router
     ) { }
 
     ngOnInit(): void {
@@ -85,7 +88,7 @@ export class AssignersComponent implements OnInit {
       );
     }
 
-    onRemoveAsslsist(asslist) {
+    onRemoveAsslist(asslist) {
       this.asslistDataService.deleteAsslistById(asslist.id).subscribe(
         (_) => {
           this.asslists = this.asslists.filter((a) => a.id !== asslist.id);

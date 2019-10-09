@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventEmitter, Input, Output } from '@angular/core';
 import { Asslist } from '../asslist';
+import { AsslistDataService } from '../asslist-data.service';
 
 @Component({
   selector: 'app-asslist',
@@ -19,13 +20,13 @@ export class AsslistComponent implements OnInit {
   @Output()
   toggleComplete: EventEmitter<Asslist> = new EventEmitter();
 
-  constructor() { }
+  constructor( private asslistdataService: AsslistDataService ) { }
 
   onToggleAsslistComplete(asslist: Asslist) {
     this.toggleComplete.emit(asslist);
   }
 
-  onRemoveTodo(asslist: Asslist) {
+  onRemoveAsslist(asslist: Asslist) {
     this.remove.emit(asslist);
   }
 

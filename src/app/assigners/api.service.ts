@@ -1,21 +1,30 @@
 import { Injectable } from '@angular/core';
 import { environment } from './environment';
 import { Http, Response } from '@angular/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Asslist } from './asslist';
+import { Subscription } from 'rxjs';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
 const API_URL = environment.apiBase;
-
-@Injectable()
+const httpOptions = {
+    headers: new HttpHeaders({ 'Content-type': 'application/json' })
+};
+@Injectable({
+    providedIn: 'root'
+})
 export class ApiService {
+    [x: string]: any;
+    private asslistUrl = 'http://localhost:8080/api/asslist';
+
+    constructor( private http: Http) { }
+
     updateAsslist(asslist: Asslist): Observable<Asslist> {
         throw new Error('Method not implemented.');
     }
-
-    constructor( private http: Http) { }
 
     public getAllAsslist(): Observable<Asslist[]> {
         return this.http
