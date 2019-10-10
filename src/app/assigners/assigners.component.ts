@@ -28,8 +28,8 @@ export class AssignersComponent implements OnInit {
   assigners: Assigners[];
   testid: Number;
   testdate: Date;
-  userid: string = '_' + Math.random().toString(40).substr(2, 10);
-  id: string = '_' + Math.random().toString(32).substring(2, 10);
+  userid: string = '_' + Math.random().toString(10).substr(2, 10);
+  id: string = '_' + Math.random().toString(10).substring(2, 10);
   selected: any;
   asslist: Asslist[];
   asslists: any;

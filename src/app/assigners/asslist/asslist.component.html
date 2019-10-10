@@ -1,4 +1,4 @@
-<section class="main" *ngIf="asslist.length > 0">
+<section class="main" *ngIf="asslist?.length > 0">
         <ul class="asslist">
           <li *ngFor="let asslist of asslist" [class.completed]="asslist.complete">
             <app-asslist-item

@@ -21,11 +21,13 @@ import { TestlistComponent } from './testlist/testlist.component';
 import { TruefalseComponent } from './truefalse/truefalse.component';
 import { AlertComponent } from './directives/alert.component';
 import { AuthGuard } from './guards/auth.guard';
+import { HttpModule } from '@angular/http';
 import { HomeComponent } from './home/home.component';
 import { AlertService } from './services/alert.service';
 import { AuthenticationService } from './services/alert.authenticate';
 import { ApiService } from './assigners/api.service';
 import { ApiMockService } from './assigners/api-mock.service';
+import { AsslistDataService } from './assigners/asslist-data.service';
 import { UserService } from './services/user.service';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { fakeBackendProvider } from './helpers/fake-backend';
@@ -105,6 +107,7 @@ import { Mock } from 'protractor/built/driverProviders';
     FormsModule,
     FileUploadModule,
     ReactiveFormsModule,
+    HttpModule,
     HttpClientModule,
     AppRoutingModule,
     CommonModule,
@@ -127,6 +130,7 @@ import { Mock } from 'protractor/built/driverProviders';
     AuthenticationService,
     ApiService,
     ApiMockService,
+    AsslistDataService,
     UserService,
     {
       provide: HTTP_INTERCEPTORS,
