@@ -9,8 +9,7 @@ import { TestsService } from '../services/tests.service';
 import { Tests } from '../services/tests';
 import { AsslistDataService } from './asslist-data.service';
 import { Asslist } from './asslist';
-import { ApiService } from './api.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -21,11 +20,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class AssignersComponent implements OnInit {
   Userid: Number;
   X: String;
-  Forms: FormsModule;
+  isValidFormSubmitted = false;
   questions: Questions[];
   tests: Tests[];
   userregs: Userregs[];
   assigners: Assigners[];
+  assignersForm: FormGroup;
   testid: Number;
   testdate: Date;
   userid: string = '_' + Math.random().toString(10).substr(2, 10);
@@ -53,7 +53,8 @@ export class AssignersComponent implements OnInit {
     private testsService: TestsService,
     private asslistDataService: AsslistDataService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private formBuilder: FormBuilder
     ) { }
 
     ngOnInit(): void {
@@ -62,6 +63,14 @@ export class AssignersComponent implements OnInit {
       this.getUserregs();
       this.quesAssigner();
       this.getTests();
+      this.assignQuesId();
+      this.assignersForm = this.formBuilder.group({
+        userregs: [null, [Validators.required]],
+        userid: ['', [Validators.required]],
+        questions: [null, [Validators.required]]
+      });
+      this.userregs = this.assignersService.getUserregs();
+      this.questions = this.assignersService.getQuestions();
       this.assignersService.getUserregs().subscribe((userregs) => {
         console.log(userregs.userid);
       });
@@ -138,6 +147,25 @@ export class AssignersComponent implements OnInit {
                    tests => {
                      console.log(tests);
                      this.tests = tests;
+                   });
+    }
+
+    setDefaultValues() {
+      const assigners = new Assigners();
+      assigners.username = 'Shiva';
+      assigners.userregs = this.userregs[100];
+      assigners.questions = [
+        this.questions[1],
+        this.questions[10]
+      ];
+      this.assignersForm.setValue(assigners);
+    }
+
+    assignQuesId() {
+      return this.questionsService.assignquesid()
+                 .subscribe(
+                   questions => {
+                    this.questions = questions;
                    });
     }
 }

@@ -38,8 +38,14 @@ module.exports = function(app) {
     //Update a questions with id
     app.put('/api/questions', questions.update);
     //update a tests with id
-    app
+    app.put('/api/tests', tests.update);
     
     //Delete a Assigners with Id
-    app.delete('/api/assigners/"assignersId', assigners.delete);
+    app.delete('/api/assigners/assignersId', assigners.delete);
+    //Delete a useregs with Id
+    app.delete('/api/userregs/userid', userregs.delete);
+    //Delete a questions with Id
+    app.delete('/api/questions/id', questions.delete);
+    //Delete a tests with Id
+    app.delete('/api/tests/id', tests.delete);    
 }

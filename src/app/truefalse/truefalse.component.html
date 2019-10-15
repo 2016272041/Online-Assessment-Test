@@ -1,11 +1,37 @@
-<h3> Typescript is Javascript oriented </h3>
-<div>
-  <input type="radio" name="rad1" (click)= "changeValue(true)"> True
-  <input type="radio" name="rad1" (click)= "changeValue(false)"> False
-</div>
-<div *ngIf="isValid">
-   <b> Correct Answer! </b>
-</div>   
-<div *ngIf="!isValid">
-   <b> Wrong Answer! </b>
-</div> 
+<div style="text-align:center">
+      <h1>
+         True or False 
+      </h1>
+    </div>
+    <div class="container">
+      <div class="text-center mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                      <input type="checkbox" [(ngModel)]="masterSelected" name="list_name" value="m1" (change)="checkUncheckAll()"/> <strong>Select/ Unselect All</strong>
+                    </li>
+                    <li class="list-group-item">
+                       <input type="checkbox" [(ngModel)]="masterSelected" name="list_name" value="m1" (change)="checkUncheckAll()"/> <strong>Select/ Unselect All</strong>
+                    </li>
+                  </ul>
+                  <ul class="list-group">
+                    <li class="list-group-item" *ngFor="let item of checklist">
+                      <input type="checkbox" [(ngModel)]="item.isSelected" name="list_name" value="{{item.id}}" (change)="isAllSelected()"/>
+                      {{item.value}}
+                    </li>
+                  </ul>
+                  <ul class="list-group">
+                     <li class="list-group-item" *ngFor="let item of checklist">
+                        <input type="checkbox" [(ngModel)]="item.isUnselected" name="list_name" value="{{item.id}}" (change)="isAllSelected()"/>
+                        {{item.value}}
+                     </li>
+                  </ul>
+            </div>
+            <div class="col-md-6">
+                <code>{{checkedList}}</code>
+            </div>
+        </div>
+      </div>
+    </div>
+    

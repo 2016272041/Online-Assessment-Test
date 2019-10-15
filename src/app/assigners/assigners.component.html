@@ -20,16 +20,25 @@
     </tbody>
     <br>
     <h4> Select User Details and Assign Questions </h4>
-    <select [id] = "id">
-        <option [id] = "id + 1" value="0"> Select Use ID </option>
-        <option [id] = "id + 2" value="1"> id 1 </option>
-        <option [id] = "id + 3" value="2"> id 2 </option>
-        <option [id] = "id + 4" value="3"> id 3 </option>
-        <option [id] = "id + 5" value="4"> id 4 </option>
+    <select formControlName="userregs">
+        <option *ngFor="let user of userregs" [ngValue]="user">{{user.userid}} {{user.username}}</option>
+        <option [ngValue]="null" enabled>Choose Registered User details</option>
+        <option *ngFor="let user of userregs" [ngValue]="user"> {{user.userid}} {{user.username}} </option>
     </select>
     <br>
+    <select multiple formControlName="questions" [compareWith]="tests">
+        <option *ngFor="let ques of questions" [ngValue]="ques">
+            {{ ques.id }}
+            {{ ques.questions1 }}
+            {{ ques.option1 }}
+            {{ ques.option2 }}
+            {{ ques.option3 }}
+            {{ ques.option4 }}
+    </select>
+    <button type="button" (click)="assignQuesId()">Assign</button>
+    <button type="button" (click)="setDefaultValues()">Set Default</button>
+    <br>
     <button type="button" (click)="getAll()"> All Assigns</button>
-    <button type="button" (click)="getQuestions()"> Assign Test </button>
     <button type="button" (click)="getUserregs()"> Get Registered Users</button>
     <button type="button" (click)="getTests()"> Get Tests </button>
     <button type="button" (click)="quesAssigner(questions)"> Assign Questions </button>

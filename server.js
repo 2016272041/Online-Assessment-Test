@@ -46,43 +46,22 @@ function initial(){
   var questions = [
     {
       id: 1,
-      questions1: "Who is father of JAVA",
-      option1: "Dennis Ritchie",
-      option2: "James Goseling",
-      option3: "Martin Roderigus",
-      option4: "Kevin Peterson",
-      createdAt: "30-JUN-19",
-      updatedAt: "02-Jul-19"
-    },
-    {
-      id: 2,
-      questions2: "Abbreviation of XHTML",
-      option1: "Extensible Markup Language",
-      option2: "Hypertext Markup Language",
-      option3: "Document Type Definition",
-      option4: "Extensible Hypertext Markup Language",
-      createdAt: "30-JUN-19",
-      updatedAt: "02-Jul-19"
-    },
-    {
-      id: 3,
-      questions3: "What is diffrent between 'let' and 'var'",
-      option1: "Scoping Rules",
-      option2: "Enclosing Blocks",
-      option3: "Function Scope",
-      option4: "Hoisted",
-      createdAt: "09-SEP-19",
-      updatedAt: "09-SEP-19",
-    },
-    {
-      id: 4,
-      questions1: "Data Structure Page Segmaentation",
-      option1: "Memory Allocation",
-      option2: "Data Hierarchy",
-      option3: "Data Inheritence",
-      option4: "Data Instances",
-      createdAt: "09-SEP-19",
-      updatedAt: "09-SEP-19",
+      questions1: "What is your home network",
+      questions2: "What is the diffrence between vulnerability and risk",
+      questions3: "How do you go about securing server",
+      questions4: "Why is DNS monitoring important",
+      questions5: "What port is ping work over",
+      questions6: "what is diffrence between decoding, encypting and hashing",
+      questions7: "What is SSL",
+      questions8: "What are the diffrence between HTTP.HTTPS,SSL and SSH",
+      questions9: "What sorts of anamolyse would you idendify comparisoned systems",
+      questions10: "How would you strengthen user authentication",
+      createdAt: 15-10-19,
+      updatedAt: 15-10-19,
+      option1: "LAN",
+      option2: "WAN",
+      option3: "TELNET",
+      option4: "MS-DOS",
     }
   ]
 
@@ -197,32 +176,29 @@ function initial(){
       {
         userid: 1,
         name: "Shiva",
-        username: "SHIVA5374",
+        username: "Shiva2016272041",
         email: "sivakumar@venzoconsulting.com",
-        password: "Si7373198816",
-        createdAt: 19-09-19,
-        updatedAt: 19-09-19
-      },
-      {
-        userid: 2,
-        name: "Sakthi",
-        username: "Sakthi2041",
-        email: "balachandarsivakumar@gmail.com",
-        password: "si7373198816",
-        createdAt: 19-09-19,
-        updatedAt: 19-09-19
+        password: "Si4@si7373198816",
+        createdAt: 14-10-19,
+        updatedAt: 14-10-19        
       }
     ]
 
     let assigners = [
       {
+        id:1,
         userid: 1,
+        name: "Sivakumar",
         username: "Shiva",
+        email: "sivakumar@venzoconsulting.com",
         testid: 2,
         testname: "Network Analyse",
         testdate: 29-09-19,
-        createdAt: 23-09-19,
-        updatedAt: 21-09-19
+        questions1: "Five core functions of efffective cybersecurity",
+        option1: "idendity and protect",
+        option2: "respond",
+        option3: "request",
+        option4: "detect and recover"
       }
     ]
 

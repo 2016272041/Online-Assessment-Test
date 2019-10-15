@@ -128,7 +128,7 @@ exports.update = (req, res) => {
 };
 
 //update a tests
-exporst.update = (req, res) => {
+exports.update = (req, res) => {
     let tests = req.body;
     let id = req.body.id;
     Tests.update(tests, 

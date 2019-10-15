@@ -9,6 +9,7 @@ import { AsslistDataService } from '../asslist-data.service';
   styleUrls: ['./asslist.component.css']
 })
 export class AsslistComponent implements OnInit {
+  length: Number;
   isLoading = true;
 
   @Input()
