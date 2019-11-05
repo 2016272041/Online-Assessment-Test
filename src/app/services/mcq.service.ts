@@ -1,28 +1,48 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Mcq } from '../models/mcq';
+import { Questions } from './questions';
+import { Mcqquiz } from '../models/mcqquiz';
 
 const httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
+
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class McqService {
-    private mcqUrl = 'http://localhost:8080/api/mcqs';
-    constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-    getmcq(): Observable<Mcq[]> {
-        return this.http.get<Mcq[]>(this.mcqUrl);
-    }
+  private questionsUrl = 'http://localhost:8080/api/questions';
+  addOptions(mcq: any) {
+    throw new Error('Method not implemented.');
+  }
+  getmcq() {
+    throw new Error('Method not implemented.');
+  }
 
-    getMcq(id: number): Observable<Mcq> {
-        const url = `${this.mcqUrl}/${id}`;
-        return this.http.get<Mcq>(url);
-    }
+  getquestions(): Observable<Questions[]> {
+    return this.http.get<Questions[]>(this.questionsUrl);
+  }
 
-    submitOptions(mcq: Mcq): Observable<Mcq> {
-        return this.http.post<Mcq>(this.mcqUrl, mcq, httpOptions);
-    }
+  getQuestions(id: number): Observable<Questions> {
+    const url = `${this.questionsUrl}/${id}`;
+    return this.http.get<Questions>(url);
+  }
+
+  get(url: string) {
+    return this.http.get(url);
+  }
+
+  getUrl(url: string) {
+    return this.get('http://localhost:8080/api/questions');
+  }
+
+  getAll() {
+    return [
+      { id: '/questions', name: 'Questions', url: 'http://localhost:8080/api/questions' },
+      { id: '/tests', name: 'Tests', url: 'http://localhost:8080/api/Tests' }
+    ];
+  }
 }

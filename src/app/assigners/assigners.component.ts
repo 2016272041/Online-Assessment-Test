@@ -11,12 +11,17 @@ import { AsslistDataService } from './asslist-data.service';
 import { Asslist } from './asslist';
 import { FormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Pipe, PipeTransform } from '@angular/core';
+import { reverse } from 'dns';
+// tslint:disable-next-line:import-blacklist
+import { pipe } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-assigners',
   templateUrl: './assigners.component.html',
   styleUrls: ['./assigners.component.css']
 })
+
 export class AssignersComponent implements OnInit {
   Userid: Number;
   X: String;
@@ -33,6 +38,7 @@ export class AssignersComponent implements OnInit {
   selected: any;
   asslist: Asslist[];
   asslists: any;
+  reverse: Questions[];
 
   quesAssigner() {
     const id = document.getElementById(this.id) as HTMLSelectElement;
@@ -58,12 +64,12 @@ export class AssignersComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-      this.getAll();
       this.getQuestions();
       this.getUserregs();
       this.quesAssigner();
       this.getTests();
       this.assignQuesId();
+      this.reverseAssignQuesId();
       this.assignersForm = this.formBuilder.group({
         userregs: [null, [Validators.required]],
         userid: ['', [Validators.required]],
@@ -103,15 +109,6 @@ export class AssignersComponent implements OnInit {
           this.asslists = this.asslists.filter((a) => a.id !== asslist.id);
         }
       );
-    }
-
-    getAll() {
-      return this.assignersService.getall()
-                 .subscribe(
-                  assigners => {
-                    console.log(assigners);
-                    this.assigners = assigners;
-                  });
     }
 
     getQuestions() {
@@ -168,4 +165,13 @@ export class AssignersComponent implements OnInit {
                     this.questions = questions;
                    });
     }
+
+    reverseAssignQuesId() {
+      return this.questionsService.reverseAssignQuesId()
+                 .subscribe(
+                   questions => {
+                     this.questions = questions.reverse();
+                   });
+    }
+
 }

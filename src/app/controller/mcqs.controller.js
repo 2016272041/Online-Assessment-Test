@@ -27,3 +27,33 @@ exports.findById = (req, res) => {
     });
 };
 
+// Update a Mcq
+exports.update = (req, res) => {
+    let mcq = req.body;
+    let id = req.body.id;
+    Mcq.update(mcq,
+                { where: {id: id} }
+                ).then(() => {
+                    res.status(200).json({msg:"updated successfully a mcqs with id = " + id});
+                });
+};
+
+// Delete a Mcqs by Id
+exports.delete = (req, res) => {
+    const id = req.params.McqId;
+    Mcq.destroy({
+        where: { id: id }
+    }).then(() => {
+        res.status(200).json({msg:'deleted successfully a questions with id = ' + id});
+    });
+};
+
+//Edit a Mcqs by Id
+exports.edit = (req, res) => {
+    const id = req.params.McqId;
+    Mcq.edit({
+        wherer: { id: id }
+    }).then(() => {
+        res.status(200).json({msg: 'edited successfully a mcq with id = ' + id});
+    });
+};

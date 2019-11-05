@@ -9,23 +9,23 @@
                 <label for="id">Enter Question ID Here</label>
                 </label>
                 <input type="number" class="form-control" id="id" placeholder="id"
-                required [(ngModel)]="mcq.id" name="id" #id="ngModel">
+                required [(ngModel)]="ques.id" name="id" #id="ngModel">
                 <span><p><b>{{ques.questions1}}</b></p></span>
                 <span><p><b>{{ques.questions2}}</b></p></span>
                 <span><p><b>{{ques.questions3}}</b></p></span>
                 <th>
                     <p><label><input type="checkbox" name="option1" ng-model="formData.questions.option1"
-                        [(ngModel)]="mcq.option1" name=option1 #option1="ngModel"><td>{{ques.option1}}</td></label></p>
+                        [(ngModel)]="ques.option1" name=option1 #option1="ngModel"><td>{{ques.option1}}</td></label></p>
                 
                     <p><label><input type="checkbox" name="option2" ng-model="formData.questions.option2"
-                        [(ngModel)]="mcq.option2" name=option2 #option2="ngModel"><td>{{ques.option2}}</td></label></p>
+                        [(ngModel)]="ques.option2" name=option2 #option2="ngModel"><td>{{ques.option2}}</td></label></p>
                 </th>
                 <th>
                     <p><label><input type="checkbox" name="option3" ng-model="formData.questions.option3"
-                        [(ngModel)]="mcq.option3" name=option3 #option3="ngModel"><td>{{ques.option3}}</td></label></p>
+                        [(ngModel)]="ques.option3" name=option3 #option3="ngModel"><td>{{ques.option3}}</td></label></p>
                 
                     <p><label><input type="checkbox" name="option4" ng-model="formData.questions.option4"
-                        [(ngModel)]="mcq.option4" name=option4 #option4="ngModel"><td>{{ques.option4}}</td></label></p>
+                        [(ngModel)]="ques.option4" name=option4 #option4="ngModel"><td>{{ques.option4}}</td></label></p>
                 </th>
                 <div class="btn-group btn-group-sm">
                         <button type="button" class="btn btn-danger btn-lg" (click)="submitOptions()" [disabled]="!submitOptionsForm.form.valid">Submit!</button>
@@ -39,6 +39,101 @@
         </form>
     </div>
     <div [hidden]="!submitted">
-        <p> Submitted Successfully! -> <span class="badge badge-light"> {{mcq.id}} {{mcq.option1}} {{mcq.option2}} {{mcq.option3}} {{mcq.option4}} </span></p>
+        <p> Submitted Successfully! -> <span class="badge badge-light"> {{ques.id}} {{ques.mcqoption}} </span></p>
     </div>
 <div>
+
+//
+<div class="row">
+    <div class="col-6">
+      <h3><font color="lightgreen">Multiple Choice Questions</font></h3>
+    </div>
+    <div class="col-6 text-right">
+      <b><font color ="red">Select MCQ Type: </font></b>
+      <select [(ngModel)]="quesId" (change)="loadQues(quesId)">
+        <option *ngFor="let ques of questions" [value]="ques.id">{{ques.id}}</option>
+      </select>
+    </div>
+  </div>
+  <div id="ques">
+    <h2 class="text-center font-weight-normal">{{ques.id}}</h2>
+    <hr />
+  
+    <div *ngIf="mode=='ques' && ques">
+      <div *ngFor="let questions of filteredQuestions;">
+        <div class="badge badge-info">Questions {{pager.index + 1}} of {{pager.count}}.</div>
+        <div *ngIf="config.duration" class="badge badge-info float-right">Time: {{ellapsedTime}} / {{duration}}</div>
+        <h3 class="font-weight-normal">{{pager.index + 1}}.
+          <span [innerHTML]="questions.id"></span>
+        </h3>
+        <div class="row text-left options">
+          <div class="col-6" *ngFor="let option of questions.option1">
+            <div class="col-6" *ngFor="let option of questions.option2">
+              <div class="col-6" *ngFor="let option of questions.option3">
+                <div class="col-6" *ngFor="let option of questions.option4">
+             <div class="option">
+              <label class="font-weight-normal" [attr.for]="option.id">
+                <input id="{{option.id}}" type="checkbox" [(ngModel)]="option.selected" (change)="onSelect(questions, option);" /> {{option.id}}
+              </label>
+             </div>
+             </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="text-center">
+        <button class="btn btn-success" *ngIf="config.allowBack" (click)="goTo(0);">First</button> | 
+        <button class="btn btn-info" *ngIf="config.allowBack" (click)="goTo(pager.index - 1);">Preview</button> |
+        <button class="btn btn-primary" (click)="goTo(pager.index + 1);">Next</button> |
+        <button class="btn btn-warning" *ngIf="config.allowBack" (click)="goTo(pager.count - 1);">Last</button>
+        <!--<pagination *ngIf="config.showPager" direction-links="false" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>-->
+      </div>
+    </div>
+  
+    <div class="row text-center" *ngIf="mode=='review'">
+      <div class="col-4 cursor-pointer" *ngFor="let questions of ques.questions; let index = index;">
+        <div (click)="goTo(index)" class="p-3 mb-2 {{ isAnswered1(questions) == 'Answered'? 'bg-info': 'bg-warning' }}">{{index + 1}}. {{ isAnswered1(questions) }}</div>
+        <div (click)="goTo(index)" class="p-3 mb-2 {{ isAnswered2(questions) == 'Answered'? 'bg-info': 'bg-warning' }}">{{index + 1}}. {{ isAnswered2(questions) }}</div>
+        <div (click)="goTo(index)" class="p-3 mb-2 {{ isAnswered3(questions) == 'Answered'? 'bg-info': 'bg-warning' }}">{{index + 1}}. {{ isAnswered3(questions) }}</div>
+        <div (click)="goTo(index)" class="p-3 mb-2 {{ isAnswered4(questions) == 'Answered'? 'bg-info': 'bg-warning' }}">{{index + 1}}. {{ isAnswered4(questions) }}</div>  
+      </div>
+    </div>
+    <div class="result" *ngIf="mode=='result'">
+      <h2>Ques Result</h2>
+      <div *ngFor="let questions of ques.questions; let index = index">
+        <div class="result-questions">
+          <h5>{{index + 1}}.  {{questions.id}}</h5>
+          <div class="row">
+            <div class="col-6" *ngFor="let option1 of questions.option1">
+              <input id="{{option1.id}}" type="checkbox" disabled="disabled" [(ngModel)]="option1.selected" /> {{option1.id}}
+            </div>
+            <div class="col-6" *ngFor="let option2 of questions.option2">
+              <input id="{{option2.id}}" type="checkbox" disabled="disabled" [(ngModel)]="option2.selected" /> {{option2.id}}
+            </div>
+            <div class="col-6" *ngFor="let option3 of questions.option3">
+              <input id="{{option3.id}}" type="checkbox" disabled="disabled" [(ngModel)]="option3.selected" /> {{option3.id}}
+            </div>
+            <div class="col-6" *ngFor="let option4 of questions.option4">
+              <input id="{{option4.id}}" type="checkbox" disabled="disabled" [(ngModel)]="option4.selected" /> {{option4.id}}
+            </div>
+          </div>
+          <div class="p-1 m-2 alert {{ isCorrect1(questions) == 'correct'? 'alert-success': 'alert-danger'}}">Your answer is {{isCorrect1(questions)}}.</div>
+          <div class="p-1 m-2 alert {{ isCorrect2(questions) == 'correct'? 'alert-success': 'alert-danger'}}">Your answer is {{isCorrect2(questions)}}.</div>
+          <div class="p-1 m-2 alert {{ isCorrect3(questions) == 'correct'? 'alert-success': 'alert-danger'}}">Your answer is {{isCorrect3(questions)}}.</div>
+          <div class="p-1 m-2 alert {{ isCorrect4(questions) == 'correct'? 'alert-success': 'alert-danger'}}">Your answer is {{isCorrect4(questions)}}.</div>
+        </div>
+      </div>
+      <h4 class="alert alert-info text-center">You may close this window now.</h4>
+    </div>
+    <hr />
+    <div *ngIf="mode!='result'">
+      <button class="btn btn-warning" (click)="mode = 'ques'">MCQ</button> | 
+      <button class="btn btn-info" (click)="mode = 'review'">Review</button> |
+      <button class="btn btn-primary" (click)="onSubmit();">Submit</button>
+    </div>
+  </div>
+  
+  
+  

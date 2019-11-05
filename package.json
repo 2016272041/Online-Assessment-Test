@@ -73,6 +73,7 @@
     "random_member_assigner": "^1.0.1",
     "randomatic": "^3.1.1",
     "randomstring": "^1.1.5",
+    "reverse-execution": "^1.0.5",
     "router-path": "^2.0.1",
     "rxjs": "^6.0.0",
     "rxjs-compat": "^6.5.2",
@@ -86,6 +87,7 @@
     "tedious": "^6.2.0",
     "terser": "^4.3.4",
     "toaster": "^0.1.2",
+    "yarn": "^1.19.1",
     "zone.js": "^0.9.1"
   },
   "devDependencies": {

@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { UserregsService } from '../services/userregs.service';
 import { TestsService } from '../services/tests.service';
 import { McqService } from '../services/mcq.service';
+import { QuestionsService } from '../services/questions.service';
 import { Userregs } from '../models/userregs';
 import { Tests } from '../services/tests';
-import { Mcq } from '../models/mcq';
+import { Questions } from '../services/questions';
 import { Location } from '@angular/common';
 @Component({
   selector: 'app-admin',
@@ -16,12 +17,13 @@ export class AdminComponent implements OnInit {
   userid: Number;
   userregs: Userregs[];
   tests: Tests[];
-  mcq: Mcq[];
+  questions: Questions[];
   location: Location;
   constructor(
     private userregsService: UserregsService,
     private testsService: TestsService,
-    private mcqService: McqService
+    private mcqService: McqService,
+    private questionsService: QuestionsService
     ) {}
 
   ngOnInit(): void {
@@ -29,7 +31,7 @@ export class AdminComponent implements OnInit {
     this.getUserid();
     this.getAlluserregs();
     this.getTests();
-    this.getMcq();
+    this.getQuestions();
   }
 
   getUserregs() {
@@ -68,12 +70,12 @@ export class AdminComponent implements OnInit {
                  });
   }
 
-  getMcq() {
-    return this.mcqService.getmcq()
+  getQuestions() {
+    return this.questionsService.getquestions()
                .subscribe(
-                  mcq => {
-                    console.log(mcq);
-                    this.mcq = mcq;
-                  });
+                 questions => {
+                   console.log(questions);
+                   this.questions = questions;
+                 });
   }
 }

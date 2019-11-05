@@ -53,7 +53,7 @@
             <li>{{user.username}}</li>
             <li>{{user.email}}</li>
         </ul>
-        <button type="button" class="btn btn-primary"><a routerLink="questions" routerLinkActive="active"><font color="black">get Tests</font></a></button>
+        <button type="button" (click)="getQuestions()"class="btn btn-primary"><a routerLinkActive="active"><font color="black">get Tests</font></a></button>
     </div>
     
 <router-outlet></router-outlet>

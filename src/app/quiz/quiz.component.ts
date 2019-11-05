@@ -111,10 +111,8 @@ export class QuizComponent implements OnInit {
   };
 
   onSubmit() {
-    // tslint:disable-next-line:prefer-const
-    let answers = [];
+    const answers = [];
     this.quiz.questions.forEach(x => answers.push({ 'quizId': this.quiz.id, 'questionId': x.id, 'answered': x.answered }));
-
     // Post your data to the server here. answers contains the questionId and the users' answer.
     console.log(this.quiz.questions);
     this.mode = 'result';

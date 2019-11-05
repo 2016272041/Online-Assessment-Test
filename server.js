@@ -168,6 +168,10 @@ function initial(){
     let mcqs = [
       {
         id: 1,
+        questions: "What is Runtime Environment",
+        questionstypeid: 1,
+        mcqoption: "Java Runtime Environment",
+        answered: "option2",
         answers: "James Goesling"
       }
     ]

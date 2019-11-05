@@ -13,18 +13,26 @@
             <td>{{user.userid}}</td>
             <td>{{user.username}}</td>
         <tr *ngFor="let test of tests">
-            <td>{{test.testid}}</td>
+            <td>{{test.id}}</td>
             <td>{{test.testname}}</td>
-            <td>{{test.testdate}}</td>
+            <td>{{test.testcreator}}</td>
         </tr>
     </tbody>
     <br>
     <h4> Select User Details and Assign Questions </h4>
     <select formControlName="userregs">
-        <option *ngFor="let user of userregs" [ngValue]="user">{{user.userid}} {{user.username}}</option>
-        <option [ngValue]="null" enabled>Choose Registered User details</option>
-        <option *ngFor="let user of userregs" [ngValue]="user"> {{user.userid}} {{user.username}} </option>
+        <option *ngFor="let user of userregs" [ngValue]="userregs">{{user.userid}} {{user.username}}</option>
+        <option [ngValue]="null" enabled>Choose Registered User ID</option>
+        <option *ngFor="let user of userregs" [ngValue]="userregs"> {{user.userid}} {{user.username}} </option>
     </select>
+    <br>
+    <h4> Select User Details and Reverse Assign Questions </h4>
+    <select formControlName="userregs | reverse">
+        <option *ngFor="let user of userregs" [ngValue]="userregs">{{user.userid}}</option>
+        <option [ngValue]="null" enabled>Choose Registered User ID in Reverse </option>
+        <option *ngFor="let user of userregs" [ngValue]="userregs">
+    </select>
+    <button type="button" (click)="reverseAssignQuesId()"> Reverse Assign </button>
     <br>
     <select multiple formControlName="questions" [compareWith]="tests">
         <option *ngFor="let ques of questions" [ngValue]="ques">
@@ -38,7 +46,6 @@
     <button type="button" (click)="assignQuesId()">Assign</button>
     <button type="button" (click)="setDefaultValues()">Set Default</button>
     <br>
-    <button type="button" (click)="getAll()"> All Assigns</button>
     <button type="button" (click)="getUserregs()"> Get Registered Users</button>
     <button type="button" (click)="getTests()"> Get Tests </button>
     <button type="button" (click)="quesAssigner(questions)"> Assign Questions </button>

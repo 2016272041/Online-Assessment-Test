@@ -9,4 +9,10 @@ module.exports = function(app) {
 
     //retrival a single mcq by id
     app.get('/api/mcqs/:id', mcqs.findById);
+
+    //update a Mcqs with Id
+    app.put('/api/mcqs', mcqs.update);
+
+    //Delete a Mcqs with Id
+    app.delete('/api/mcqs/:mcqsid', mcqs.delete);
 }
