@@ -4,16 +4,16 @@ const app = express();
 const path = require('path');
 
 // Directory Name dist file folder //
-app.use(express.static(__dirname + '/dist/onlineassessmenttest'));
+app.use(express.static(__dirname + '/dist/ng6-quiz'));
 
 // Listening Process Function //
 app.listen(process.env.PORT || 8080);
 
 //Get Function for sendfile strategy//
 app.get('/*', function(req, res) {
-    
+
 //Get Application for directory name access//
-    res.sendFile(path.join(__dirname + '/dist/onlineassessmenttest/index.html'));
+    res.sendFile(path.join(__dirname + '/dist/ng6-quiz/index.html'));
 })
 
 //Heroku Port listening //
