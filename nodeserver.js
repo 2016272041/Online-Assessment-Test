@@ -11,6 +11,7 @@ app.listen(process.env.PORT || 8080);
 
 //Get Function for sendfile strategy//
 app.get('/*', function(req, res) {
+    
 //Get Application for directory name access//
     res.sendFile(path.join(__dirname + '/dist/onlineassessmenttest/index.html'));
 })
