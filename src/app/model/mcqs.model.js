@@ -13,7 +13,7 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING
         },
         answered: {
-            type: Sequelize.BOOLEAN
+            type: Sequelize.STRING
         }
     });
     return Mcqs;

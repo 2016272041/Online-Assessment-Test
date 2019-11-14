@@ -11,7 +11,7 @@ var Mcqs = sequelize.define("mcqs", {
     questionstypeid: DataTypes.NUMBER,
     mcqoption: DataTypes.STRING,
     answers: DataTypes.STRING,
-    answered: DataTypes.BOOLEAN
+    answered: DataTypes.STRING
 }, {
     classMethods: {
         associate: function(models) {
