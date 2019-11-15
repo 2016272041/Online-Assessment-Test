@@ -11,6 +11,7 @@
     "build:prod": "ng build --prod",
     "preinstall": "npm i -g http-server && npm i -g @angular/cli",
     "postinstall": "ng build --aot --prod",
+    "heroku-prebuild": "ng build --aot",
     "heroku-postbuild": "ng build --prod"
   },
   "private": true,
