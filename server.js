@@ -206,8 +206,7 @@ function initial(){
       }
     ]
 
-        
-
+      
   // Init data -> save to MySQL
   const Questions = db.questions;
   console.log(db);
